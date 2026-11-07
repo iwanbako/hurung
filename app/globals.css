@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography"; /* <--- TAMBAHKAN BARIS INI */
 
 /* ============================================================
    1. THEME — Palet Booking.com & Animasi
@@ -102,7 +103,6 @@
    4. UTILITY CUSTOM & SCROLL REVEAL ANIMATIONS
    ============================================================ */
 
-/* Setup Animasi Scroll Reveal saat dimasukkan oleh IntersectionObserver */
 .reveal-bottom {
   opacity: 0;
   transform: translateY(40px);
@@ -130,7 +130,6 @@
   will-change: opacity;
 }
 
-/* State Aktif saat masuk Viewport */
 .reveal-bottom.active,
 .reveal-left.active,
 .reveal-right.active {
@@ -142,7 +141,7 @@
   opacity: 1;
 }
 
-/* Card ala Booking.com — border tipis, sudut 8px */
+/* Card ala Booking.com */
 .bk-card {
   background: #ffffff;
   border: 1px solid #d9d9d9;
