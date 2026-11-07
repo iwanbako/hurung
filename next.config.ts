@@ -19,8 +19,8 @@ const nextConfig: NextConfig = {
 
   // ============================================================
   // TRAILING SLASH
-  // Banyak static hosting (termasuk Cloudflare Pages) lebih suka
-  // URL dengan trailing slash untuk konsistensi routing.
+  // Static hosting (Cloudflare Pages) butuh trailing slash
+  // untuk konsistensi routing (/aceh/ bukan /aceh)
   // ============================================================
   trailingSlash: true,
 
@@ -32,11 +32,12 @@ const nextConfig: NextConfig = {
   },
 
   // ============================================================
-  // CACHE COMPONENTS & PARTIAL PREFETCHING
-  // Fitur Next.js 16, tetap boleh aktif untuk build time optimization
+  // PENTING: JANGAN aktifkan fitur berikut saat `output: "export"`
+  // - cacheComponents   → butuh PPR (tidak support static export)
+  // - partialPrefetching → butuh server runtime
   // ============================================================
-  cacheComponents: true,
-  partialPrefetching: true,
+  // cacheComponents: true,      ← DISABLED
+  // partialPrefetching: true,   ← DISABLED
 
   // ============================================================
   // TURBOPACK
