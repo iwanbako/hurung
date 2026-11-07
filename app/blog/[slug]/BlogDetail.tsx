@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
 import type { BlogPost } from "@/data/blog-posts";
@@ -18,12 +18,17 @@ type Props = {
   relatedPosts: BlogPost[];
 };
 
-const fadeInUp = {
+// ✅ FIX: anotasi : Variants + ease pakai cubic-bezier array
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -55,11 +60,20 @@ export function BlogDetail({ post, relatedPosts }: Props) {
               variants={fadeInUp}
               className="flex items-center flex-wrap gap-2 text-xs sm:text-sm text-blue-200 mb-6"
             >
-              <Link href="/" className="hover:text-[#FEBB02] transition-colors">Beranda</Link>
+              <Link href="/" className="hover:text-[#FEBB02] transition-colors">
+                Beranda
+              </Link>
               <span className="text-blue-400/50">/</span>
-              <Link href="/blog" className="hover:text-[#FEBB02] transition-colors">Blog</Link>
+              <Link
+                href="/blog"
+                className="hover:text-[#FEBB02] transition-colors"
+              >
+                Blog
+              </Link>
               <span className="text-blue-400/50">/</span>
-              <span className="text-[#FEBB02] line-clamp-1 break-all">{post.title}</span>
+              <span className="text-[#FEBB02] line-clamp-1 break-all">
+                {post.title}
+              </span>
             </motion.nav>
 
             {/* HEADER ARTIKEL */}
@@ -67,12 +81,24 @@ export function BlogDetail({ post, relatedPosts }: Props) {
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs sm:text-sm text-[#FEBB02] font-bold mb-4 uppercase tracking-wider">
                 <time dateTime={post.isoDate}>{post.date}</time>
                 <span className="text-blue-300/60">•</span>
-                <span className="text-blue-100 normal-case font-semibold tracking-normal">{post.author}</span>
+                <span className="text-blue-100 normal-case font-semibold tracking-normal">
+                  {post.author}
+                </span>
                 <span className="text-blue-300/60">•</span>
                 <span className="text-blue-100 normal-case font-semibold tracking-normal flex items-center gap-1">
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    viewBox="0 0 24 24"
+                  >
                     <circle cx="12" cy="12" r="9" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 2" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 7v5l3 2"
+                    />
                   </svg>
                   {readingTime} menit baca
                 </span>
@@ -112,26 +138,26 @@ export function BlogDetail({ post, relatedPosts }: Props) {
               <div
                 className="
                   prose prose-invert max-w-none w-full
-                  
+
                   /* Ukuran teks pas untuk layar 1024px */
                   prose-p:text-blue-100/90 prose-p:leading-[1.9] prose-p:text-[15px] sm:prose-p:text-[16px] md:prose-p:text-[17px] prose-p:mb-6 prose-p:break-words
-                  
+
                   /* DROP CAP */
-                  prose-p:first-of-type:first-letter:text-5xl sm:prose-p:first-of-type:first-letter:text-6xl prose-p:first-of-type:first-letter:font-extrabold 
-                  prose-p:first-of-type:first-letter:text-[#FEBB02] prose-p:first-of-type:first-letter:float-left 
+                  prose-p:first-of-type:first-letter:text-5xl sm:prose-p:first-of-type:first-letter:text-6xl prose-p:first-of-type:first-letter:font-extrabold
+                  prose-p:first-of-type:first-letter:text-[#FEBB02] prose-p:first-of-type:first-letter:float-left
                   prose-p:first-of-type:first-letter:mr-3 prose-p:first-of-type:first-letter:mt-1 prose-p:first-of-type:first-letter:leading-[0.8]
-                  
+
                   /* HEADING 2 */
-                  prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:text-white 
+                  prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:text-white
                   prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-[#0066f5]/40 prose-h2:break-words
-                  
+
                   /* HEADING 3 */
                   prose-h3:text-lg sm:prose-h3:text-2xl prose-h3:font-bold prose-h3:text-[#FEBB02] prose-h3:mt-8 prose-h3:mb-4 prose-h3:break-words
-                  
+
                   /* List / Daftar */
                   prose-ul:text-blue-100/90 prose-ol:text-blue-100/90 prose-ul:leading-relaxed prose-ol:leading-relaxed
                   prose-ul:my-6 prose-li:my-2 prose-li:marker:text-[#FEBB02] prose-li:pl-2
-                  
+
                   /* Teks Tebal, Link, Blockquote */
                   prose-strong:text-white prose-strong:font-bold
                   prose-a:text-[#FEBB02] prose-a:no-underline prose-a:font-semibold hover:prose-a:underline hover:prose-a:underline-offset-4 prose-a:break-all
@@ -152,12 +178,24 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                 href="/blog"
                 className="inline-flex items-center gap-2 text-sm font-bold text-[#FEBB02] hover:gap-3 transition-all"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
                 </svg>
                 Kembali ke Blog
               </Link>
-              <span className="text-xs text-blue-300/50 italic">Terakhir diperbarui: {post.date}</span>
+              <span className="text-xs text-blue-300/50 italic">
+                Terakhir diperbarui: {post.date}
+              </span>
             </motion.div>
           </motion.article>
 
@@ -168,7 +206,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
             <motion.section
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="border-t border-[#0066f5]/40 pt-10 mt-4"
             >
               <div className="flex items-center justify-between mb-6">
@@ -180,8 +218,18 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                   className="text-xs sm:text-sm font-bold text-[#FEBB02] hover:underline flex items-center gap-1"
                 >
                   Lihat Semua
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
                   </svg>
                 </Link>
               </div>
@@ -192,7 +240,11 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                     key={item.slug}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.5 + idx * 0.1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.5 + idx * 0.1,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
                   >
                     <Link
                       href={`/blog/${item.slug}`}
@@ -219,8 +271,18 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                         </p>
                         <span className="text-xs font-bold text-[#FEBB02] flex items-center gap-1 mt-auto">
                           Baca Artikel
-                          <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          <svg
+                            className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            />
                           </svg>
                         </span>
                       </div>
