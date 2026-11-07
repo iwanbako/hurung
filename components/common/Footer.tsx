@@ -43,9 +43,9 @@ export const Footer: React.FC = () => {
 
         {/* Kolom 2: Layanan */}
         <div>
-          <h4 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider text-yellow-400/90">
+          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider text-yellow-400/90">
             Layanan
-          </h4>
+          </h3>
           <ul className="space-y-2.5 text-xs sm:text-sm text-white/80">
             {["Landing Page", "Company Profile", "Toko Online", "Maintenance"].map((item, idx) => (
               <li key={idx}>
@@ -59,9 +59,9 @@ export const Footer: React.FC = () => {
 
         {/* Kolom 3: Perusahaan & Legal */}
         <div>
-          <h4 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider text-yellow-400/90">
+          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider text-yellow-400/90">
             Informasi
-          </h4>
+          </h3>
           <ul className="space-y-2.5 text-xs sm:text-sm text-white/80">
             {/* TAMBAHAN LINK BLOG */}
             <li><Link href="/blog" className="hover:text-yellow-400 transition-colors">Blog</Link></li>
