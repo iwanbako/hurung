@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kerabatweb.id/sitemap.xml
+Sitemap: https://kerabatweb.com/sitemap.xml
+Host: https://kerabatweb.com
