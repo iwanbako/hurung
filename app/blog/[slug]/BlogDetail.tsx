@@ -194,7 +194,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                 </svg>
                 Kembali ke Blog
               </Link>
-              <span className="text-xs text-white/50 italic">
+              <span className="text-xs text-white italic">
                 Terakhir diperbarui: {post.date}
               </span>
             </motion.div>
