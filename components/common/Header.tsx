@@ -3,6 +3,7 @@ import React from "react";
 const navLinks = [
   { href: "#layanan", label: "Layanan" },
   { href: "#harga", label: "Harga" },
+  { href: "/blog", label: "Blog" }, // <--- TAMBAHAN LINK BLOG
   { href: "/kontak", label: "Kontak" },
 ];
 

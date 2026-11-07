@@ -63,6 +63,8 @@ export const Footer: React.FC = () => {
             Informasi
           </h4>
           <ul className="space-y-2.5 text-xs sm:text-sm text-white/80">
+            {/* TAMBAHAN LINK BLOG */}
+            <li><Link href="/blog" className="hover:text-yellow-400 transition-colors">Blog</Link></li>
             <li><Link href="/tentang-kami" className="hover:text-yellow-400 transition-colors">Tentang Kami</Link></li>
             <li><Link href="/kebijakan-privasi" className="hover:text-yellow-400 transition-colors">Kebijakan Privasi</Link></li>
             <li><Link href="/syarat-ketentuan" className="hover:text-yellow-400 transition-colors">Syarat & Ketentuan</Link></li>
