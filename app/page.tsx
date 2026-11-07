@@ -23,7 +23,7 @@ import { provinsiContent } from "@/data/provinsi-content";
 const SITE_URL = "https://kerabatweb.com";
 
 export const metadata: Metadata = {
-  title: "KerabatWeb - Jasa Pembuatan Website Profesional, Cepat & Ramah SEO",
+  title: "Jasa Pembuatan Website Profesional, Cepat & Ramah SEO",
   description:
     "Jasa pembuatan website landing page, company profile, dan toko online (e-commerce) bergaransi resmi. Pengerjaan kilat 3-5 hari, bebas domain & SSL, harga transparan mulai Rp 999rb.",
   keywords: [
