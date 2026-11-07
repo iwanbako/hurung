@@ -5,6 +5,12 @@ import { getAllRegencyParams } from "@/lib/wilayah";
 
 const SITE_URL = "https://kerabatweb.com";
 
+// ============================================================
+// WAJIB UNTUK STATIC EXPORT (output: "export")
+// Beri tahu Next.js bahwa route ini statis saat build
+// ============================================================
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
