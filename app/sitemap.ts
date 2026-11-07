@@ -6,17 +6,17 @@ import { getAllRegencyParams } from "@/lib/wilayah";
 const SITE_URL = "https://kerabatweb.com";
 
 // ============================================================
-// WAJIB UNTUK STATIC EXPORT (output: "export")
-// Beri tahu Next.js bahwa route ini statis saat build
+// WAJIB UNTUK STATIC EXPORT DI NEXT.JS 16
+// Tambahkan KEDUA baris ini:
 // ============================================================
 export const dynamic = "force-static";
+export const revalidate = false;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // ============================================================
-  // 1. HOMEPAGE (priority tertinggi)
-  // ============================================================
+  // ... (sisa kode sitemap Anda tetap sama)
+  
   const homepage: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
@@ -26,9 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // ============================================================
-  // 2. HALAMAN PROVINSI (38 halaman)
-  // ============================================================
   const provinsiPages: MetadataRoute.Sitemap = Object.keys(
     provinsiContent
   ).map((slug) => ({
@@ -38,9 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // ============================================================
-  // 3. HALAMAN KABUPATEN/KOTA (514 halaman)
-  // ============================================================
   const kabupatenPages: MetadataRoute.Sitemap = getAllRegencyParams().map(
     (p) => ({
       url: `${SITE_URL}/${p.provinsi}/${p.kabupaten}`,
@@ -50,8 +44,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  // ============================================================
-  // GABUNG SEMUA
-  // ============================================================
   return [...homepage, ...provinsiPages, ...kabupatenPages];
 }
