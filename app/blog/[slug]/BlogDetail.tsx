@@ -124,7 +124,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                   alt={post.title}
                   className="object-cover w-full h-full"
                   loading="eager"
-				  fetchPriority="high"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#00224f]/80 via-transparent to-transparent" />
               </motion.figure>
@@ -148,12 +148,12 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                   prose-p:first-of-type:first-letter:text-[#FEBB02] prose-p:first-of-type:first-letter:float-left
                   prose-p:first-of-type:first-letter:mr-3 prose-p:first-of-type:first-letter:mt-1 prose-p:first-of-type:first-letter:leading-[0.8]
 
-                  /* HEADING 2 */
-                  prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:text-white
-                  prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-[#0066f5]/40 prose-h2:break-words
+                  /* HEADING 2 (Kuning Emas) */
+                  prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:text-[#FEBB02]
+                  prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-[#FEBB02]/40 prose-h2:break-words
 
-                  /* HEADING 3 */
-                  prose-h3:text-lg sm:prose-h3:text-2xl prose-h3:font-bold prose-h3:text-[#FEBB02] prose-h3:mt-8 prose-h3:mb-4 prose-h3:break-words
+                  /* HEADING 3 (Biru Terang) */
+                  prose-h3:text-lg sm:prose-h3:text-2xl prose-h3:font-bold prose-h3:text-[#4d94ff] prose-h3:mt-8 prose-h3:mb-4 prose-h3:break-words
 
                   /* List / Daftar */
                   prose-ul:text-blue-100/90 prose-ol:text-blue-100/90 prose-ul:leading-relaxed prose-ol:leading-relaxed
@@ -295,6 +295,11 @@ export function BlogDetail({ post, relatedPosts }: Props) {
           )}
         </div>
       </main>
+
+      {/* =========================================
+          GARIS PEMBATAS PUTIH DI ATAS FOOTER
+      ========================================= */}
+      <div className="border-t border-white/20 max-w-5xl mx-auto w-full mt-8 mb-4" />
 
       <Footer />
     </div>

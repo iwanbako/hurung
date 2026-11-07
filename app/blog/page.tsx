@@ -97,9 +97,14 @@ export default function BlogPage() {
 
           {/* GRID + LOAD MORE (client component) */}
           <BlogList posts={sortedPosts} />
+          
+          {/* GARIS PEMBATAS PUTIH DI BAWAH LIST BLOG */}
+          <div className="w-full border-b border-white/20 mt-12 sm:mt-20 mb-4" />
+          
         </div>
       </main>
 
+      {/* Footer dibiarkan bersih tanpa border bawaan */}
       <Footer />
     </div>
   );
