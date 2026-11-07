@@ -124,6 +124,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                   alt={post.title}
                   className="object-cover w-full h-full"
                   loading="eager"
+				  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#00224f]/80 via-transparent to-transparent" />
               </motion.figure>
