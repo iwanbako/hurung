@@ -3,7 +3,7 @@ import React from "react";
 const navLinks = [
   { href: "#layanan", label: "Layanan" },
   { href: "#harga", label: "Harga" },
-  { href: "#kontak", label: "Kontak" },
+  { href: "/kontak", label: "Kontak" },
 ];
 
 const waNumber = "6285938573419";
