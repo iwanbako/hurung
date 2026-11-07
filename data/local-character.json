@@ -1,0 +1,1158 @@
+{
+  "aceh": {
+    "provinsi": {
+      "ikon": "Serambi Mekkah",
+      "industri": ["kopi gayo", "kuliner khas", "wisata religi", "kerajinan bordir"],
+      "budaya": "Adat Aceh yang kental dengan nilai syariah",
+      "destinasi": ["Masjid Raya Baiturrahman", "Pantai Lampuuk", "Danau Laut Tawar"]
+    },
+    "kota-banda-aceh": {
+      "ikon": "Kota Serambi Mekkah",
+      "industri": ["kuliner", "wisata religi", "perdagangan", "jasa"],
+      "destinasi": ["Masjid Raya Baiturrahman", "Museum Tsunami", "Pantai Ulee Lheue"]
+    },
+    "kota-lhokseumawe": {
+      "ikon": "Kota Industri Aceh",
+      "industri": ["industri gas", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Pantai Ujong Blang", "Krueng Cunda", "Masjid Islamic Center"]
+    },
+    "simeulue": {
+      "ikon": "Pulau Surfing Terbaik di Sumatera",
+      "industri": ["wisata surfing", "perikanan", "kelapa"],
+      "destinasi": ["Pantai Busung Indah", "Pulau Siumat", "Pantai Alus Alus"]
+    }
+  },
+
+  "sumatera-utara": {
+    "provinsi": {
+      "ikon": "Tanah Batak dan Danau Toba",
+      "industri": ["perkebunan", "wisata", "kuliner", "perdagangan"],
+      "budaya": "Budaya Batak dengan tradisi yang kuat",
+      "destinasi": ["Danau Toba", "Bukit Lawang", "Berastagi"]
+    },
+    "kota-medan": {
+      "ikon": "Kota Kuliner Sumatera Utara",
+      "industri": ["kuliner", "perdagangan", "jasa", "properti"],
+      "destinasi": ["Maimun Palace", "Danau Toba", "Kesawan"]
+    },
+    "kota-binjai": {
+      "ikon": "Kota Rambutan Sumatera Utara",
+      "industri": ["perdagangan", "kuliner", "pertanian", "jasa"],
+      "destinasi": ["Taman Kota Binjai", "Alun-Alun Binjai", "Pasar Tavip"]
+    },
+    "kota-pematang-siantar": {
+      "ikon": "Kota Pendidikan Sumatera Utara",
+      "industri": ["pendidikan", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Taman Beringin", "Alun-Alun Siantar", "Pasar Horas"]
+    },
+    "kota-tebing-tinggi": {
+      "ikon": "Kota Sapang Sumatera Utara",
+      "industri": ["perdagangan", "kuliner", "jasa", "perkebunan"],
+      "destinasi": ["Taman Kota Tebing Tinggi", "Alun-Alun", "Pasar Baru"]
+    },
+    "kota-tanjung-balai": {
+      "ikon": "Kota Nelayan Sumatera Utara",
+      "industri": ["perikanan", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Pantai Bagan", "Vihara Kwan Im", "Pelabuhan Tanjung Balai"]
+    },
+    "karo": {
+      "ikon": "Tanah Karo dengan Wisata Alam",
+      "industri": ["wisata alam", "pertanian", "penginapan", "kuliner"],
+      "destinasi": ["Berastagi", "Gunung Sinabung", "Danau Lau Kawar"]
+    },
+    "samosir": {
+      "ikon": "Pulau Samosir di Danau Toba",
+      "industri": ["wisata", "penginapan", "kriya", "kuliner"],
+      "destinasi": ["Danau Toba", "Tomok", "Bukit Holbung"]
+    },
+    "nias": {
+      "ikon": "Pulau Nias dengan Budaya Lompat Batu",
+      "industri": ["wisata budaya", "surfing", "perikanan", "kriya"],
+      "destinasi": ["Pantai Sorake", "Desa Bawomataluo", "Pantai Lagundri"]
+    },
+    "deli-serdang": {
+      "ikon": "Kawasan Penyangga Medan",
+      "industri": ["properti", "perkebunan", "industri", "kuliner"],
+      "destinasi": ["Pantai Cermin", "Taman Simalem Resort", "Danau Toba"]
+    }
+  },
+
+  "sumatera-barat": {
+    "provinsi": {
+      "ikon": "Ranah Minang",
+      "industri": ["rumah makan Padang", "kerajinan songket", "kain tenun", "wisata budaya"],
+      "budaya": "Budaya matrilineal dengan falsafah Alam Takambang Jadi Guru",
+      "destinasi": ["Jam Gadang", "Danau Maninjau", "Istano Pagaruyung"]
+    },
+    "kota-padang": {
+      "ikon": "Kota Kuliner Padang",
+      "industri": ["rumah makan", "kuliner", "perdagangan", "jasa"],
+      "destinasi": ["Pantai Padang", "Jembatan Sitti Nurbaya", "Pasar Raya Padang"]
+    },
+    "kota-bukittinggi": {
+      "ikon": "Kota Wisata Sejuk di Kaki Gunung Marapi",
+      "industri": ["wisata", "kuliner", "perdagangan", "kerajinan"],
+      "destinasi": ["Jam Gadang", "Ngarai Sianok", "Benteng Fort de Kock"]
+    },
+    "kota-payakumbuh": {
+      "ikon": "Kota Batiah dan Kuliner Minang",
+      "industri": ["kuliner", "perdagangan", "kerajinan", "pertanian"],
+      "destinasi": ["Ngalau Indah", "Puncak Marajo", "Pasar Payakumbuh"]
+    },
+    "kota-padang-panjang": {
+      "ikon": "Kota Serambi Mekkah Sumatera Barat",
+      "industri": ["pendidikan", "wisata", "kuliner", "perdagangan"],
+      "destinasi": ["Masjid Asasi", "Pasar Pusat", "Taman Syech Burhanuddin"]
+    },
+    "kota-solok": {
+      "ikon": "Kota Beras Sumatera Barat",
+      "industri": ["pertanian", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Danau Singkarak", "Alun-Alun Solok", "Puncak Anai"]
+    },
+    "kota-pariaman": {
+      "ikon": "Kota Wisata Pantai Sumatera Barat",
+      "industri": ["wisata pantai", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Pantai Gandoriah", "Kawasan Wisata Pantai", "Pasar Pariaman"]
+    },
+    "tanah-datar": {
+      "ikon": "Jantung Budaya Minangkabau",
+      "industri": ["wisata budaya", "pertanian", "kriya", "kuliner"],
+      "destinasi": ["Istano Pagaruyung", "Danau Singkarak", "Batusangkar"]
+    },
+    "kepulauan-mentawai": {
+      "ikon": "Surga Surfing Sumatera",
+      "industri": ["wisata surfing", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Pantai Nyang Nyang", "Siberut", "Sipora"]
+    }
+  },
+
+  "riau": {
+    "provinsi": {
+      "ikon": "Bumi Lancang Kuning",
+      "industri": ["perkebunan sawit", "karet", "kuliner", "perdagangan"],
+      "budaya": "Budaya Melayu dengan tradisi yang kaya",
+      "destinasi": ["Danau Toba", "Istana Siak", "Pantai Rupat"]
+    },
+    "kota-pekanbaru": {
+      "ikon": "Kota Bertuah dengan Budaya Melayu",
+      "industri": ["kuliner", "perdagangan", "jasa", "perkantoran"],
+      "destinasi": ["Istana Siak", "Masjid An-Nur", "Danau Buatan"]
+    },
+    "kota-d-u-m-a-i": {
+      "ikon": "Kota Minyak dan Pelabuhan",
+      "industri": ["perminyakan", "pelabuhan", "kuliner", "perdagangan"],
+      "destinasi": ["Pantai Bagan", "Taman Bukit Gelanggang", "Pelabuhan Dumai"]
+    },
+    "kabupaten-s-i-a-k": {
+      "ikon": "Istana Siak dan Budaya Melayu",
+      "industri": ["wisata budaya", "perkebunan", "perdagangan", "kuliner"],
+      "destinasi": ["Istana Siak", "Masjid Syahabuddin", "Sungai Siak"]
+    },
+    "bengkalis": {
+      "ikon": "Kota Ikan dan Wisata Pantai",
+      "industri": ["perikanan", "wisata pantai", "perkebunan", "kuliner"],
+      "destinasi": ["Pantai Selat Baru", "Pulau Rupat", "Pantai Ketam Putih"]
+    }
+  },
+
+  "jambi": {
+    "provinsi": {
+      "ikon": "Bumi Sepucuk Jambi",
+      "industri": ["perkebunan", "batik jambi", "kuliner", "perdagangan"],
+      "budaya": "Budaya Melayu Jambi dengan tradisi khas",
+      "destinasi": ["Danau Kerinci", "Candi Muaro Jambi", "Gunung Kerinci"]
+    },
+    "kota-jambi": {
+      "ikon": "Ibu Kota Jambi dengan Batik Khas",
+      "industri": ["perdagangan", "batik", "kuliner", "jasa"],
+      "destinasi": ["Candi Muaro Jambi", "Tugu Keris Siginjai", "Danau Sipin"]
+    },
+    "kota-sungai-penuh": {
+      "ikon": "Kota Wisata Alam Kerinci",
+      "industri": ["wisata alam", "pertanian", "kuliner", "kriya"],
+      "destinasi": ["Danau Kerinci", "Gunung Kerinci", "Bukit Kayu Manis"]
+    }
+  },
+
+  "sumatera-selatan": {
+    "provinsi": {
+      "ikon": "Bumi Sriwijaya",
+      "industri": ["kuliner", "perdagangan", "energi", "perkebunan"],
+      "budaya": "Budaya Palembang dengan warisan Sriwijaya",
+      "destinasi": ["Jembatan Ampera", "Benteng Kuto Besak", "Pulau Kemaro"]
+    },
+    "kota-palembang": {
+      "ikon": "Kota Pempek",
+      "industri": ["kuliner", "perdagangan", "jasa", "perkantoran"],
+      "destinasi": ["Jembatan Ampera", "Benteng Kuto Besak", "Pulau Kemaro"]
+    },
+    "kota-prabumulih": {
+      "ikon": "Kota Nanas dan Minyak",
+      "industri": ["perminyakan", "pertanian", "perdagangan", "kuliner"],
+      "destinasi": ["Pemandian Putri Kaca Mayang", "Alun-Alun", "Taman Kota"]
+    },
+    "kota-pagar-alam": {
+      "ikon": "Kota Sejuk di Kaki Gunung Dempo",
+      "industri": ["pertanian", "wisata", "kuliner", "perdagangan"],
+      "destinasi": ["Gunung Dempo", "Danau Rimau", "Kebun Teh Pagar Alam"]
+    },
+    "kota-lubuklinggau": {
+      "ikon": "Kota Transit Sumatera Selatan",
+      "industri": ["perdagangan", "kuliner", "jasa", "perkebunan"],
+      "destinasi": ["Bukit Sulap", "Air Terjun Temam", "Watervang"]
+    }
+  },
+
+  "bengkulu": {
+    "provinsi": {
+      "ikon": "Bumi Rafflesia",
+      "industri": ["kopi", "perikanan", "pertanian", "wisata bahari"],
+      "budaya": "Budaya Bengkulu dengan tradisi pesisir",
+      "destinasi": ["Benteng Marlborough", "Pantai Panjang", "Danau Dendam Tak Sudah"]
+    },
+    "kota-bengkulu": {
+      "ikon": "Kota Rafflesia",
+      "industri": ["perdagangan", "kuliner", "jasa", "perikanan"],
+      "destinasi": ["Benteng Marlborough", "Pantai Panjang", "Danau Dendam Tak Sudah"]
+    }
+  },
+
+  "lampung": {
+    "provinsi": {
+      "ikon": "Sai Bumi Ruwa Jurai",
+      "industri": ["perkebunan kopi", "perdagangan", "wisata", "perikanan"],
+      "budaya": "Budaya Lampung dengan tradisi Pepadun dan Saibatin",
+      "destinasi": ["Way Kambas", "Pantai Tanjung Setia", "Pulau Pahawang"]
+    },
+    "kota-bandar-lampung": {
+      "ikon": "Ibu Kota Lampung",
+      "industri": ["perdagangan", "kuliner", "jasa", "pendidikan"],
+      "destinasi": ["Menara Siger", "Pantai Mutun", "Taman Kupu-Kupu"]
+    },
+    "kota-metro": {
+      "ikon": "Kota Pendidikan dan Budaya Lampung",
+      "industri": ["pendidikan", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Taman Merdeka", "Alun-Alun Metro", "Sesat Agung"]
+    },
+    "pesisir-barat": {
+      "ikon": "Surga Surfing Barat Lampung",
+      "industri": ["wisata surfing", "perikanan", "penginapan", "kriya"],
+      "destinasi": ["Pantai Tanjung Setia", "Pantai Krui", "Pulau Pisang"]
+    }
+  },
+
+  "kepulauan-bangka-belitung": {
+    "provinsi": {
+      "ikon": "Negeri Laskar Pelangi",
+      "industri": ["wisata bahari", "perikanan", "pertambangan timah", "kriya"],
+      "budaya": "Budaya Melayu Bangka-Belitung dengan tradisi pesisir",
+      "destinasi": ["Pantai Parai", "Pulau Belitung", "Danau Kaolin"]
+    },
+    "kota-pangkal-pinang": {
+      "ikon": "Ibu Kota Bangka Belitung",
+      "industri": ["perdagangan", "perikanan", "kuliner", "jasa"],
+      "destinasi": ["Pantai Pasir Padi", "Vihara Kwan Tie", "Museum Timah"]
+    },
+    "belitung": {
+      "ikon": "Pantai Laskar Pelangi",
+      "industri": ["wisata bahari", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Pantai Tanjung Tinggi", "Pantai Tanjung Kelayang", "Pulau Lengkuas"]
+    }
+  },
+
+  "kepulauan-riau": {
+    "provinsi": {
+      "ikon": "Gerbang Wisata Bahari Sumatera",
+      "industri": ["wisata bahari", "perikanan", "perdagangan", "logistik"],
+      "budaya": "Budaya Melayu pesisir dan kepulauan",
+      "destinasi": ["Bintan", "Batam", "Anambas"]
+    },
+    "kota-batam": {
+      "ikon": "Kota Industri dan Wisata Bahari",
+      "industri": ["industri", "logistik", "wisata", "properti"],
+      "destinasi": ["Nagoya Hill", "Barelang", "Pantai Nongsa"]
+    },
+    "bintan": {
+      "ikon": "Surga Resor Internasional",
+      "industri": ["resor", "wisata bahari", "penginapan", "kriya"],
+      "destinasi": ["Lagoi", "Trikora", "Bintan Resorts"]
+    },
+    "kota-tanjung-pinang": {
+      "ikon": "Kota Tepi Laut Budaya Melayu",
+      "industri": ["perdagangan", "kuliner", "jasa", "wisata"],
+      "destinasi": ["Penyengat", "Vihara Ksitigarbha", "Pantai Trikora"]
+    }
+  },
+
+  "dki-jakarta": {
+    "provinsi": {
+      "ikon": "Ibu Kota Negara",
+      "industri": ["keuangan", "startup", "properti", "jasa profesional"],
+      "budaya": "Metropolitan dengan keragaman budaya Indonesia",
+      "destinasi": ["Monas", "Ancol", "Kota Tua"]
+    },
+    "kota-jakarta-pusat": {
+      "ikon": "Pusat Bisnis dan Pemerintahan Jakarta",
+      "industri": ["perkantoran", "keuangan", "kuliner", "hospitality"],
+      "destinasi": ["Monas", "Menteng", "Tanah Abang", "Sarinah"]
+    },
+    "kota-jakarta-selatan": {
+      "ikon": "Kota Premium Jakarta",
+      "industri": ["properti premium", "kuliner", "retail", "hiburan"],
+      "destinasi": ["Senayan", "Kemang", "Blok M", "Senopati"]
+    },
+    "kota-jakarta-barat": {
+      "ikon": "Gerbang Bisnis Jakarta dari Barat",
+      "industri": ["retail", "kuliner", "properti", "perdagangan"],
+      "destinasi": ["Kota Tua", "Glodok", "Central Park"]
+    },
+    "kota-jakarta-timur": {
+      "ikon": "Kota Industri Kreatif Jakarta",
+      "industri": ["industri kreatif", "kuliner", "retail", "jasa"],
+      "destinasi": ["Taman Mini Indonesia Indah", "Cibubur", "Cakung"]
+    },
+    "kota-jakarta-utara": {
+      "ikon": "Gerbang Maritim Jakarta",
+      "industri": ["logistik", "pelabuhan", "kuliner seafood", "perdagangan"],
+      "destinasi": ["Ancol", "Tanjung Priok", "Kelapa Gading"]
+    },
+    "kepulauan-seribu": {
+      "ikon": "Kepulauan Wisata Jakarta",
+      "industri": ["wisata bahari", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Pulau Pramuka", "Pulau Tidung", "Pulau Pari"]
+    }
+  },
+
+  "jawa-barat": {
+    "provinsi": {
+      "ikon": "Tanah Pasundan",
+      "industri": ["fashion", "kuliner", "teknologi", "kriya"],
+      "budaya": "Budaya Sunda dengan falsafah Silih Asah Silih Asih Silih Asuh",
+      "destinasi": ["Gedung Sate", "Kawah Putih", "Pantai Pangandaran"]
+    },
+    "bandung": {
+      "ikon": "Paris van Java",
+      "industri": ["fashion", "kuliner", "startup", "kriya", "musik"],
+      "destinasi": ["Kawah Putih", "Tangkuban Perahu", "Jalan Braga"]
+    },
+    "kota-bandung": {
+      "ikon": "Kota Kreatif Indonesia",
+      "industri": ["fashion", "kuliner", "kafe", "startup digital"],
+      "destinasi": ["Gedung Sate", "Dago", "Braga", "Kawah Putih"]
+    },
+    "kota-bogor": {
+      "ikon": "Kota Hujan",
+      "industri": ["wisata", "kuliner", "pendidikan", "pertanian"],
+      "destinasi": ["Kebun Raya Bogor", "Istana Bogor", "Puncak"]
+    },
+    "kota-bekasi": {
+      "ikon": "Kota Industri dan Milenial",
+      "industri": ["industri manufaktur", "properti", "kuliner", "jasa"],
+      "destinasi": ["Summarecon Mall Bekasi", "Taman Buaya Indonesia Jaya", "Situ Cibeureum"]
+    },
+    "kota-depok": {
+      "ikon": "Kota Pendidikan dan Milenial",
+      "industri": ["pendidikan", "kuliner", "properti", "startup"],
+      "destinasi": ["Universitas Indonesia", "Margonda", "Cinere"]
+    },
+    "kota-cimahi": {
+      "ikon": "Kota Industri Kreatif dan Tekstil",
+      "industri": ["tekstil", "industri kreatif", "kuliner", "jasa"],
+      "destinasi": ["Alun-Alun Cimahi", "Pasar Antri Baru", "Cimahi Techno Park"]
+    },
+    "kota-tasikmalaya": {
+      "ikon": "Kota Santri dan Kerajinan",
+      "industri": ["kriya", "kuliner", "perdagangan", "pendidikan"],
+      "destinasi": ["Situ Gede", "Masjid Agung Tasikmalaya", "Kampung Naga"]
+    },
+    "kota-banjar": {
+      "ikon": "Kota Mutiara Jawa Barat",
+      "industri": ["perdagangan", "kuliner", "kriya", "jasa"],
+      "destinasi": ["Situ Mustika", "Alun-Alun Banjar", "Taman Kota"]
+    },
+    "pangandaran": {
+      "ikon": "Surga Wisata Pantai Selatan Jawa",
+      "industri": ["wisata bahari", "kuliner seafood", "penginapan", "perikanan"],
+      "destinasi": ["Pantai Pangandaran", "Green Canyon", "Pantai Batu Hiu"]
+    },
+    "garut": {
+      "ikon": "Kota Dodol dan Wisata Alam",
+      "industri": ["kuliner", "wisata alam", "kriya", "pertanian"],
+      "destinasi": ["Candi Cangkuang", "Situ Bagendit", "Pantai Rancabuaya"]
+    }
+  },
+
+  "jawa-tengah": {
+    "provinsi": {
+      "ikon": "Jantung Budaya Jawa",
+      "industri": ["batik", "kuliner", "kriya", "wisata budaya"],
+      "budaya": "Budaya Jawa klasik dengan warisan kerajaan",
+      "destinasi": ["Borobudur", "Prambanan", "Kota Lama Semarang"]
+    },
+    "kota-semarang": {
+      "ikon": "Kota Pelabuhan Warisan Kolonial",
+      "industri": ["kuliner", "perdagangan", "logistik", "jasa"],
+      "destinasi": ["Kota Lama", "Lawang Sewu", "Simpang Lima"]
+    },
+    "kota-surakarta": {
+      "ikon": "Kota Batik dan Budaya Jawa",
+      "industri": ["batik", "kuliner", "kriya", "wisata budaya"],
+      "destinasi": ["Keraton Surakarta", "Kampung Batik Laweyan", "Pasar Gede"]
+    },
+    "kota-magelang": {
+      "ikon": "Kota Sejuk di Kaki Gunung",
+      "industri": ["kuliner", "wisata", "pendidikan", "pertanian"],
+      "destinasi": ["Candi Borobudur", "Ketep Pass", "Alun-Alun Magelang"]
+    },
+    "kota-salatiga": {
+      "ikon": "Kota Sejuk dengan Pendidikan Kuat",
+      "industri": ["pendidikan", "kuliner", "pertanian", "jasa"],
+      "destinasi": ["Rawa Pening", "Taman Wisata Kopeng", "Alun-Alun Salatiga"]
+    },
+    "kota-pekalongan": {
+      "ikon": "Kota Batik Pekalongan",
+      "industri": ["batik", "perdagangan", "kuliner", "perikanan"],
+      "destinasi": ["Museum Batik Pekalongan", "Pantai Pasir Kencana", "Kota Lama"]
+    },
+    "kota-tegal": {
+      "ikon": "Kota Bahari Jawa Tengah",
+      "industri": ["perdagangan", "kuliner", "perikanan", "kriya"],
+      "destinasi": ["Pantai Alam Indah", "Alun-Alun Tegal", "Pasar Pagi"]
+    },
+    "kudus": {
+      "ikon": "Kota Kretek dan Santri",
+      "industri": ["industri rokok", "kuliner", "kriya", "perdagangan"],
+      "destinasi": ["Menara Kudus", "Masjid Agung Kudus", "Museum Kretek"]
+    },
+    "kabupaten-semarang": {
+      "ikon": "Kawasan Wisata Sejuk Ungaran",
+      "industri": ["pertanian", "wisata", "kuliner", "industri"],
+      "destinasi": ["Bandungan", "Rawa Pening", "Gunung Ungaran"]
+    },
+    "sragen": {
+      "ikon": "Kota Purbakala Sangiran",
+      "industri": ["pertanian", "perdagangan", "kriya", "jasa"],
+      "destinasi": ["Museum Sangiran", "Waduk Kedung Ombo", "Sangiran"]
+    },
+    "karanganyar": {
+      "ikon": "Kota Wisata Alam Jawa Tengah",
+      "industri": ["wisata alam", "pertanian", "kuliner", "kriya"],
+      "destinasi": ["Tawangmangu", "Gunung Lawu", "Candi Sukuh"]
+    }
+  },
+
+  "di-yogyakarta": {
+    "provinsi": {
+      "ikon": "Kota Budaya dan Pelajar",
+      "industri": ["wisata budaya", "pendidikan", "kriya", "kuliner"],
+      "budaya": "Kota dengan budaya Jawa klasik dan atmosfer pelajar",
+      "destinasi": ["Malioboro", "Candi Prambanan", "Keraton Yogyakarta"]
+    },
+    "kota-yogyakarta": {
+      "ikon": "Jantung Budaya Yogyakarta",
+      "industri": ["wisata budaya", "kuliner", "kriya", "perdagangan"],
+      "destinasi": ["Malioboro", "Keraton", "Taman Sari"]
+    },
+    "sleman": {
+      "ikon": "Kota Pelajar dan Wisata Alam",
+      "industri": ["pendidikan", "wisata", "kuliner", "pertanian"],
+      "destinasi": ["Kaliurang", "Candi Prambanan", "Merapi"]
+    },
+    "bantul": {
+      "ikon": "Kota Pantai Selatan dan Kriya",
+      "industri": ["wisata pantai", "kriya", "kuliner", "pertanian"],
+      "destinasi": ["Pantai Parangtritis", "Pantai Depok", "Kasongan"]
+    },
+    "gunung-kidul": {
+      "ikon": "Surga Pantai Tersembunyi Yogyakarta",
+      "industri": ["wisata pantai", "pertanian", "kuliner", "penginapan"],
+      "destinasi": ["Pantai Timang", "Pantai Siung", "Goa Jomblang"]
+    },
+    "kulon-progo": {
+      "ikon": "Gerbang Barat Yogyakarta",
+      "industri": ["pertanian", "kuliner", "wisata", "kriya"],
+      "destinasi": ["Pantai Glagah", "Bukit Menoreh", "Kalibawang"]
+    }
+  },
+
+  "jawa-timur": {
+    "provinsi": {
+      "ikon": "Bumi Majapahit",
+      "industri": ["industri", "kuliner", "perdagangan", "wisata"],
+      "budaya": "Budaya Jawa Timuran yang egaliter dan pekerja keras",
+      "destinasi": ["Gunung Bromo", "Candi Penataran", "Kawah Ijen"]
+    },
+    "kota-surabaya": {
+      "ikon": "Kota Pahlawan",
+      "industri": ["perdagangan", "logistik", "kuliner", "jasa"],
+      "destinasi": ["Tugu Pahlawan", "Suramadu", "Kota Lama Surabaya"]
+    },
+    "kota-malang": {
+      "ikon": "Kota Pendidikan dan Wisata Sejuk",
+      "industri": ["pendidikan", "kuliner", "wisata", "kreatif"],
+      "destinasi": ["Gunung Bromo", "Jatim Park", "Kampung Warna-Warni"]
+    },
+    "kabupaten-malang": {
+      "ikon": "Kawasan Wisata Alam Jawa Timur",
+      "industri": ["wisata alam", "pertanian", "penginapan", "kuliner"],
+      "destinasi": ["Batu", "Bromo", "Selecta"]
+    },
+    "kota-batu": {
+      "ikon": "Kota Wisata Keluarga",
+      "industri": ["wisata keluarga", "penginapan", "kuliner", "agrowisata"],
+      "destinasi": ["Jatim Park", "Batu Night Spectacular", "Selecta"]
+    },
+    "sidoarjo": {
+      "ikon": "Kota Industri Kecil dan Kerupuk",
+      "industri": ["industri kecil", "perdagangan", "kuliner", "logistik"],
+      "destinasi": ["Museum Mpu Tantular", "Candi Pari", "Pulau Lusi"]
+    },
+    "kota-kediri": {
+      "ikon": "Kota Kretek dan Budaya Jawa",
+      "industri": ["industri rokok", "kuliner", "perdagangan", "jasa"],
+      "destinasi": ["Gunung Kelud", "Simpang Lima Gumul", "Taman Sekartaji"]
+    },
+    "kota-madiun": {
+      "ikon": "Kota Peksi Gathutkaca",
+      "industri": ["perdagangan", "kuliner", "jasa", "kereta api"],
+      "destinasi": ["Alun-Alun Madiun", "Taman Bantaran Kali Madiun", "Pahlawan Street Center"]
+    },
+    "kota-mojokerto": {
+      "ikon": "Kota Majapahit",
+      "industri": ["industri", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Trowulan", "Candi Bajang Ratu", "Alun-Alun Mojokerto"]
+    },
+    "kota-pasuruan": {
+      "ikon": "Kota Bangil dan Kuliner",
+      "industri": ["perdagangan", "kuliner", "industri", "jasa"],
+      "destinasi": ["Taman Wisata Tretes", "Gunung Bromo", "Alun-Alun Pasuruan"]
+    },
+    "banyuwangi": {
+      "ikon": "Sunrise of Java",
+      "industri": ["wisata alam", "perikanan", "pertanian", "penginapan"],
+      "destinasi": ["Kawah Ijen", "Baluran", "Pantai Pulau Merah"]
+    },
+    "jember": {
+      "ikon": "Kota Tembakau dan Wisata Selatan",
+      "industri": ["pertanian", "wisata", "pendidikan", "kuliner"],
+      "destinasi": ["Pantai Papuma", "Rembangan", "Kawah Wurung"]
+    },
+    "probolinggo": {
+      "ikon": "Gerbang Gunung Bromo",
+      "industri": ["wisata", "pertanian", "perikanan", "kuliner"],
+      "destinasi": ["Gunung Bromo", "Pantai Bentar", "Air Terjun Madakaripura"]
+    },
+    "lumajang": {
+      "ikon": "Kota Semeru dan Pisang",
+      "industri": ["pertanian", "wisata", "perkebunan", "kuliner"],
+      "destinasi": ["Gunung Semeru", "Ranupane", "Pantai Watu Godeg"]
+    },
+    "bangkalan": {
+      "ikon": "Gerbang Suramadu",
+      "industri": ["perdagangan", "pertanian", "kuliner", "jasa"],
+      "destinasi": ["Suramadu", "Pantai Siring Kemuning", "Bukit Pelalangan"]
+    }
+  },
+
+  "banten": {
+    "provinsi": {
+      "ikon": "Tanah Jawara",
+      "industri": ["industri", "logistik", "wisata", "kuliner"],
+      "budaya": "Budaya Jawa Banten dengan semangat Jawara",
+      "destinasi": ["Ujung Kulon", "Tanjung Lesung", "Masjid Agung Banten"]
+    },
+    "kota-tangerang": {
+      "ikon": "Kota Industri dan Bandara",
+      "industri": ["industri", "logistik", "properti", "kuliner"],
+      "destinasi": ["Summarecon Mall Serpong", "Bandara Soekarno-Hatta", "Benteng Heritage"]
+    },
+    "kota-tangerang-selatan": {
+      "ikon": "Kota Milenial dan Bisnis Modern",
+      "industri": ["startup", "properti", "kuliner", "pendidikan"],
+      "destinasi": ["BSD City", "Bintaro", "Pamulang"]
+    },
+    "kota-serang": {
+      "ikon": "Kota Pemerintahan Banten",
+      "industri": ["pemerintahan", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Masjid Agung Banten", "Benteng Speelwijk", "Alun-Alun Kota Serang"]
+    },
+    "kota-cilegon": {
+      "ikon": "Kota Industri Baja",
+      "industri": ["industri baja", "logistik", "perdagangan", "jasa"],
+      "destinasi": ["Pantai Anyer", "Krakatau", "Museum Baja"]
+    },
+    "pandeglang": {
+      "ikon": "Gerbang Wisata Ujung Kulon",
+      "industri": ["wisata bahari", "penginapan", "perikanan", "pertanian"],
+      "destinasi": ["Tanjung Lesung", "Ujung Kulon", "Pantai Carita"]
+    }
+  },
+
+  "bali": {
+    "provinsi": {
+      "ikon": "Pulau Dewata",
+      "industri": ["pariwisata", "hospitality", "kriya", "kuliner"],
+      "budaya": "Budaya Hindu Bali yang kental dan spiritual",
+      "destinasi": ["Tanah Lot", "Ubud", "Kuta", "Uluwatu"]
+    },
+    "badung": {
+      "ikon": "Jantung Pariwisata Bali",
+      "industri": ["hotel", "villa", "beach club", "restoran"],
+      "destinasi": ["Kuta", "Seminyak", "Nusa Dua", "Canggu", "Uluwatu"]
+    },
+    "gianyar": {
+      "ikon": "Pusat Seni dan Budaya Bali",
+      "industri": ["wisata budaya", "kriya", "seni", "perhiasan"],
+      "destinasi": ["Ubud", "Tegallalang", "Tampaksiring", "Sukawati"]
+    },
+    "kota-denpasar": {
+      "ikon": "Ibu Kota Bali",
+      "industri": ["perdagangan", "kuliner", "jasa", "pendidikan"],
+      "destinasi": ["Pasar Badung", "Museum Bali", "Sanur", "Renon"]
+    },
+    "buleleng": {
+      "ikon": "Bali Utara dengan Wisata Alam",
+      "industri": ["wisata alam", "perikanan", "pertanian", "penginapan"],
+      "destinasi": ["Lovina", "Singaraja", "Sekumpul"]
+    },
+    "karang-asem": {
+      "ikon": "Bali Timur dengan Gunung Agung",
+      "industri": ["wisata alam", "penginapan", "pertanian", "kriya"],
+      "destinasi": ["Gunung Agung", "Tirta Gangga", "Amed"]
+    },
+    "tabanan": {
+      "ikon": "Bali Hijau dengan Sawah Terasering",
+      "industri": ["pertanian", "wisata alam", "penginapan", "kriya"],
+      "destinasi": ["Jatiluwih", "Tanah Lot", "Bedugul"]
+    },
+    "klungkung": {
+      "ikon": "Kota Kerajaan Klungkung",
+      "industri": ["wisata budaya", "kriya", "perikanan", "pertanian"],
+      "destinasi": ["Kertha Gosa", "Nusa Penida", "Pantai Diamond"]
+    }
+  },
+
+  "nusa-tenggara-barat": {
+    "provinsi": {
+      "ikon": "Lombok dan Sumbawa",
+      "industri": ["wisata", "pertanian", "perikanan", "kriya"],
+      "budaya": "Budaya Sasak dan Sumbawa dengan tradisi khas",
+      "destinasi": ["Gunung Rinjani", "Mandalika", "Pulau Moyo"]
+    },
+    "kota-mataram": {
+      "ikon": "Ibu Kota NTB",
+      "industri": ["perdagangan", "kuliner", "jasa", "pendidikan"],
+      "destinasi": ["Pantai Senggigi", "Taman Mayura", "Kota Tua Mataram"]
+    },
+    "lombok-barat": {
+      "ikon": "Gerbang Wisata Lombok",
+      "industri": ["wisata bahari", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Senggigi", "Gili Trawangan", "Pantai Sekotong"]
+    },
+    "lombok-tengah": {
+      "ikon": "Kota Seribu Masjid",
+      "industri": ["wisata budaya", "pertanian", "kriya", "kuliner"],
+      "destinasi": ["Pantai Kuta Lombok", "Sade Village", "Pantai Tanjung Aan"]
+    },
+    "sumbawa": {
+      "ikon": "Kota Bima di Pulau Sumbawa",
+      "industri": ["pertanian", "perikanan", "wisata", "pertambangan"],
+      "destinasi": ["Pantai Lakey", "Gunung Tambora", "Pulau Moyo"]
+    }
+  },
+
+  "nusa-tenggara-timur": {
+    "provinsi": {
+      "ikon": "Flores dan Sumba",
+      "industri": ["wisata bahari", "pertanian", "perikanan", "kriya"],
+      "budaya": "Budaya Flores dan Sumba dengan tradisi megalitik",
+      "destinasi": ["Labuan Bajo", "Komodo", "Danau Kelimutu"]
+    },
+    "kota-kupang": {
+      "ikon": "Ibu Kota NTT",
+      "industri": ["perdagangan", "kuliner", "jasa", "pendidikan"],
+      "destinasi": ["Pantai Lasiana", "Museum NTT", "Kupang Kota Lama"]
+    },
+    "manggarai-barat": {
+      "ikon": "Gerbang Labuan Bajo dan Komodo",
+      "industri": ["wisata bahari", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Labuan Bajo", "Pulau Komodo", "Pink Beach"]
+    },
+    "sikka": {
+      "ikon": "Kota Maumere dan Wisata Bahari",
+      "industri": ["wisata bahari", "perikanan", "pertanian", "kriya"],
+      "destinasi": ["Pantai Koka", "Danau Kelimutu", "Pulau Babi"]
+    },
+    "ende": {
+      "ikon": "Kota Kelimutu",
+      "industri": ["wisata alam", "pertanian", "kriya", "kuliner"],
+      "destinasi": ["Danau Kelimutu", "Pantai Ngalupolo", "Rumah Adat Wologai"]
+    }
+  },
+
+  "kalimantan-barat": {
+    "provinsi": {
+      "ikon": "Bumi Khatulistiwa",
+      "industri": ["perkebunan sawit", "kuliner", "perdagangan", "wisata"],
+      "budaya": "Budaya Melayu, Dayak, dan Tionghoa yang berpadu",
+      "destinasi": ["Tugu Khatulistiwa", "Danau Sentarum", "Pantai Pasir Panjang"]
+    },
+    "kota-pontianak": {
+      "ikon": "Kota Khatulistiwa",
+      "industri": ["kuliner", "perdagangan", "jasa", "perkebunan"],
+      "destinasi": ["Tugu Khatulistiwa", "Museum Negeri Pontianak", "Sungai Kapuas"]
+    },
+    "kota-singkawang": {
+      "ikon": "Kota Seribu Kelenteng",
+      "industri": ["wisata budaya", "kuliner", "perdagangan", "kriya"],
+      "destinasi": ["Vihara Tri Dharma Bumi Raya", "Pantai Pasir Panjang", "Gunung Roban"]
+    },
+    "sintang": {
+      "ikon": "Kota Transit Kapuas",
+      "industri": ["perdagangan", "perkebunan", "kuliner", "kriya"],
+      "destinasi": ["Danau Sentarum", "Sungai Kapuas", "Rumah Betang"]
+    },
+    "kapuas-hulu": {
+      "ikon": "Jantung Borneo dengan Danau Sentarum",
+      "industri": ["wisata alam", "perikanan", "pertanian", "kriya"],
+      "destinasi": ["Danau Sentarum", "Taman Nasional Betung Kerihun", "Putussibau"]
+    }
+  },
+
+  "kalimantan-tengah": {
+    "provinsi": {
+      "ikon": "Bumi Tambun Bungai",
+      "industri": ["perkebunan sawit", "pertambangan", "wisata", "kriya"],
+      "budaya": "Budaya Dayak Ngaju dengan tradisi khas",
+      "destinasi": ["Danau Sembuluh", "Taman Nasional Tanjung Puting", "Palangka Raya"]
+    },
+    "kota-palangka-raya": {
+      "ikon": "Ibu Kota Kalimantan Tengah",
+      "industri": ["perdagangan", "jasa", "pendidikan", "kuliner"],
+      "destinasi": ["Taman Nasional Tanjung Puting", "Danau Tahai", "Jembatan Kahayan"]
+    },
+    "kotawaringin-barat": {
+      "ikon": "Gerbang Tanjung Puting",
+      "industri": ["wisata alam", "perkebunan", "perikanan", "kriya"],
+      "destinasi": ["Taman Nasional Tanjung Puting", "Pantai Kubu", "Pangkalan Bun"]
+    },
+    "kotawaringin-timur": {
+      "ikon": "Kota Sampit dan Perkebunan",
+      "industri": ["perkebunan", "perdagangan", "perikanan", "kuliner"],
+      "destinasi": ["Pantai Ujung Pandaran", "Sungai Mentaya", "Taman Kota Sampit"]
+    }
+  },
+
+  "kalimantan-selatan": {
+    "provinsi": {
+      "ikon": "Bumi Lambung Mangkurat",
+      "industri": ["perkebunan", "pertambangan", "kuliner", "perdagangan"],
+      "budaya": "Budaya Banjar dengan tradisi sungai",
+      "destinasi": ["Pasar Terapung", "Pegunungan Meratus", "Pantai Takisung"]
+    },
+    "kota-banjarmasin": {
+      "ikon": "Kota Seribu Sungai",
+      "industri": ["perdagangan", "kuliner", "perikanan", "jasa"],
+      "destinasi": ["Pasar Terapung Lok Baintan", "Masjid Sultan Suriansyah", "Siring Pierre Tendean"]
+    },
+    "kota-banjar-baru": {
+      "ikon": "Kota Pendidikan Kalimantan Selatan",
+      "industri": ["pendidikan", "perdagangan", "kuliner", "jasa"],
+      "destinasi": ["Taman Van Der Peijl", "Alun-Alun Banjarbaru", "Bandara Syamsudin Noor"]
+    },
+    "tanah-laut": {
+      "ikon": "Kota Wisata Pantai Kalsel",
+      "industri": ["wisata pantai", "pertanian", "perikanan", "kuliner"],
+      "destinasi": ["Pantai Takisung", "Pantai Batakan", "Bukit Atapanger"]
+    },
+    "kota-baru": {
+      "ikon": "Kota Wisata Bahari Kalsel",
+      "industri": ["wisata bahari", "perikanan", "pertambangan", "penginapan"],
+      "destinasi": ["Pantai Gedambaan", "Pulau Laut", "Pantai Tanjung Selayar"]
+    }
+  },
+
+  "kalimantan-timur": {
+    "provinsi": {
+      "ikon": "Bumi Etam",
+      "industri": ["pertambangan", "perkebunan", "perikanan", "wisata"],
+      "budaya": "Budaya Dayak dan Kutai dengan tradisi khas",
+      "destinasi": ["Derawan", "Kakaban", "Taman Nasional Kutai"]
+    },
+    "kota-samarinda": {
+      "ikon": "Kota Tepian Kalimantan Timur",
+      "industri": ["perdagangan", "pertambangan", "kuliner", "jasa"],
+      "destinasi": ["Mahakam", "Kebun Raya Unmul Samarinda", "Masjid Islamic Center"]
+    },
+    "kota-balikpapan": {
+      "ikon": "Kota Minyak Kalimantan Timur",
+      "industri": ["perminyakan", "perdagangan", "jasa", "kuliner"],
+      "destinasi": ["Pantai Kemala", "Pantai Melawai", "Kebun Raya Balikpapan"]
+    },
+    "kota-bontang": {
+      "ikon": "Kota Industri Kalimantan Timur",
+      "industri": ["industri gas", "perdagangan", "perikanan", "kuliner"],
+      "destinasi": ["Pantai Marina", "Pulau Gusung", "Taman Kota Bontang"]
+    },
+    "berau": {
+      "ikon": "Gerbang Kepulauan Derawan",
+      "industri": ["wisata bahari", "perikanan", "penginapan", "kriya"],
+      "destinasi": ["Kepulauan Derawan", "Kakaban", "Sangalaki"]
+    }
+  },
+
+  "kalimantan-utara": {
+    "provinsi": {
+      "ikon": "Bumi Borneo Utara",
+      "industri": ["perkebunan", "perikanan", "wisata", "pertambangan"],
+      "budaya": "Budaya Dayak dan Tidung dengan tradisi khas",
+      "destinasi": ["Tarakan", "Tanjung Selor", "Pulau Derawan"]
+    },
+    "kota-tarakan": {
+      "ikon": "Kota Minyak Kalimantan Utara",
+      "industri": ["perminyakan", "perikanan", "perdagangan", "kuliner"],
+      "destinasi": ["Pantai Amal", "Mangrove Tarakan", "Pulau Sadau"]
+    },
+    "nunukan": {
+      "ikon": "Gerbang Perbatasan Indonesia-Malaysia",
+      "industri": ["perdagangan", "perkebunan", "perikanan", "jasa"],
+      "destinasi": ["Pantai Sei Ular", "Pulau Sebatik", "Taman Nasional Sebatik"]
+    }
+  },
+
+  "sulawesi-utara": {
+    "provinsi": {
+      "ikon": "Bumi Nyiur Melambai",
+      "industri": ["kuliner", "wisata bahari", "perikanan", "perkebunan"],
+      "budaya": "Budaya Minahasa dengan tradisi Mapalus",
+      "destinasi": ["Bunaken", "Tomohon", "Likupang"]
+    },
+    "kota-manado": {
+      "ikon": "Kota Kuliner Manado",
+      "industri": ["kuliner", "wisata bahari", "perdagangan", "jasa"],
+      "destinasi": ["Bunaken", "Danau Tondano", "Boulevard Manado"]
+    },
+    "kota-bitung": {
+      "ikon": "Kota Pelabuhan Sulawesi Utara",
+      "industri": ["pelabuhan", "perikanan", "industri", "kuliner"],
+      "destinasi": ["Pantai Pasir Putih", "Lembeh", "Tangkoko"]
+    },
+    "kota-tomohon": {
+      "ikon": "Kota Bunga di Kaki Gunung Lokon",
+      "industri": ["wisata", "pertanian", "kuliner", "kriya"],
+      "destinasi": ["Gunung Lokon", "Bukit Doa Mahawu", "Pasar Bunga"]
+    },
+    "kota-kotamobagu": {
+      "ikon": "Kota Bolaang Mongondow",
+      "industri": ["perdagangan", "kuliner", "pertanian", "jasa"],
+      "destinasi": ["Alun-Alun Kotamobagu", "Puncak Passa", "Danau Mooat"]
+    },
+    "minahasa": {
+      "ikon": "Jantung Budaya Minahasa",
+      "industri": ["pertanian", "wisata", "kuliner", "kriya"],
+      "destinasi": ["Danau Tondano", "Gunung Mahawu", "Taman Wisata Tondano"]
+    },
+    "kepulauan-sangihe": {
+      "ikon": "Kepulauan Wisata Sulawesi Utara",
+      "industri": ["wisata bahari", "perikanan", "penginapan", "kriya"],
+      "destinasi": ["Pulau Sangihe", "Gunung Awu", "Pantai Manalu"]
+    }
+  },
+
+  "sulawesi-tengah": {
+    "provinsi": {
+      "ikon": "Bumi Tadulako",
+      "industri": ["pertanian", "perikanan", "wisata", "perkebunan"],
+      "budaya": "Budaya Kaili dengan tradisi bahari dan agraris",
+      "destinasi": ["Kepulauan Togean", "Danau Poso", "Palu"]
+    },
+    "kota-palu": {
+      "ikon": "Kota Teluk Palu",
+      "industri": ["perdagangan", "kuliner", "jasa", "perikanan"],
+      "destinasi": ["Teluk Palu", "Taman Nasional Lore Lindu", "Pantai Talise"]
+    },
+    "poso": {
+      "ikon": "Danau Poso dengan Wisata Alam",
+      "industri": ["wisata alam", "pertanian", "penginapan", "perikanan"],
+      "destinasi": ["Danau Poso", "Tentena", "Air Terjun Saluopa"]
+    },
+    "tojo-una-una": {
+      "ikon": "Surga Togean dengan Wisata Bahari",
+      "industri": ["wisata bahari", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Kepulauan Togean", "Pulau Una-Una", "Kadidiri"]
+    }
+  },
+
+  "sulawesi-selatan": {
+    "provinsi": {
+      "ikon": "Bumi Anging Mammiri",
+      "industri": ["kuliner", "perdagangan", "perikanan", "wisata"],
+      "budaya": "Budaya Bugis-Makassar yang kaya tradisi",
+      "destinasi": ["Pantai Losari", "Tana Toraja", "Pantai Tanjung Bira"]
+    },
+    "kota-makassar": {
+      "ikon": "Kota Kuliner Indonesia Timur",
+      "industri": ["kuliner", "perdagangan", "jasa", "perikanan"],
+      "destinasi": ["Pantai Losari", "Benteng Rotterdam", "Pulau Samalona"]
+    },
+    "kota-parepare": {
+      "ikon": "Kota Kelahiran BJ Habibie",
+      "industri": ["perdagangan", "perikanan", "kuliner", "jasa"],
+      "destinasi": ["Pantai Mattirotasi", "Monumen Habibie", "Taman Bundaran"]
+    },
+    "tana-toraja": {
+      "ikon": "Tanah Toraja dengan Budaya Otentik",
+      "industri": ["wisata budaya", "penginapan", "kriya", "pertanian"],
+      "destinasi": ["Kete Kesu", "Lemo", "Rantepao"]
+    },
+    "kota-palopo": {
+      "ikon": "Kota Transit Toraja",
+      "industri": ["perdagangan", "kuliner", "jasa", "perkebunan"],
+      "destinasi": ["Taman Buntu", "Pantai Labombo", "Stadion Lagaligo"]
+    },
+    "kepulauan-selayar": {
+      "ikon": "Surga Wisata Bahari Sulawesi Selatan",
+      "industri": ["wisata bahari", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Pantai Appalarang", "Taka Bonerate", "Pantai Baloyya"]
+    },
+    "bulukumba": {
+      "ikon": "Kota Pinisi dan Pantai Bira",
+      "industri": ["wisata bahari", "perkapalan", "kriya", "perikanan"],
+      "destinasi": ["Pantai Tanjung Bira", "Tana Beru", "Pantai Apparalang"]
+    }
+  },
+
+  "sulawesi-tenggara": {
+    "provinsi": {
+      "ikon": "Bumi Anoa",
+      "industri": ["perikanan", "wisata bahari", "pertanian", "perkebunan"],
+      "budaya": "Budaya Tolaki dan Buton dengan tradisi bahari",
+      "destinasi": ["Wakatobi", "Kendari", "Baubau"]
+    },
+    "kota-kendari": {
+      "ikon": "Ibu Kota Sulawesi Tenggara",
+      "industri": ["perdagangan", "kuliner", "jasa", "perikanan"],
+      "destinasi": ["Pantai Nambo", "Taman Nasional Wakatobi", "Benteng Keraton Buton"]
+    },
+    "kota-baubau": {
+      "ikon": "Kota Kerajaan Buton",
+      "industri": ["wisata budaya", "perikanan", "kuliner", "kriya"],
+      "destinasi": ["Benteng Keraton Buton", "Pantai Kamali", "Pulau Makassar"]
+    },
+    "wakatobi": {
+      "ikon": "Surga Diving Dunia",
+      "industri": ["wisata diving", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Taman Nasional Wakatobi", "Pulau Hoga", "Pulau Tomia"]
+    }
+  },
+
+  "gorontalo": {
+    "provinsi": {
+      "ikon": "Bumi Hulontalo",
+      "industri": ["pertanian", "perikanan", "wisata bahari", "kuliner"],
+      "budaya": "Budaya Gorontalo dengan tradisi agraris dan bahari",
+      "destinasi": ["Pantai Olele", "Pulau Saronde", "Danau Limboto"]
+    },
+    "kota-gorontalo": {
+      "ikon": "Ibu Kota Gorontalo",
+      "industri": ["perdagangan", "kuliner", "jasa", "pendidikan"],
+      "destinasi": ["Benteng Otanaha", "Danau Limboto", "Pantai Indah Ancol"]
+    },
+    "pohuwato": {
+      "ikon": "Kota Wisata Bahari Gorontalo",
+      "industri": ["wisata bahari", "perikanan", "pertanian", "kriya"],
+      "destinasi": ["Pulau Saronde", "Pantai Popaya", "Danau Marisa"]
+    }
+  },
+
+  "sulawesi-barat": {
+    "provinsi": {
+      "ikon": "Bumi Mandar",
+      "industri": ["perikanan", "pertanian", "kuliner", "kriya"],
+      "budaya": "Budaya Mandar dengan tradisi bahari",
+      "destinasi": ["Pantai Bahari", "Pulau Karamasang", "Gunung Mampo"]
+    },
+    "mamuju": {
+      "ikon": "Ibu Kota Sulawesi Barat",
+      "industri": ["perdagangan", "kuliner", "jasa", "perkebunan"],
+      "destinasi": ["Pantai Bahari", "Gunung Mampo", "Pulau Karamasang"]
+    },
+    "majene": {
+      "ikon": "Kota Bahari Sulawesi Barat",
+      "industri": ["perikanan", "wisata bahari", "kuliner", "kriya"],
+      "destinasi": ["Pantai Dato", "Pantai Pelattoang", "Bumi Tipalayo"]
+    }
+  },
+
+  "maluku": {
+    "provinsi": {
+      "ikon": "Kepulauan Rempah",
+      "industri": ["perikanan", "wisata bahari", "rempah", "perkebunan"],
+      "budaya": "Budaya Maluku dengan tradisi bahari dan rempah",
+      "destinasi": ["Banda Neira", "Ambon", "Saparua"]
+    },
+    "kota-ambon": {
+      "ikon": "Kota Musik dan Budaya Maluku",
+      "industri": ["perikanan", "kuliner", "wisata", "jasa"],
+      "destinasi": ["Pantai Natsepa", "Benteng Amsterdam", "Pintu Kota"]
+    },
+    "maluku-tengah": {
+      "ikon": "Kepulauan Banda dengan Rempah Dunia",
+      "industri": ["wisata bahari", "rempah", "perikanan", "kriya"],
+      "destinasi": ["Banda Neira", "Pulau Saparua", "Pulau Seram"]
+    },
+    "kota-tual": {
+      "ikon": "Kota Kepulauan Kei",
+      "industri": ["perikanan", "wisata bahari", "kriya", "kuliner"],
+      "destinasi": ["Pantai Pasir Panjang", "Pulau Kei Kecil", "Goa Hawang"]
+    }
+  },
+
+  "maluku-utara": {
+    "provinsi": {
+      "ikon": "Bumi Kie Raha",
+      "industri": ["rempah", "perikanan", "wisata bahari", "pertambangan"],
+      "budaya": "Budaya Ternate-Tidore dengan tradisi kesultanan",
+      "destinasi": ["Ternate", "Morotai", "Tidore"]
+    },
+    "kota-ternate": {
+      "ikon": "Kota Rempah dengan Warisan Kesultanan",
+      "industri": ["rempah", "wisata", "perdagangan", "kuliner"],
+      "destinasi": ["Gunung Gamalama", "Keraton Ternate", "Danau Tolire"]
+    },
+    "kota-tidore-kepulauan": {
+      "ikon": "Kota Kesultanan Tidore",
+      "industri": ["rempah", "perikanan", "wisata", "kriya"],
+      "destinasi": ["Gunung Kie Matubu", "Benteng Tahula", "Pantai Tidore"]
+    },
+    "pulau-morotai": {
+      "ikon": "Pulau Wisata Bahari Maluku Utara",
+      "industri": ["wisata bahari", "penginapan", "perikanan", "kriya"],
+      "destinasi": ["Pantai Kolorai", "Pulau Dodola", "Pantai Tamo"]
+    }
+  },
+
+  "papua-barat": {
+    "provinsi": {
+      "ikon": "Gerbang Raja Ampat",
+      "industri": ["wisata bahari", "perikanan", "pertanian", "kriya"],
+      "budaya": "Budaya Papua dengan tradisi bahari",
+      "destinasi": ["Raja Ampat", "Sorong", "Manokwari"]
+    },
+    "raja-ampat": {
+      "ikon": "Surga Diving Terbaik Dunia",
+      "industri": ["wisata diving", "resor", "penginapan", "perikanan"],
+      "destinasi": ["Wayag", "Misool", "Cape Kri"]
+    },
+    "kota-sorong": {
+      "ikon": "Kota Transit Raja Ampat",
+      "industri": ["perdagangan", "perikanan", "jasa", "logistik"],
+      "destinasi": ["Pantai Tanjung Kasuari", "Pulau Doom", "Vihara Buddha Sasana"]
+    },
+    "manokwari": {
+      "ikon": "Ibu Kota Papua Barat",
+      "industri": ["perdagangan", "pendidikan", "perikanan", "pertanian"],
+      "destinasi": ["Pantai Pasir Putih", "Gunung Meja", "Taman Nasional Teluk Cenderawasih"]
+    }
+  },
+
+  "papua": {
+    "provinsi": {
+      "ikon": "Bumi Cenderawasih",
+      "industri": ["pertanian", "perikanan", "pertambangan", "wisata budaya"],
+      "budaya": "Budaya Papua dengan tradisi yang sangat beragam",
+      "destinasi": ["Lembah Baliem", "Jayapura", "Danau Sentani"]
+    },
+    "kota-jayapura": {
+      "ikon": "Ibu Kota Papua",
+      "industri": ["perdagangan", "jasa", "perikanan", "pendidikan"],
+      "destinasi": ["Danau Sentani", "Pantai Base-G", "Bukit Skyline"]
+    },
+    "jayawijaya": {
+      "ikon": "Lembah Baliem dengan Budaya Papua Otentik",
+      "industri": ["wisata budaya", "pertanian", "kriya", "penginapan"],
+      "destinasi": ["Lembah Baliem", "Wamena", "Danau Habema"]
+    },
+    "mimika": {
+      "ikon": "Kota Tambang dan Budaya Kamoro",
+      "industri": ["pertambangan", "perdagangan", "jasa", "perikanan"],
+      "destinasi": ["Kuala Kencana", "Pantai Timika", "Pulau Bidadari"]
+    },
+    "merauke": {
+      "ikon": "Kota Ujung Timur Indonesia",
+      "industri": ["pertanian", "perikanan", "perdagangan", "jasa"],
+      "destinasi": ["Taman Nasional Wasur", "Pantai Lampu Satu", "Monumen Kapsul Waktu"]
+    },
+    "biak-numfor": {
+      "ikon": "Kepulauan Biak dengan Wisata Bahari",
+      "industri": ["wisata bahari", "perikanan", "penginapan", "kriya"],
+      "destinasi": ["Pantai Bosnik", "Pulau Owi", "Supiori"]
+    }
+  },
+
+  "papua-selatan": {
+    "provinsi": {
+      "ikon": "Bumi Anim Ha",
+      "industri": ["pertanian", "perikanan", "perdagangan", "wisata"],
+      "budaya": "Budaya Marind dan Anim dengan tradisi agraris",
+      "destinasi": ["Taman Nasional Wasur", "Merauke", "Pantai Lampu Satu"]
+    },
+    "merauke": {
+      "ikon": "Kota Ujung Timur Indonesia",
+      "industri": ["pertanian", "perikanan", "perdagangan", "jasa"],
+      "destinasi": ["Taman Nasional Wasur", "Pantai Lampu Satu", "Monumen Kapsul Waktu"]
+    }
+  },
+
+  "papua-tengah": {
+    "provinsi": {
+      "ikon": "Jantung Papua",
+      "industri": ["pertambangan", "perdagangan", "perikanan", "pertanian"],
+      "budaya": "Budaya Papua Pegunungan dan Pesisir",
+      "destinasi": ["Timika", "Nabire", "Puncak Jaya"]
+    },
+    "mimika": {
+      "ikon": "Kota Tambang dan Budaya Kamoro",
+      "industri": ["pertambangan", "perdagangan", "jasa", "perikanan"],
+      "destinasi": ["Kuala Kencana", "Pantai Timika", "Pulau Bidadari"]
+    },
+    "nabire": {
+      "ikon": "Kota Wisata Bahari Papua Tengah",
+      "industri": ["wisata bahari", "perikanan", "perdagangan", "jasa"],
+      "destinasi": ["Taman Nasional Teluk Cenderawasih", "Pantai Nusantara", "Pulau Ahe"]
+    }
+  },
+
+  "papua-pegunungan": {
+    "provinsi": {
+      "ikon": "Tanah Lembah Baliem",
+      "industri": ["pertanian", "wisata budaya", "kriya", "perdagangan"],
+      "budaya": "Budaya Papua Pegunungan dengan tradisi megalitik",
+      "destinasi": ["Lembah Baliem", "Wamena", "Danau Habema"]
+    },
+    "jayawijaya": {
+      "ikon": "Lembah Baliem dengan Budaya Papua Otentik",
+      "industri": ["wisata budaya", "pertanian", "kriya", "penginapan"],
+      "destinasi": ["Lembah Baliem", "Wamena", "Danau Habema"]
+    }
+  },
+
+  "papua-barat-daya": {
+    "provinsi": {
+      "ikon": "Gerbang Raja Ampat",
+      "industri": ["wisata bahari", "perikanan", "perdagangan", "kriya"],
+      "budaya": "Budaya Papua dengan tradisi bahari",
+      "destinasi": ["Raja Ampat", "Sorong", "Pulau Misool"]
+    },
+    "raja-ampat": {
+      "ikon": "Surga Diving Terbaik Dunia",
+      "industri": ["wisata diving", "resor", "penginapan", "perikanan"],
+      "destinasi": ["Wayag", "Misool", "Cape Kri"]
+    },
+    "kota-sorong": {
+      "ikon": "Kota Transit Raja Ampat",
+      "industri": ["perdagangan", "perikanan", "jasa", "logistik"],
+      "destinasi": ["Pantai Tanjung Kasuari", "Pulau Doom", "Vihara Buddha Sasana"]
+    }
+  }
+}

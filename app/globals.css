@@ -1,26 +1,242 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   1. THEME — Palet Booking.com & Animasi
+   ============================================================ */
+@theme {
+  /* Booking Blue — primary */
+  --color-booking-50: #e6f0fa;
+  --color-booking-100: #cce0f5;
+  --color-booking-200: #99c2eb;
+  --color-booking-300: #66a3e0;
+  --color-booking-400: #3385d6;
+  --color-booking-500: #0071c2; /* link & aksen */
+  --color-booking-600: #005999;
+  --color-booking-700: #003580; /* brand utama */
+  --color-booking-800: #002a66;
+  --color-booking-900: #001f4d;
+
+  /* Booking Yellow — CTA */
+  --color-yellow-50: #fff9e6;
+  --color-yellow-100: #fff3cc;
+  --color-yellow-200: #ffe799;
+  --color-yellow-300: #ffdb66;
+  --color-yellow-400: #fecd33;
+  --color-yellow-500: #febb02; /* utama */
+  --color-yellow-600: #e0a800;
+
+  /* Netral */
+  --color-gray-50: #f5f5f5;
+  --color-gray-100: #ebebeb;
+  --color-gray-200: #d9d9d9;
+  --color-gray-300: #b3b3b3;
+  --color-gray-400: #808080;
+  --color-gray-500: #666666;
+  --color-gray-600: #4d4d4d;
+  --color-gray-700: #333333;
+  --color-gray-800: #1a1a1a;
+  --color-gray-900: #000000;
+
+  /* Animasi Utility */
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-slide-down: slide-down 0.5s ease-out both;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================================================
+   2. KEYFRAMES
+   ============================================================ */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   3. BASE STYLES
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-booking-700);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-booking-500);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   4. UTILITY CUSTOM & SCROLL REVEAL ANIMATIONS
+   ============================================================ */
+
+/* Setup Animasi Scroll Reveal saat dimasukkan oleh IntersectionObserver */
+.reveal-bottom {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  will-change: opacity;
+}
+
+/* State Aktif saat masuk Viewport */
+.reveal-bottom.active,
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.reveal-fade.active {
+  opacity: 1;
+}
+
+/* Card ala Booking.com — border tipis, sudut 8px */
+.bk-card {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.bk-card:hover {
+  border-color: #0071c2;
+  box-shadow: 0 4px 16px rgba(0, 53, 128, 0.1);
+}
+
+/* Tombol kuning ala Booking.com */
+.bk-btn-yellow {
+  background-color: #febb02;
+  color: #003580;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #febb02;
+}
+.bk-btn-yellow:hover {
+  background-color: #ffcb3d;
+  border-color: #ffcb3d;
+  transform: translateY(-1px);
+}
+
+/* Tombol biru ala Booking.com */
+.bk-btn-blue {
+  background-color: #0071c2;
+  color: white;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #0071c2;
+}
+.bk-btn-blue:hover {
+  background-color: #005999;
+  border-color: #005999;
+}
+
+/* Tombol outline ala Booking.com */
+.bk-btn-outline {
+  background-color: white;
+  color: #0071c2;
+  font-weight: 700;
+  border: 1px solid #0071c2;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  display: inline-block;
+  text-align: center;
+}
+.bk-btn-outline:hover {
+  background-color: #e6f0fa;
+}
+
+/* Highlight kuning di belakang teks */
+.bk-highlight {
+  background-color: #febb02;
+  color: #003580;
+  padding: 0.05em 0.4em;
+  border-radius: 3px;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Divider */
+.bk-divider {
+  border-top: 1px solid #d9d9d9;
+}
+
+/* ============================================================
+   5. AKSESIBILITAS
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-bottom,
+  .reveal-left,
+  .reveal-right,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
