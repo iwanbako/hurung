@@ -39,6 +39,12 @@ const sortedPosts = [...blogPosts].sort(
   (a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime(),
 );
 
+// Helper: Format tanggal ke standar ISO 8601 (Google Schema)
+const formatIsoDate = (dateStr: string) => {
+  if (dateStr.includes("T")) return dateStr;
+  return `${dateStr}T00:00:00+07:00`; // Waktu Indonesia Barat
+};
+
 // JSON-LD: Blog Schema
 function BlogJsonLd() {
   const jsonLd = {
@@ -53,8 +59,12 @@ function BlogJsonLd() {
       headline: post.title,
       description: post.excerpt,
       image: post.image,
-      datePublished: post.isoDate,
-      author: { "@type": "Person", name: post.author },
+      datePublished: formatIsoDate(post.isoDate), // ✅ FIX: Format tanggal valid
+      author: { 
+        "@type": "Person", 
+        name: post.author,
+        url: `${SITE_URL}/tentang-kami`, // ✅ FIX: Tambah URL penulis
+      },
       url: `${SITE_URL}/blog/${post.slug}`,
     })),
   };
