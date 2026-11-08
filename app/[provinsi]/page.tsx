@@ -203,7 +203,7 @@ async function ProvinsiContent({ params }: PageProps) {
   }));
 
   // ============================================================
-  // JSON-LD
+  // JSON-LD (Hanya ProfessionalService, Breadcrumb dihapus)
   // ============================================================
   const jsonLd = {
     "@context": "https://schema.org",
@@ -218,25 +218,6 @@ async function ProvinsiContent({ params }: PageProps) {
     description: content.metaDescription,
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Beranda",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: content.nama,
-        item: url,
-      },
-    ],
-  };
-
   // ============================================================
   // BREADCRUMB ITEMS
   // ============================================================
@@ -247,20 +228,16 @@ async function ProvinsiContent({ params }: PageProps) {
 
   return (
     <>
-      {/* Structured Data */}
+      {/* Structured Data (Hanya ProfessionalService) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <div className="bg-[#003580] text-white flex flex-col min-h-screen">
         <Header />
 
-        {/* BREADCRUMB */}
+        {/* BREADCRUMB (Komponen ini sudah otomatis membuat schema JSON-LD) */}
         <Breadcrumb items={breadcrumbItems} />
 
         <main className="flex-1 w-full">

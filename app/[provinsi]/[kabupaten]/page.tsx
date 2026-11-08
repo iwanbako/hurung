@@ -323,34 +323,6 @@ async function KabupatenContent({ params }: PageProps) {
   };
 
   // ============================================================
-  // JSON-LD BreadcrumbList
-  // ============================================================
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Beranda",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: content.provinsi,
-        item: `${SITE_URL}/${provinsi}`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: content.namaLengkap,
-        item: url,
-      },
-    ],
-  };
-
-  // ============================================================
   // BREADCRUMB ITEMS (visual)
   // ============================================================
   const breadcrumbItems = [
@@ -361,7 +333,7 @@ async function KabupatenContent({ params }: PageProps) {
 
   return (
     <>
-      {/* Structured Data */}
+      {/* Structured Data (ProfessionalService & FAQ) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -370,10 +342,7 @@ async function KabupatenContent({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      {/* Schema Breadcrumb dihilangkan karena sudah dibuat otomatis oleh komponen <Breadcrumb /> */}
 
       <div className="bg-[#003580] text-white flex flex-col min-h-screen">
         <Header />
