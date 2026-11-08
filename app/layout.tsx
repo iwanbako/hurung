@@ -3,6 +3,9 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+// ✅ TAMBAHKAN IMPORT INI
+import ScrollToTop from "@/components/common/ScrollToTop";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -58,12 +61,9 @@ export const metadata: Metadata = {
     },
   },
 
-  // ------------------------------------------------------------
-  // ICONS — DISESUAIKAN DENGAN FILE FOLDER PUBLIC ANDA
-  // ------------------------------------------------------------
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" }, // File: favicon
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
       { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
@@ -74,14 +74,8 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
 
-  // ------------------------------------------------------------
-  // MANIFEST
-  // ------------------------------------------------------------
-  manifest: "/site.webmanifest", // Sesuaikan dengan file site.webmanifest Anda
+  manifest: "/site.webmanifest",
 
-  // ------------------------------------------------------------
-  // OPEN GRAPH — (Asumsi Anda menggunakan gambar screenshot)
-  // ------------------------------------------------------------
   openGraph: {
     type: "website",
     locale: "id_ID",
@@ -92,8 +86,6 @@ export const metadata: Metadata = {
       "Solusi digital bisnis Anda: Landing Page, Company Profile, dan E-Commerce dengan performa super cepat dan ramah SEO.",
     images: [
       {
-        // Jika Anda punya gambar og-image, taruh di sini. 
-        // Jika tidak, sementara bisa pakai salah satu icon dulu, atau hapus bagian images ini.
         url: "/web-app-manifest-512x512.png", 
         width: 512,
         height: 512,
@@ -102,15 +94,12 @@ export const metadata: Metadata = {
     ],
   },
 
-  // ------------------------------------------------------------
-  // TWITTER
-  // ------------------------------------------------------------
   twitter: {
     card: "summary_large_image",
     title: "KerabatWeb - Jasa Pembuatan Website Profesional & Bergaransi",
     description:
       "Buat website bisnis Anda sekarang juga. Cepat, aman, dan siap mendatangkan cuan!",
-    images: ["/web-app-manifest-512x512.png"], // Sesuaikan
+    images: ["/web-app-manifest-512x512.png"],
   },
 
   alternates: {
@@ -151,7 +140,12 @@ export default function RootLayout({
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {/* ✅ TAMBAHKAN KOMPONEN INI DI SINI */}
+        <ScrollToTop />
+        
+        {children}
+      </body>
     </html>
   );
 }
