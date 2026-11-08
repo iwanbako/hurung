@@ -66,6 +66,23 @@ export default async function BlogDetailPage({ params }: PageProps) {
     .slice(0, 3);
 
   // ============================================================
+  // HELPER: Format Tanggal ke Standar ISO 8601 (Google Schema)
+  // ============================================================
+  // Mengubah "2026-11-01" menjadi "2026-11-01T00:00:00+07:00" (Waktu Indonesia Barat)
+  const formatIsoDate = (dateStr: string) => {
+    // Jika format sudah memiliki huruf 'T' (berarti sudah ada jam), biarkan saja
+    if (dateStr.includes("T")) return dateStr;
+    // Jika hanya tanggal (YYYY-MM-DD), tambahkan jam dan zona waktu WIB
+    return `${dateStr}T00:00:00+07:00`;
+  };
+
+  const validDatePublished = formatIsoDate(post.isoDate);
+  const validDateModified = formatIsoDate(post.isoDate); // Ubah jika ada field dateModified khusus
+
+  // Pastikan URL gambar valid (jika post.image kosong, gunakan OG Image default)
+  const imageUrl = post.image || `${SITE_URL}/og-image.jpg`;
+
+  // ============================================================
   // SCHEMA: BLOG POSTING (Artikel)
   // ============================================================
   const articleSchema = {
@@ -73,12 +90,18 @@ export default async function BlogDetailPage({ params }: PageProps) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: post.image ? [post.image] : undefined,
-    datePublished: post.isoDate,
-    dateModified: post.isoDate, // Bisa disesuaikan jika ada field update
+    image: {
+      "@type": "ImageObject",
+      url: imageUrl,
+      width: 1200,
+      height: 630,
+    },
+    datePublished: validDatePublished,
+    dateModified: validDateModified,
     author: {
       "@type": "Person",
       name: post.author,
+      url: `${SITE_URL}/tentang-kami`, // Menambahkan URL agar valid (opsional)
     },
     publisher: {
       "@type": "Organization",
