@@ -321,15 +321,14 @@ export default async function KabupatenPage({ params }: PageProps) {
       <div className="bg-[#003580] text-white flex flex-col min-h-screen">
         <Header />
 
-        {/* BREADCRUMB */}
         <Breadcrumb items={breadcrumbItems} />
 
         <main className="flex-1 w-full">
-          {/* 1. HERO */}
+          {/* 1. HERO — SWAP: badge tampil sebagai H1, headline tampil sebagai badge */}
           <HeroSection
             waNumber={waNumber}
-            badge={content.hero.badge}
-            headline={content.hero.headline}
+            badge={content.hero.headline}
+            headline={content.hero.badge}
             subheadline={content.hero.subheadline}
             ctaText={content.hero.ctaText}
           />
@@ -356,7 +355,7 @@ export default async function KabupatenPage({ params }: PageProps) {
           {/* 5. GUARANTEE */}
           <GuaranteeSection />
 
-          {/* 6. TECH PARTNERS — FIX: hapus prop kabupaten */}
+          {/* 6. TECH PARTNERS */}
           <TechPartners />
 
           {/* 7. PROBLEM & SOLUTION */}
@@ -367,14 +366,14 @@ export default async function KabupatenPage({ params }: PageProps) {
             solutions={content.problemSolution.solutions}
           />
 
-          {/* 8. PORTFOLIO — masih menerima kabupaten */}
+          {/* 8. PORTFOLIO */}
           <PortfolioSection
             title={content.portfolio.title}
             subtitle={content.portfolio.subtitle}
             kabupaten={content.namaLengkap}
           />
 
-          {/* 9. TESTIMONIAL — masih menerima kabupaten */}
+          {/* 9. TESTIMONIAL */}
           <TestimonialSection
             title={content.testimonial.title}
             subtitle={content.testimonial.subtitle}

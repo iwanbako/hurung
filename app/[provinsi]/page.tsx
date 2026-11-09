@@ -204,12 +204,11 @@ export default async function ProvinsiPage({ params }: PageProps) {
   // ============================================================
   // TRIK AGGREGATE RATING DINAMIS (Berbeda tiap provinsi)
   // ============================================================
-  // Menghasilkan angka antara 4.75 sampai 4.99 berdasarkan panjang huruf slug
   const ratingBase = 4.75 + ((provinsi.length * 7) % 25) / 100;
-  const reviewCount = 150 + ((provinsi.length * 123) % 800); // Antara 150 - 950 ulasan
+  const reviewCount = 150 + ((provinsi.length * 123) % 800);
 
   // ============================================================
-  // JSON-LD: PRODUCT SCHEMA (Sesuai Kompetitor)
+  // JSON-LD: PRODUCT SCHEMA
   // ============================================================
   const jsonLd = {
     "@context": "https://schema.org",
@@ -232,10 +231,10 @@ export default async function ProvinsiPage({ params }: PageProps) {
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: ratingBase.toFixed(2), // Contoh output: "4.87"
+      ratingValue: ratingBase.toFixed(2),
       bestRating: "5",
       worstRating: "1",
-      ratingCount: reviewCount.toString(), // Contoh output: "453"
+      ratingCount: reviewCount.toString(),
     },
   };
 
@@ -258,42 +257,35 @@ export default async function ProvinsiPage({ params }: PageProps) {
       <div className="bg-[#003580] text-white flex flex-col min-h-screen">
         <Header />
 
-        {/* BREADCRUMB (Komponen ini sudah otomatis membuat schema JSON-LD) */}
         <Breadcrumb items={breadcrumbItems} />
 
         <main className="flex-1 w-full">
-          {/* HERO */}
+          {/* HERO — SWAP: badge tampil sebagai H1, headline tampil sebagai badge */}
           <HeroSection
             waNumber={waNumber}
-            badge={content.hero.badge}
-            headline={content.hero.headline}
+            badge={content.hero.headline}
+            headline={content.hero.badge}
             subheadline={content.hero.subheadline}
             ctaText={content.hero.ctaText}
           />
 
-          {/* SERVICES */}
           <ServicesSection
             title={content.services.title}
             subtitle={content.services.subtitle}
           />
 
-          {/* WORKFLOW */}
           <WorkflowSection />
 
-          {/* WHY US */}
           <WhyUsSection
             title={content.whyUs.title}
             subtitle={content.whyUs.subtitle}
             points={content.whyUs.points}
           />
 
-          {/* GUARANTEE */}
           <GuaranteeSection />
 
-          {/* TECH PARTNERS */}
           <TechPartners />
 
-          {/* PROBLEM & SOLUTION */}
           <ProblemSolutionSection
             title={content.problemSolution.title}
             subtitle={content.problemSolution.subtitle}
@@ -301,39 +293,32 @@ export default async function ProvinsiPage({ params }: PageProps) {
             solutions={content.problemSolution.solutions}
           />
 
-          {/* PORTFOLIO */}
           <PortfolioSection
             title={content.portfolio.title}
             subtitle={content.portfolio.subtitle}
           />
 
-          {/* TESTIMONIAL */}
           <TestimonialSection
             title={content.testimonial.title}
             subtitle={content.testimonial.subtitle}
           />
 
-          {/* WEB vs SOSMED */}
           <WebVsSosmedSection />
 
-          {/* PRICING */}
           <PricingSection
             pricing={pricingData}
             waNumber={waNumber}
             note={content.pricingNote}
           />
 
-          {/* FAQ */}
           <FaqSection faqs={content.faqs} waNumber={waNumber} />
 
-          {/* FINAL CTA */}
           <FinalCtaSection
             waNumber={waNumber}
             title={content.finalCta.title}
             subtitle={content.finalCta.subtitle}
           />
 
-          {/* SEMUA KABUPATEN/KOTA DI PROVINSI INI (chip kecil, klik-able) */}
           <ProvinsiRegenciesSection
             provinsiName={content.nama}
             provinsiSlug={provinsi}

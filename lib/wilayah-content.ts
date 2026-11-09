@@ -193,7 +193,7 @@ export function generateKabupatenContent(
   // 7. Hero
   // ==========================================
   const hero = {
-    badge: `${ikon} - Jasa Website Profesional`,
+    badge: `Jasa Website Profesional di ${namaLengkap}`,
     headline: `Website Profesional untuk Bisnis ${industriText} di ${namaLengkap}`,
     subheadline: `Dari ${firstDistrict} hingga ${lastDistrict}, kami bantu UMKM, bisnis ${industriText}, dan instansi di ${namaLengkap} tampil profesional online.${destinasiText}`,
     ctaText: "Konsultasi Gratis via WhatsApp",
