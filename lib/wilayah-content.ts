@@ -6,15 +6,15 @@ import { generateAutoCharacter } from "./wilayah-content-auto";
 /**
  * Bentuk konten yang dihasilkan untuk satu kabupaten/kota.
  * Kompatibel 1:1 dengan props komponen section:
- * - HeroSection       ? hero
- * - ServicesSection   ? services
- * - WhyUsSection      ? whyUs
- * - ProblemSolutionSection ? problemSolution
- * - PortfolioSection  ? portfolio
- * - TestimonialSection ? testimonial
- * - PricingSection    ? pricingNote
- * - FaqSection        ? faqs
- * - FinalCtaSection   ? finalCta
+ * - HeroSection            -> hero
+ * - ServicesSection        -> services
+ * - WhyUsSection           -> whyUs
+ * - ProblemSolutionSection -> problemSolution
+ * - PortfolioSection       -> portfolio
+ * - TestimonialSection     -> testimonial
+ * - PricingSection         -> pricingNote
+ * - FaqSection             -> faqs
+ * - FinalCtaSection        -> finalCta
  */
 export interface KabupatenContent {
   // Identitas
@@ -184,7 +184,8 @@ export function generateKabupatenContent(
   // ==========================================
   // 6. SEO
   // ==========================================
-  const metaTitle = `Jasa Pembuatan Website di ${namaLengkap} untuk Bisnis ${industriPertama} - ${prov}`;
+  // Meta title tanpa provinsi + fokus harga
+  const metaTitle = `Jasa Pembuatan Website di ${namaLengkap} - Mulai Rp 999rb`;
 
   const metaDescription = `Jasa pembuatan website profesional di ${namaLengkap}, ${prov}. Spesialis bisnis ${industriText}. Melayani ${jumlahKecamatan} kecamatan termasuk ${districtSample.text}. Mulai Rp 999rb, bergaransi.`;
 
