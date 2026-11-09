@@ -4,37 +4,70 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const portfolioItems = [
-  {
-    title: "Kopi Nusantara (Lonjakan Penjualan 40%)",
-    desc: "Penggantian platform lama ke arsitektur modern menurunkan loading time dari 5s menjadi 0.8s.",
-    tag: "E-Commerce / F&B",
-    img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=600&auto=format&fit=crop",
-  },
-  {
-    title: "Klinik Sehat Utama (PageSpeed 100)",
-    desc: "Website medis profesional dengan integrasi form WhatsApp otomatis.",
-    tag: "Company Profile",
-    img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop",
-  },
-  {
-    title: "EduTech Academy (Lead Naik 3x Lipat)",
-    desc: "Optimalisasi UI/UX conversion-focused memangkas bounce rate hingga di bawah 25%.",
-    tag: "Landing Page",
-    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop",
-  },
-];
-
 interface Props {
   title?: string;
   subtitle?: string;
+  kabupaten?: string;
 }
 
-export const PortfolioSection: React.FC<Props> = ({ title, subtitle }) => {
-  const finalTitle = title ?? "Hasil Nyata Klien Kami";
+export const PortfolioSection: React.FC<Props> = ({
+  title,
+  subtitle,
+  kabupaten,
+}) => {
+  // ============================================================
+  // DATA PORTOFOLIO (dinamis mengikuti kabupaten kalau ada)
+  // ============================================================
+  const portfolioItems = [
+    {
+      title: kabupaten
+        ? `Kopi Nusantara Cabang ${kabupaten} (Lonjakan Penjualan 40%)`
+        : "Kopi Nusantara (Lonjakan Penjualan 40%)",
+      desc: kabupaten
+        ? `Penggantian platform lama ke arsitektur modern menurunkan loading time dari 5s menjadi 0.8s. Kini pelanggan di ${kabupaten} lebih mudah memesan langsung dari website.`
+        : "Penggantian platform lama ke arsitektur modern menurunkan loading time dari 5s menjadi 0.8s.",
+      tag: "E-Commerce / F&B",
+      img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=600&auto=format&fit=crop",
+    },
+    {
+      title: kabupaten
+        ? `Klinik Sehat Utama ${kabupaten} (PageSpeed 100)`
+        : "Klinik Sehat Utama (PageSpeed 100)",
+      desc: kabupaten
+        ? `Website medis profesional dengan integrasi form WhatsApp otomatis. Pasien di ${kabupaten} kini bisa mendaftar konsultasi tanpa antre.`
+        : "Website medis profesional dengan integrasi form WhatsApp otomatis.",
+      tag: "Company Profile",
+      img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop",
+    },
+    {
+      title: kabupaten
+        ? `EduTech Academy ${kabupaten} (Lead Naik 3x Lipat)`
+        : "EduTech Academy (Lead Naik 3x Lipat)",
+      desc: kabupaten
+        ? `Optimalisasi UI/UX conversion-focused memangkas bounce rate hingga di bawah 25%. Pendaftar dari ${kabupaten} meningkat signifikan.`
+        : "Optimalisasi UI/UX conversion-focused memangkas bounce rate hingga di bawah 25%.",
+      tag: "Landing Page",
+      img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop",
+    },
+  ];
+
+  // ============================================================
+  // HEADER TEXT (dinamis mengikuti kabupaten kalau ada)
+  // ============================================================
+  const finalTitle = title ?? (
+    <>
+      Hasil Nyata{" "}
+      <span className="text-[#FEBB02]">
+        {kabupaten ? `Klien Kami di ${kabupaten}` : "Klien Kami"}
+      </span>
+    </>
+  );
+
   const finalSubtitle =
     subtitle ??
-    "Bukti performa dan efektivitas desain website kami dalam meningkatkan kredibilitas serta konversi bisnis.";
+    (kabupaten
+      ? `Bukti performa website kami untuk bisnis di ${kabupaten} - mulai dari UMKM, klinik, hingga lembaga pendidikan.`
+      : "Bukti performa dan efektivitas desain website kami dalam meningkatkan kredibilitas serta konversi bisnis.");
 
   return (
     <section className="bg-[#003580] py-12 sm:py-20 border-b border-[#0066f5] overflow-hidden">
@@ -52,14 +85,7 @@ export const PortfolioSection: React.FC<Props> = ({ title, subtitle }) => {
           </span>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 sm:mt-3">
-            {title ? (
-              title
-            ) : (
-              <>
-                Hasil Nyata{" "}
-                <span className="text-[#FEBB02]">Klien Kami</span>
-              </>
-            )}
+            {finalTitle}
           </h2>
 
           <p className="mt-2 text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">

@@ -335,18 +335,21 @@ async function KabupatenContent({ params }: PageProps) {
             headline={content.hero.headline}
             subheadline={content.hero.subheadline}
             ctaText={content.hero.ctaText}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 2. SERVICES */}
           <ServicesSection
             title={content.services.title}
             subtitle={content.services.subtitle}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 3. WORKFLOW — title & subtitle dinamis per kabupaten */}
           <WorkflowSection
             title={`4 Langkah Mudah Punya Website di ${content.namaLengkap}`}
             subtitle={`Proses cepat, transparan, dan tidak ribet. Kami dampingi bisnis di ${content.namaLengkap}, ${content.provinsi} dari nol sampai website online.`}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 4. WHY US */}
@@ -354,13 +357,14 @@ async function KabupatenContent({ params }: PageProps) {
             title={content.whyUs.title}
             subtitle={content.whyUs.subtitle}
             points={content.whyUs.points}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 5. GUARANTEE */}
-          <GuaranteeSection />
+          <GuaranteeSection kabupaten={content.namaLengkap} />
 
           {/* 6. TECH PARTNERS */}
-          <TechPartners />
+          <TechPartners kabupaten={content.namaLengkap} />
 
           {/* 7. PROBLEM & SOLUTION */}
           <ProblemSolutionSection
@@ -368,22 +372,25 @@ async function KabupatenContent({ params }: PageProps) {
             subtitle={content.problemSolution.subtitle}
             problems={content.problemSolution.problems}
             solutions={content.problemSolution.solutions}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 8. PORTFOLIO */}
           <PortfolioSection
             title={content.portfolio.title}
             subtitle={content.portfolio.subtitle}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 9. TESTIMONIAL */}
           <TestimonialSection
             title={content.testimonial.title}
             subtitle={content.testimonial.subtitle}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 10. WEB vs SOSMED */}
-          <WebVsSosmedSection />
+          <WebVsSosmedSection kabupaten={content.namaLengkap} />
 
           {/* 11. PRICING */}
           <PricingSection
@@ -391,16 +398,22 @@ async function KabupatenContent({ params }: PageProps) {
             waNumber={waNumber}
             locationName={content.nama}
             note={content.pricingNote}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 12. FAQ */}
-          <FaqSection faqs={content.faqs} waNumber={waNumber} />
+          <FaqSection
+            faqs={content.faqs}
+            waNumber={waNumber}
+            kabupaten={content.namaLengkap}
+          />
 
           {/* 13. FINAL CTA */}
           <FinalCtaSection
             waNumber={waNumber}
             title={content.finalCta.title}
             subtitle={content.finalCta.subtitle}
+            kabupaten={content.namaLengkap}
           />
 
           {/* 14. KABUPATEN LAIN */}

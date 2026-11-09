@@ -4,43 +4,74 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const testimonials = [
-  {
-    name: "Bapak Budi Santoso",
-    business: "Pemilik Kuliner Kopi Nusantara",
-    comment:
-      "Website selesai sangat cepat dan performanya luar biasa! Penjualan online kami meningkat drastis setelah pindah ke website profesional ini.",
-    rating: 5,
-    avatar: "☕",
-  },
-  {
-    name: "Dr. Siti Rahma",
-    business: "Klinik Sehat Utama",
-    comment:
-      "Sangat puas dengan pelayanannya. Fitur tombol WhatsApp langsung sangat membantu pasien berkonsultasi dengan mudah.",
-    rating: 5,
-    avatar: "👩‍⚕️",
-  },
-  {
-    name: "Reza Pratama",
-    business: "Founder EduTech Academy",
-    comment:
-      "Struktur SEO-nya mantap! Baru beberapa minggu online, website langsung nongkrong di halaman pertama pencarian Google.",
-    rating: 5,
-    avatar: "🎓",
-  },
-];
-
 interface Props {
   title?: string;
   subtitle?: string;
+  kabupaten?: string;
 }
 
-export const TestimonialSection: React.FC<Props> = ({ title, subtitle }) => {
-  const finalTitle = title ?? "Apa Kata Klien Kami?";
+export const TestimonialSection: React.FC<Props> = ({
+  title,
+  subtitle,
+  kabupaten,
+}) => {
+  // ============================================================
+  // DATA TESTIMONI (dinamis mengikuti kabupaten kalau ada)
+  // ============================================================
+  const testimonials = [
+    {
+      name: "Bapak Budi Santoso",
+      business: kabupaten
+        ? `Pemilik Kuliner Kopi Nusantara - Klien ${kabupaten}`
+        : "Pemilik Kuliner Kopi Nusantara",
+      comment: kabupaten
+        ? `Website selesai sangat cepat dan performanya luar biasa! Bisnis kami di ${kabupaten} sekarang jauh lebih mudah ditemukan pelanggan baru lewat Google.`
+        : "Website selesai sangat cepat dan performanya luar biasa! Penjualan online kami meningkat drastis setelah pindah ke website profesional ini.",
+      rating: 5,
+      avatar: "☕",
+    },
+    {
+      name: "Dr. Siti Rahma",
+      business: kabupaten
+        ? `Klinik Sehat Utama - Melayani Pasien ${kabupaten}`
+        : "Klinik Sehat Utama",
+      comment: kabupaten
+        ? `Sangat puas dengan pelayanannya. Fitur tombol WhatsApp langsung sangat membantu pasien kami di ${kabupaten} berkonsultasi dengan mudah.`
+        : "Sangat puas dengan pelayanannya. Fitur tombol WhatsApp langsung sangat membantu pasien berkonsultasi dengan mudah.",
+      rating: 5,
+      avatar: "👩‍⚕️",
+    },
+    {
+      name: "Reza Pratama",
+      business: kabupaten
+        ? `Founder EduTech Academy - Basis Klien ${kabupaten}`
+        : "Founder EduTech Academy",
+      comment: kabupaten
+        ? `Struktur SEO-nya mantap! Baru beberapa minggu online, website kami langsung muncul di halaman pertama Google untuk pencarian di ${kabupaten}.`
+        : "Struktur SEO-nya mantap! Baru beberapa minggu online, website langsung nongkrong di halaman pertama pencarian Google.",
+      rating: 5,
+      avatar: "🎓",
+    },
+  ];
+
+  // ============================================================
+  // HEADER TEXT (dinamis mengikuti kabupaten kalau ada)
+  // ============================================================
+  const finalTitle = title ?? (
+    <>
+      Apa Kata{" "}
+      <span className="text-[#FEBB02]">
+        {kabupaten ? `Klien Kami di ${kabupaten}` : "Klien Kami"}
+      </span>
+      ?
+    </>
+  );
+
   const finalSubtitle =
     subtitle ??
-    "Kepuasan klien adalah prioritas utama kami dalam menghadirkan solusi digital terbaik.";
+    (kabupaten
+      ? `Testimoni jujur dari pemilik bisnis di ${kabupaten} yang sudah merasakan dampak nyata website profesional bersama KerabatWeb.`
+      : "Kepuasan klien adalah prioritas utama kami dalam menghadirkan solusi digital terbaik.");
 
   return (
     <section className="bg-[#003580] py-12 sm:py-20 border-b border-[#0066f5] overflow-hidden">
@@ -58,13 +89,7 @@ export const TestimonialSection: React.FC<Props> = ({ title, subtitle }) => {
           </span>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            {title ? (
-              title
-            ) : (
-              <>
-                Apa Kata <span className="text-[#FEBB02]">Klien Kami?</span>
-              </>
-            )}
+            {finalTitle}
           </h2>
 
           <p className="mt-2 text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">

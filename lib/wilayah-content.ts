@@ -262,14 +262,15 @@ export function generateKabupatenContent(
   // ==========================================
   // 11. Portfolio & Testimonial
   // ==========================================
+  // FIX: pakai namaLengkap (bukan prov) agar konsisten dengan header kabupaten
   const portfolio = {
-    title: `Portofolio Website Klien dari ${prov}`,
-    subtitle: `Beberapa proyek website yang kami kerjakan untuk bisnis ${industriText} di ${prov}, termasuk ${namaLengkap}.`,
+    title: `Portofolio Website Klien dari ${namaLengkap}`,
+    subtitle: `Beberapa proyek website yang kami kerjakan untuk bisnis ${industriText} di ${namaLengkap}, ${prov}.`,
   };
 
   const testimonial = {
-    title: `Apa Kata Klien dari ${prov}?`,
-    subtitle: `Testimoni jujur dari pemilik bisnis yang sudah bekerja sama dengan kami.`,
+    title: `Apa Kata Klien dari ${namaLengkap}?`,
+    subtitle: `Testimoni jujur dari pemilik bisnis di ${namaLengkap} yang sudah bekerja sama dengan kami.`,
   };
 
   // ==========================================
