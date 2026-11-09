@@ -4,6 +4,7 @@ import { kalimantan } from "./kalimantan";
 import { sulawesi } from "./sulawesi";
 import { baliNusa } from "./bali-nusa";
 import { malukuPapua } from "./maluku-papua";
+import { kepulauanRiau } from "./kepulauan-riau";
 
 export const provinsiContent = {
   ...sumatra,
@@ -12,4 +13,5 @@ export const provinsiContent = {
   ...sulawesi,
   ...baliNusa,
   ...malukuPapua,
+  ...kepulauanRiau,
 };
