@@ -325,7 +325,7 @@ export default async function KabupatenPage({ params }: PageProps) {
         <Breadcrumb items={breadcrumbItems} />
 
         <main className="flex-1 w-full">
-          {/* 1. HERO — TIDAK menerima prop kabupaten */}
+          {/* 1. HERO */}
           <HeroSection
             waNumber={waNumber}
             badge={content.hero.badge}
@@ -334,32 +334,32 @@ export default async function KabupatenPage({ params }: PageProps) {
             ctaText={content.hero.ctaText}
           />
 
-          {/* 2. SERVICES — TIDAK menerima prop kabupaten */}
+          {/* 2. SERVICES */}
           <ServicesSection
             title={content.services.title}
             subtitle={content.services.subtitle}
           />
 
-          {/* 3. WORKFLOW — TIDAK menerima prop kabupaten */}
+          {/* 3. WORKFLOW */}
           <WorkflowSection
             title={`4 Langkah Mudah Punya Website di ${content.namaLengkap}`}
             subtitle={`Proses cepat, transparan, dan tidak ribet. Kami dampingi bisnis di ${content.namaLengkap}, ${content.provinsi} dari nol sampai website online.`}
           />
 
-          {/* 4. WHY US — TIDAK menerima prop kabupaten */}
+          {/* 4. WHY US */}
           <WhyUsSection
             title={content.whyUs.title}
             subtitle={content.whyUs.subtitle}
             points={content.whyUs.points}
           />
 
-          {/* 5. GUARANTEE — TIDAK menerima props sama sekali */}
+          {/* 5. GUARANTEE */}
           <GuaranteeSection />
 
-          {/* 6. TECH PARTNERS — MENERIMA prop kabupaten */}
-          <TechPartners kabupaten={content.namaLengkap} />
+          {/* 6. TECH PARTNERS — FIX: hapus prop kabupaten */}
+          <TechPartners />
 
-          {/* 7. PROBLEM & SOLUTION — TIDAK menerima prop kabupaten */}
+          {/* 7. PROBLEM & SOLUTION */}
           <ProblemSolutionSection
             title={content.problemSolution.title}
             subtitle={content.problemSolution.subtitle}
@@ -367,24 +367,24 @@ export default async function KabupatenPage({ params }: PageProps) {
             solutions={content.problemSolution.solutions}
           />
 
-          {/* 8. PORTFOLIO — MENERIMA prop kabupaten */}
+          {/* 8. PORTFOLIO — masih menerima kabupaten */}
           <PortfolioSection
             title={content.portfolio.title}
             subtitle={content.portfolio.subtitle}
             kabupaten={content.namaLengkap}
           />
 
-          {/* 9. TESTIMONIAL — MENERIMA prop kabupaten */}
+          {/* 9. TESTIMONIAL — masih menerima kabupaten */}
           <TestimonialSection
             title={content.testimonial.title}
             subtitle={content.testimonial.subtitle}
             kabupaten={content.namaLengkap}
           />
 
-          {/* 10. WEB vs SOSMED — TIDAK menerima prop kabupaten */}
+          {/* 10. WEB vs SOSMED */}
           <WebVsSosmedSection />
 
-          {/* 11. PRICING — TIDAK menerima prop kabupaten */}
+          {/* 11. PRICING */}
           <PricingSection
             pricing={pricingData}
             waNumber={waNumber}
@@ -392,17 +392,17 @@ export default async function KabupatenPage({ params }: PageProps) {
             note={content.pricingNote}
           />
 
-          {/* 12. FAQ — TIDAK menerima prop kabupaten */}
+          {/* 12. FAQ */}
           <FaqSection faqs={content.faqs} waNumber={waNumber} />
 
-          {/* 13. FINAL CTA — TIDAK menerima prop kabupaten */}
+          {/* 13. FINAL CTA */}
           <FinalCtaSection
             waNumber={waNumber}
             title={content.finalCta.title}
             subtitle={content.finalCta.subtitle}
           />
 
-          {/* 14. KABUPATEN LAIN — tidak pakai kabupaten prop */}
+          {/* 14. KABUPATEN LAIN */}
           <OtherRegenciesSection
             provinsiName={content.provinsi}
             provinsiSlug={provinsi}
@@ -410,7 +410,7 @@ export default async function KabupatenPage({ params }: PageProps) {
             regencies={data.province.regencies}
           />
 
-          {/* 15. DAFTAR KECAMATAN — tidak pakai kabupaten prop */}
+          {/* 15. DAFTAR KECAMATAN */}
           <DistrictsSection
             provinsi={content.provinsi}
             kabupaten={content.namaLengkap}
