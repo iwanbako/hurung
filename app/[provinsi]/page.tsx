@@ -1,6 +1,5 @@
 // app/[provinsi]/page.tsx
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 
 import { Header } from "@/components/common/Header";
@@ -184,9 +183,9 @@ const pricingData = [
 ];
 
 // ------------------------------------------------------------
-// KOMPONEN ANAK
+// PAGE (default export async — tanpa Suspense)
 // ------------------------------------------------------------
-async function ProvinsiContent({ params }: PageProps) {
+export default async function ProvinsiPage({ params }: PageProps) {
   const { provinsi } = await params;
   const content = provinsiContent[provinsi];
 
@@ -351,25 +350,5 @@ async function ProvinsiContent({ params }: PageProps) {
         />
       </div>
     </>
-  );
-}
-
-// ------------------------------------------------------------
-// PAGE UTAMA
-// ------------------------------------------------------------
-export default function ProvinsiPage({ params }: PageProps) {
-  return (
-    <Suspense
-      fallback={
-        <div className="bg-[#003580] min-h-screen flex items-center justify-center text-white">
-          <div className="text-center">
-            <div className="w-12 h-12 border-4 border-[#FEBB02] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-sm text-blue-200">Memuat halaman...</p>
-          </div>
-        </div>
-      }
-    >
-      <ProvinsiContent params={params} />
-    </Suspense>
   );
 }
