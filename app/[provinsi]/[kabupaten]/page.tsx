@@ -1,6 +1,5 @@
 // app/[provinsi]/[kabupaten]/page.tsx
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 
 import { Header } from "@/components/common/Header";
@@ -226,9 +225,9 @@ export function generateStaticParams() {
 }
 
 // ============================================================
-// KONTEN
+// PAGE (default export async — tanpa Suspense)
 // ============================================================
-async function KabupatenContent({ params }: PageProps) {
+export default async function KabupatenPage({ params }: PageProps) {
   const { provinsi, kabupaten } = await params;
 
   const data = findRegency(provinsi, kabupaten);
@@ -246,14 +245,14 @@ async function KabupatenContent({ params }: PageProps) {
 
   // ============================================================
   // TRIK AGGREGATE RATING DINAMIS (Berbeda tiap kabupaten)
+  // ⚠️ CATATAN: angka ini bukan dari ulasan nyata. Lihat catatan di bawah.
   // ============================================================
-  // Kombinasi panjang string provinsi & kabupaten agar angka unik
   const hash = provinsi.length + kabupaten.length;
-  const ratingBase = 4.75 + ((hash * 7) % 25) / 100; // Menghasilkan 4.75 - 4.99
-  const reviewCount = 120 + ((hash * 213) % 850); // Menghasilkan 120 - 970 ulasan
+  const ratingBase = 4.75 + ((hash * 7) % 25) / 100; // 4.75 - 4.99
+  const reviewCount = 120 + ((hash * 213) % 850); // 120 - 970 ulasan
 
   // ============================================================
-  // JSON-LD: PRODUCT SCHEMA (Sesuai Kompetitor)
+  // JSON-LD: PRODUCT SCHEMA
   // ============================================================
   const jsonLd = {
     "@context": "https://schema.org",
@@ -319,7 +318,6 @@ async function KabupatenContent({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      {/* Schema Breadcrumb dihilangkan karena sudah dibuat otomatis oleh komponen <Breadcrumb /> */}
 
       <div className="bg-[#003580] text-white flex flex-col min-h-screen">
         <Header />
@@ -345,7 +343,7 @@ async function KabupatenContent({ params }: PageProps) {
             kabupaten={content.namaLengkap}
           />
 
-          {/* 3. WORKFLOW — title & subtitle dinamis per kabupaten */}
+          {/* 3. WORKFLOW */}
           <WorkflowSection
             title={`4 Langkah Mudah Punya Website di ${content.namaLengkap}`}
             subtitle={`Proses cepat, transparan, dan tidak ribet. Kami dampingi bisnis di ${content.namaLengkap}, ${content.provinsi} dari nol sampai website online.`}
@@ -441,25 +439,5 @@ async function KabupatenContent({ params }: PageProps) {
         />
       </div>
     </>
-  );
-}
-
-// ============================================================
-// PAGE (Suspense wrapper)
-// ============================================================
-export default function KabupatenPage({ params }: PageProps) {
-  return (
-    <Suspense
-      fallback={
-        <div className="bg-[#003580] min-h-screen flex items-center justify-center text-white">
-          <div className="text-center">
-            <div className="w-12 h-12 border-4 border-[#FEBB02] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-sm text-blue-200">Memuat halaman...</p>
-          </div>
-        </div>
-      }
-    >
-      <KabupatenContent params={params} />
-    </Suspense>
   );
 }
