@@ -1,10 +1,126 @@
 // components/common/Footer.tsx
-import React from "react";
+"use client";
+
+import React, { useMemo } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { provinsiContent } from "@/data/provinsi-content";
+import { getRegenciesOfProvince } from "@/lib/wilayah";
 
 const tahun = new Date().getFullYear();
 
+const DUMMY_KECAMATAN = [
+  "Sukamaju", "Cilandak", "Menteng", "Coblong", "Kebayoran", "Sumbersari", 
+  "Sukajadi", "Banjarsari", "Tebet", "Gubeng", "Denpasar Barat", "Medan Baru"
+];
+
+const getSafeName = (item: any) => {
+  if (!item) return "";
+  if (typeof item === "string") return item;
+  return item.name || item.nama || "";
+};
+
+// Fungsi pembuat index acak yang konsisten (Deterministic Random)
+const getDeterministicIndex = (seed: string, length: number) => {
+  if (length === 0) return 0;
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = (hash << 5) - hash + seed.charCodeAt(i);
+    hash |= 0; // Konversi ke 32-bit integer
+  }
+  return Math.abs(hash) % length;
+};
+
 export const Footer: React.FC = () => {
+  const pathname = usePathname();
+
+  // ============================================================
+  // LOGIKA AREA LAYANAN DINAMIS (Bebas Hydration Error)
+  // ============================================================
+  const { displayArea } = useMemo(() => {
+    
+    // 1. JIKA DI HOMEPAGE
+    if (pathname === "/" || pathname === "") {
+      return {
+        displayArea: "Seluruh Indonesia",
+      };
+    }
+
+    // 2. JIKA DI HALAMAN LAIN
+    let namaProvinsi = "";
+    let namaKabupaten = "";
+    let namaKecamatan = "";
+
+    const segments = pathname.split("/").filter(Boolean);
+    const provinsiSlug = segments[0];
+    const kabupatenSlug = segments[1];
+
+    const isProvinsiValid = provinsiSlug && provinsiContent[provinsiSlug];
+
+    if (isProvinsiValid) {
+      // --- KONDISI 2A: Halaman Provinsi atau Kabupaten ---
+      const provData = provinsiContent[provinsiSlug];
+      namaProvinsi = provData.nama;
+      const regencies = getRegenciesOfProvince(provinsiSlug);
+
+      if (kabupatenSlug && regencies.length > 0) {
+        const kabData = regencies.find((r) => r.slug === kabupatenSlug);
+        if (kabData) {
+          namaKabupaten = getSafeName(kabData);
+          
+          const districts = (kabData as any).districts || [];
+          if (districts.length > 0) {
+            // Gunakan Deterministic Index
+            const idx = getDeterministicIndex(pathname, districts.length);
+            namaKecamatan = getSafeName(districts[idx]);
+          } else {
+            const idx = getDeterministicIndex(pathname, DUMMY_KECAMATAN.length);
+            namaKecamatan = DUMMY_KECAMATAN[idx];
+          }
+        }
+      } 
+      
+      if (!namaKabupaten && regencies.length > 0) {
+        const idx = getDeterministicIndex(pathname, regencies.length);
+        namaKabupaten = getSafeName(regencies[idx]);
+        const distIdx = getDeterministicIndex(pathname, DUMMY_KECAMATAN.length);
+        namaKecamatan = DUMMY_KECAMATAN[distIdx];
+      }
+    } 
+    
+    // --- KONDISI 2B: Halaman umum (Blog, Kontak) atau URL tidak valid ---
+    if (!namaProvinsi || !namaKabupaten) {
+      const allProvinceSlugs = Object.keys(provinsiContent);
+      const provIdx = getDeterministicIndex(pathname, allProvinceSlugs.length);
+      const randomProvSlug = allProvinceSlugs[provIdx];
+      namaProvinsi = provinsiContent[randomProvSlug].nama;
+      
+      const regencies = getRegenciesOfProvince(randomProvSlug);
+      if (regencies.length > 0) {
+        const kabIdx = getDeterministicIndex(pathname, regencies.length);
+        const randomKabItem = regencies[kabIdx];
+        namaKabupaten = getSafeName(randomKabItem);
+        
+        const districts = (randomKabItem as any).districts || [];
+        if (districts.length > 0) {
+          const distIdx = getDeterministicIndex(pathname, districts.length);
+          namaKecamatan = getSafeName(districts[distIdx]);
+        } else {
+          const distIdx = getDeterministicIndex(pathname, DUMMY_KECAMATAN.length);
+          namaKecamatan = DUMMY_KECAMATAN[distIdx];
+        }
+      } else {
+        namaKabupaten = "Kota Utama";
+        const distIdx = getDeterministicIndex(pathname, DUMMY_KECAMATAN.length);
+        namaKecamatan = DUMMY_KECAMATAN[distIdx];
+      }
+    }
+
+    return {
+      displayArea: `Kec. ${namaKecamatan}, Kab. ${namaKabupaten}, Prov. ${namaProvinsi}`,
+    };
+  }, [pathname]);
+
   return (
     <footer className="bg-booking-700 text-white/95 mt-auto">
       {/* ================= MAIN FOOTER ================= */}
@@ -26,9 +142,19 @@ export const Footer: React.FC = () => {
               Kerabatweb<span className="text-yellow-400">.com</span>
             </span>
           </Link>
-          <p className="text-[11px] sm:text-sm leading-relaxed max-w-sm text-white/80 mb-6">
+          <p className="text-[11px] sm:text-sm leading-relaxed max-w-sm text-white/80 mb-4">
             Membantu bisnis Anda tampil profesional di internet dengan website cepat, modern, dan siap konversi.
           </p>
+
+          {/* ================= AREA LAYANAN (Judul Kuning) ================= */}
+          <div className="max-w-sm mb-5">
+            <p className="text-[10px] sm:text-xs text-yellow-400 mb-0.5">
+              Area Layanan Utama
+            </p>
+            <p className="text-[11px] sm:text-sm text-white/80 leading-relaxed">
+              {displayArea}
+            </p>
+          </div>
           
           {/* Sosial Media / Kontak Cepat */}
           <div className="flex items-center gap-3">
@@ -63,7 +189,6 @@ export const Footer: React.FC = () => {
             Informasi
           </h3>
           <ul className="space-y-2.5 text-xs sm:text-sm text-white/80">
-            {/* TAMBAHAN LINK BLOG */}
             <li><Link href="/blog" className="hover:text-yellow-400 transition-colors">Blog</Link></li>
             <li><Link href="/tentang-kami" className="hover:text-yellow-400 transition-colors">Tentang Kami</Link></li>
             <li><Link href="/kebijakan-privasi" className="hover:text-yellow-400 transition-colors">Kebijakan Privasi</Link></li>
