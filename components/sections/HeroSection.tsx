@@ -13,8 +13,9 @@ interface Props {
   ctaText?: string;
 }
 
+// ✅ OPTIMASI: Turunkan lebar ke 1200 dan kualitas ke 60
 const HERO_BG =
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1920&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=60&w=1200&auto=format&fit=crop";
 
 export const HeroSection: React.FC<Props> = ({
   waNumber = "6285938573419",

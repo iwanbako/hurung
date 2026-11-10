@@ -27,7 +27,8 @@ export const PortfolioSection: React.FC<Props> = ({
         ? `Penggantian platform lama ke arsitektur modern menurunkan loading time dari 5s menjadi 0.8s. Kini pelanggan di ${kabupaten} lebih mudah memesan langsung dari website.`
         : "Penggantian platform lama ke arsitektur modern menurunkan loading time dari 5s menjadi 0.8s.",
       tag: "E-Commerce / F&B",
-      img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=600&auto=format&fit=crop",
+      // OPTIMASI: Tambahkan q=60&w=600 agar ukuran file turun drastis
+      img: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=60&w=600&auto=format&fit=crop",
     },
     {
       title: kabupaten
@@ -37,7 +38,8 @@ export const PortfolioSection: React.FC<Props> = ({
         ? `Website medis profesional dengan integrasi form WhatsApp otomatis. Pasien di ${kabupaten} kini bisa mendaftar konsultasi tanpa antre.`
         : "Website medis profesional dengan integrasi form WhatsApp otomatis.",
       tag: "Company Profile",
-      img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop",
+      // OPTIMASI: Tambahkan q=60&w=600 agar ukuran file turun drastis
+      img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=60&w=600&auto=format&fit=crop",
     },
     {
       title: kabupaten
@@ -47,7 +49,8 @@ export const PortfolioSection: React.FC<Props> = ({
         ? `Optimalisasi UI/UX conversion-focused memangkas bounce rate hingga di bawah 25%. Pendaftar dari ${kabupaten} meningkat signifikan.`
         : "Optimalisasi UI/UX conversion-focused memangkas bounce rate hingga di bawah 25%.",
       tag: "Landing Page",
-      img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop",
+      // OPTIMASI: Tambahkan q=60&w=600 agar ukuran file turun drastis
+      img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=60&w=600&auto=format&fit=crop",
     },
   ];
 
@@ -77,7 +80,7 @@ export const PortfolioSection: React.FC<Props> = ({
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-10 sm:mb-14"
         >
           <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#FEBB02] text-[#00224f] px-3.5 py-1.5 rounded-full shadow-sm">
@@ -101,7 +104,7 @@ export const PortfolioSection: React.FC<Props> = ({
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="bg-[#00224f] border-2 border-[#0066f5] rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between transition-all"
             >
@@ -109,6 +112,9 @@ export const PortfolioSection: React.FC<Props> = ({
                 <img
                   src={item.img}
                   alt={item.title}
+                  // OPTIMASI: Tambahkan loading lazy agar gambar hanya diunduh saat di-scroll
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
