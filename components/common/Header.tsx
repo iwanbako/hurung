@@ -19,11 +19,6 @@ export const Header: React.FC = () => {
     a.nama.localeCompare(b.nama)
   );
 
-  // Pilih provinsi pertama sebagai default agar Googlebot bisa membaca kabupatennya juga
-  const defaultProvinsi = allProvinces[0]?.slug || null;
-
-  const activeRegencies = getRegenciesOfProvince(activeProvinsi || defaultProvinsi || "");
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -79,7 +74,7 @@ export const Header: React.FC = () => {
             </Link>
           </li>
           
-          {/* MEGA MENU WILAYAH (SEO FRIENDLY) */}
+          {/* MEGA MENU WILAYAH */}
           <li 
             className="relative"
             ref={dropdownRef}
@@ -96,11 +91,7 @@ export const Header: React.FC = () => {
               </svg>
             </button>
 
-            {/* 
-              MEGA MENU DROPDOWN
-              Menggunakan 'invisible opacity-0' agar disembunyikan secara visual 
-              TAPI TETAP DIKIRIM KE HTML (Googlebot bisa membacanya).
-            */}
+            {/* Mega Menu Dropdown */}
             <div 
               className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 transition-all duration-200 ${
                 isWilayahOpen 
@@ -108,13 +99,12 @@ export const Header: React.FC = () => {
                   : "invisible opacity-0 -translate-y-2 pointer-events-none"
               }`}
             >
-              <div className="w-[700px] bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 flex overflow-hidden text-left h-[450px] ring-1 ring-black/5 relative">
+              <div className="w-[750px] bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20 flex overflow-hidden text-left h-[500px] ring-1 ring-black/5 relative">
                 
-                {/* Garis Aksen Kuning */}
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400 z-10 rounded-t-2xl"></div>
 
-                {/* SISI KIRI: Daftar Provinsi (SELALU DIRENDER) */}
-                <div className="w-[40%] border-r border-gray-200/60 bg-gray-50/80 flex flex-col pt-3">
+                {/* SISI KIRI: Daftar Provinsi */}
+                <div className="w-[35%] border-r border-gray-200/60 bg-gray-50/80 flex flex-col pt-3">
                   <div className="px-4 py-2 border-b border-gray-200/60 bg-white/50">
                     <span className="text-[11px] font-extrabold text-booking-700 uppercase tracking-widest flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -140,9 +130,13 @@ export const Header: React.FC = () => {
                   </div>
                 </div>
 
-                {/* SISI KANAN: Daftar Kabupaten/Kota */}
-                {/* Googlebot akan membaca kabupaten milik provinsi pertama secara default */}
-                <div className="w-[60%] flex flex-col bg-white/50 pt-3 relative">
+                {/* 
+                  SISI KANAN: Daftar Kabupaten/Kota
+                  Trik: Kita merender SEMUA provinsi sebagai container tersembunyi.
+                  Hanya container dari provinsi aktif yang ditampilkan secara visual.
+                  Googlebot akan membaca SEMUA tag <a> di dalamnya.
+                */}
+                <div className="w-[65%] flex flex-col bg-white/50 pt-3 relative">
                   <div className="px-5 py-2 border-b border-gray-100 flex items-center justify-between bg-white/40">
                     <span className="text-[11px] font-extrabold text-booking-700 uppercase tracking-widest">
                       Kabupaten/Kota
@@ -154,19 +148,40 @@ export const Header: React.FC = () => {
                     )}
                   </div>
                   
-                  <div className="overflow-y-auto custom-scrollbar flex-1 p-4">
-                    {activeRegencies.length > 0 && (
-                      <div className="grid grid-cols-2 gap-2">
-                        {activeRegencies.map((kab) => (
-                          <Link
-                            key={kab.slug}
-                            href={`/${activeProvinsi || defaultProvinsi}/${kab.slug}`}
-                            className="group flex items-center gap-2.5 px-3 py-2.5 text-xs sm:text-sm text-gray-800 rounded-xl bg-white/50 border border-white/60 shadow-sm hover:bg-white hover:border-booking-300 hover:text-booking-700 transition-all hover:-translate-y-0.5"
-                          >
-                            <svg className="w-3.5 h-3.5 text-gray-500 group-hover:text-booking-500 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-                            <span className="truncate font-semibold">{kab.name || (kab as any).nama}</span>
-                          </Link>
-                        ))}
+                  <div className="overflow-y-auto custom-scrollbar flex-1 p-4 relative">
+                    
+                    {/* RENDER SEMUA KABUPATEN DARI SEMUA PROVINSI */}
+                    {allProvinces.map((prov) => {
+                      const regencies = getRegenciesOfProvince(prov.slug);
+                      const isActive = activeProvinsi === prov.slug;
+
+                      return (
+                        <div 
+                          key={prov.slug}
+                          // Jika aktif, tampilkan. Jika tidak, sembunyikan secara visual (tapi tetap ada di HTML).
+                          className={`grid grid-cols-2 gap-2 ${isActive ? "block" : "hidden"}`}
+                        >
+                          {regencies.map((kab) => (
+                            <Link
+                              key={kab.slug}
+                              href={`/${prov.slug}/${kab.slug}`}
+                              className="group flex items-center gap-2.5 px-3 py-2.5 text-xs sm:text-sm text-gray-800 rounded-xl bg-white/50 border border-white/60 shadow-sm hover:bg-white hover:border-booking-300 hover:text-booking-700 transition-all hover:-translate-y-0.5"
+                            >
+                              <svg className="w-3.5 h-3.5 text-gray-500 group-hover:text-booking-500 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                              <span className="truncate font-semibold">{kab.name || (kab as any).nama}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      );
+                    })}
+
+                    {/* Jika belum ada provinsi yang di-hover, tampilkan kosong dengan pesan */}
+                    {!activeProvinsi && (
+                      <div className="h-full flex flex-col items-center justify-center text-gray-400 text-sm absolute inset-0 bg-white/90">
+                        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-3">
+                          <svg className="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        </div>
+                        <p className="text-center leading-relaxed">Arahkan kursor ke provinsi<br/>untuk melihat kabupaten/kota.</p>
                       </div>
                     )}
                   </div>
