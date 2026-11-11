@@ -17,6 +17,7 @@ import { PricingSection } from "@/components/sections/PricingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { AllProvincesSection } from "@/components/sections/AllProvincesSection";
+import { MapSection } from "@/components/sections/MapSection"; // ← TAMBAH
 
 import { provinsiContent } from "@/data/provinsi-content";
 
@@ -253,6 +254,9 @@ export default function HomePage() {
 
           {/* SEMUA PROVINSI (chip kecil klik-able) */}
           <AllProvincesSection provinsiList={allProvinsi} />
+
+          {/* PETA AREA LAYANAN (otomatis: Indonesia di homepage) */}
+          <MapSection />
         </main>
         <Footer />
         <FloatingNav

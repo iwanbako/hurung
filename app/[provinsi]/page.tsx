@@ -20,6 +20,7 @@ import { PricingSection } from "@/components/sections/PricingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { ProvinsiRegenciesSection } from "@/components/sections/ProvinsiRegenciesSection";
+import { MapSection } from "@/components/sections/MapSection"; // ← TAMBAH
 
 import { provinsiContent } from "@/data/provinsi-content";
 import { getRegenciesOfProvince } from "@/lib/wilayah";
@@ -324,6 +325,9 @@ export default async function ProvinsiPage({ params }: PageProps) {
             provinsiSlug={provinsi}
             regencies={regencies}
           />
+
+          {/* PETA AREA LAYANAN — otomatis deteksi slug => peta batas provinsi (z=7) */}
+          <MapSection />
         </main>
 
         <Footer />

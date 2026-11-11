@@ -21,6 +21,7 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { OtherRegenciesSection } from "@/components/sections/OtherRegenciesSection";
 import { DistrictsSection } from "@/components/sections/DistrictsSection";
+import { MapSection } from "@/components/sections/MapSection"; // ← TAMBAH
 
 import { findRegency, getAllRegencyParams } from "@/lib/wilayah";
 import { getLocalCharacter } from "@/lib/local-character";
@@ -415,6 +416,9 @@ export default async function KabupatenPage({ params }: PageProps) {
             kabupaten={content.namaLengkap}
             districts={content.districts}
           />
+
+          {/* 16. PETA AREA LAYANAN — otomatis deteksi slug => peta batas kabupaten (z=10) */}
+          <MapSection />
         </main>
 
         <Footer />
