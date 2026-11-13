@@ -249,6 +249,11 @@ export default async function ProvinsiPage({ params }: PageProps) {
 
   return (
     <>
+      {/* Meta Tags tambahan */}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="bingbot" content="index, follow" />
+
       {/* Structured Data (Product Schema) */}
       <script
         type="application/ld+json"
