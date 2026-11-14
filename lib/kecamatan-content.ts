@@ -1,6 +1,5 @@
 // lib/kecamatan-content.ts
 import type { Province, Regency } from "./wilayah";
-import type { LocalCharacter } from "./local-character";
 
 export type DistrictContent = {
   namaKecamatan: string;
@@ -35,8 +34,7 @@ export type DistrictContent = {
 export function generateKecamatanContent(
   province: Province,
   regency: Regency,
-  districtName: string,
-  _localChar?: LocalCharacter
+  districtName: string
 ): DistrictContent {
   const namaKecamatan = districtName;
   const namaKabupaten = regency.name;

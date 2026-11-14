@@ -22,7 +22,6 @@ import { OtherDistrictsSection } from "@/components/sections/OtherDistrictsSecti
 import { MapSection } from "@/components/sections/MapSection";
 
 import { findDistrict, getAllDistrictParams } from "@/lib/wilayah";
-import { getLocalCharacter } from "@/lib/local-character";
 import { generateKecamatanContent } from "@/lib/kecamatan-content";
 
 // ============================================================
@@ -195,12 +194,10 @@ export async function generateMetadata({
     };
   }
 
-  const localChar = getLocalCharacter(provinsi, kabupaten);
   const content = generateKecamatanContent(
     data.province,
     data.regency,
-    data.district.name,
-    localChar
+    data.district.name
   );
 
   const url = `${SITE_URL}/${provinsi}/${kabupaten}/${kecamatan}`;
@@ -274,12 +271,10 @@ export default async function KecamatanPage({ params }: PageProps) {
   const data = findDistrict(provinsi, kabupaten, kecamatan);
   if (!data) notFound();
 
-  const localChar = getLocalCharacter(provinsi, kabupaten);
   const content = generateKecamatanContent(
     data.province,
     data.regency,
-    data.district.name,
-    localChar
+    data.district.name
   );
 
   const url = `${SITE_URL}/${provinsi}/${kabupaten}/${kecamatan}`;
