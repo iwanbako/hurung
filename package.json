@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/clean-build.js",
     "build": "next build",
+    "postbuild": "node scripts/drop-rsc-txt.js",
     "start": "next start",
     "lint": "eslint"
   },
