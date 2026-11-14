@@ -37,6 +37,8 @@ const getDeterministicIndex = (seed: string, length: number) => {
   return Math.abs(hash) % length;
 };
 
+type MapLevel = "indonesia" | "provinsi" | "kabupaten" | "kecamatan";
+
 export const MapSection: React.FC<Props> = ({
   provinsi,
   kabupaten,
@@ -52,16 +54,19 @@ export const MapSection: React.FC<Props> = ({
     // 1. Jika parent override manual
     // ==========================================================
     if (provinsi) {
-      // Tentukan level berdasarkan prop yang diisi
-      const lvl: "provinsi" | "kabupaten" =
-        kabupaten ? "kabupaten" : "provinsi";
+      let lvl: MapLevel = "provinsi";
+      if (kecamatan && kabupaten) lvl = "kecamatan";
+      else if (kabupaten) lvl = "kabupaten";
 
       const query =
-        lvl === "kabupaten"
+        lvl === "kecamatan"
+          ? `${kecamatan}, ${kabupaten}, ${provinsi}, Indonesia`
+          : lvl === "kabupaten"
           ? `${kabupaten}, ${provinsi}, Indonesia`
           : `${provinsi}, Indonesia`;
 
-      const zoom = lvl === "kabupaten" ? 10 : 7;
+      const zoom =
+        lvl === "kecamatan" ? 13 : lvl === "kabupaten" ? 10 : 7;
 
       return {
         mapQuery: query,
@@ -81,7 +86,7 @@ export const MapSection: React.FC<Props> = ({
         mapZoom: 4,
         displayArea: "Seluruh Indonesia",
         mapLabel: "Indonesia",
-        level: "indonesia" as const,
+        level: "indonesia" as MapLevel,
       };
     }
 
@@ -110,20 +115,31 @@ export const MapSection: React.FC<Props> = ({
           namaKabupaten = getSafeName(kabData);
 
           const districts = (kabData as any).districts || [];
-          if (districts.length > 0) {
-            if (kecamatanSlug) {
-              const found = districts.find(
-                (d: any) => (d.slug || d.name || d.nama) === kecamatanSlug
-              );
+
+          // ============================================================
+          // PRIORITAS 1: URL kecamatan -> cari slug dulu (bukan name)
+          // ============================================================
+          if (kecamatanSlug && districts.length > 0) {
+            const found = districts.find(
+              (d: any) => d.slug === kecamatanSlug
+            );
+            if (found) {
               namaKecamatan = getSafeName(found);
             }
-            if (!namaKecamatan) {
+          }
+
+          // PRIORITAS 2: fallback acak
+          if (!namaKecamatan) {
+            if (districts.length > 0) {
               const idx = getDeterministicIndex(pathname, districts.length);
               namaKecamatan = getSafeName(districts[idx]);
+            } else {
+              const idx = getDeterministicIndex(
+                pathname,
+                DUMMY_KECAMATAN.length
+              );
+              namaKecamatan = DUMMY_KECAMATAN[idx];
             }
-          } else {
-            const idx = getDeterministicIndex(pathname, DUMMY_KECAMATAN.length);
-            namaKecamatan = DUMMY_KECAMATAN[idx];
           }
         }
       }
@@ -154,7 +170,10 @@ export const MapSection: React.FC<Props> = ({
           const distIdx = getDeterministicIndex(pathname, districts.length);
           namaKecamatan = getSafeName(districts[distIdx]);
         } else {
-          const distIdx = getDeterministicIndex(pathname, DUMMY_KECAMATAN.length);
+          const distIdx = getDeterministicIndex(
+            pathname,
+            DUMMY_KECAMATAN.length
+          );
           namaKecamatan = DUMMY_KECAMATAN[distIdx];
         }
       } else {
@@ -165,44 +184,58 @@ export const MapSection: React.FC<Props> = ({
     }
 
     // ==========================================================
-    // 4. TENTUKAN QUERY & ZOOM BERDASARKAN LEVEL
+    // 4. TENTUKAN QUERY, ZOOM, & DISPLAY BERDASARKAN LEVEL
     // ==========================================================
-    // - Indonesia      -> seluruh Indonesia (z=4)
-    // - Provinsi       -> batas provinsi (z=7)
-    // - Kabupaten      -> batas kabupaten/kota (z=10)
-    // - Kecamatan      -> tetap pakai kabupaten (z=10), karena embed
-    //                     tidak punya batas kecamatan resmi
+    // - Provinsi         -> z=7
+    // - Kabupaten        -> z=10
+    // - Kecamatan        -> z=13 (lebih dekat ke kecamatan)
     // ==========================================================
+    const isProvinsiOnly = !!namaProvinsi && !segments[1];
+    const isKecamatanPage = !!kecamatanSlug && !!namaKecamatan;
 
-    const hasProvinsiOnly = !!namaProvinsi && !namaKabupaten;
-
-    const lvl: "provinsi" | "kabupaten" = hasProvinsiOnly
+    const lvl: MapLevel = isProvinsiOnly
       ? "provinsi"
+      : isKecamatanPage
+      ? "kecamatan"
       : "kabupaten";
 
     const query =
-      lvl === "provinsi"
+      lvl === "kecamatan"
+        ? `${namaKecamatan}, ${namaKabupaten}, ${namaProvinsi}, Indonesia`
+        : lvl === "provinsi"
         ? `${namaProvinsi}, Indonesia`
         : `${namaKabupaten}, ${namaProvinsi}, Indonesia`;
 
-    const zoom = lvl === "provinsi" ? 7 : 10;
+    const zoom = lvl === "kecamatan" ? 13 : lvl === "provinsi" ? 7 : 10;
+
+    // Label tampilan: kalau level provinsi -> "Prov. X"
+    //                  kabupaten -> "Kab. Y, Prov. X"
+    //                  kecamatan -> "Kec. Z, Kab. Y, Prov. X"
+    const displayArea =
+      lvl === "kecamatan"
+        ? `Kec. ${namaKecamatan}, Kab. ${namaKabupaten}, Prov. ${namaProvinsi}`
+        : lvl === "provinsi"
+        ? `Prov. ${namaProvinsi}`
+        : `Kab. ${namaKabupaten}, Prov. ${namaProvinsi}`;
+
+    const mapLabel =
+      lvl === "kecamatan"
+        ? `${namaKecamatan}, ${namaKabupaten}`
+        : lvl === "provinsi"
+        ? namaProvinsi
+        : `${namaKabupaten}, ${namaProvinsi}`;
 
     return {
       mapQuery: query,
       mapZoom: zoom,
-      displayArea: `Kec. ${namaKecamatan}, Kab. ${namaKabupaten}, Prov. ${namaProvinsi}`,
-      mapLabel: lvl === "provinsi" ? namaProvinsi : `${namaKabupaten}, ${namaProvinsi}`,
+      displayArea,
+      mapLabel,
       level: lvl,
     };
   }, [pathname, provinsi, kabupaten, kecamatan]);
 
   // ==========================================================
   // GOOGLE MAPS EMBED URL
-  // - q= hanya berisi nama wilayah (bukan kecamatan) agar
-  //   Google menampilkan batas area, bukan pin jalan.
-  // - z= diatur per level (makin kecil = makin zoom out).
-  // - output=embed -> tanpa API key.
-  // - hl=id -> bahasa Indonesia.
   // ==========================================================
   const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
     mapQuery

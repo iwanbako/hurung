@@ -1,5 +1,7 @@
+# indexnow-submit.py
 import json
 import urllib.request
+import urllib.error
 import xml.etree.ElementTree as ET
 
 # --- KONFIGURASI KERABATWEB.COM ---
@@ -10,35 +12,75 @@ SITEMAP_URL = f"https://{DOMAIN}/sitemap.xml"
 KEY_LOCATION = f"https://{DOMAIN}/{INDEXNOW_KEY}.txt"
 INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow"
 
+# Batas maksimum URL per batch IndexNow
+BATCH_SIZE = 1000
 
-def fetch_urls_from_sitemap(sitemap_url):
-    print(f"Mengambil sitemap dari: {sitemap_url}")
+
+# ============================================================
+# FETCH: Ambil URL dari sitemap.xml
+# - Kalau <sitemapindex>  -> rekursif baca semua sub-sitemap
+# - Kalau <urlset>        -> langsung ambil semua <loc>
+# ============================================================
+def fetch_urls_from_sitemap(sitemap_url, _seen=None):
+    if _seen is None:
+        _seen = set()
+
+    if sitemap_url in _seen:
+        return []
+    _seen.add(sitemap_url)
+
+    print(f"📖 Mengambil sitemap: {sitemap_url}")
     req = urllib.request.Request(
         sitemap_url, headers={"User-Agent": "IndexNow-Sitemap-Fetcher"}
     )
+
     try:
         with urllib.request.urlopen(req) as response:
             xml_content = response.read()
             root = ET.fromstring(xml_content)
-
-            urls = []
-            for elem in root.iter():
-                if elem.tag.endswith("loc"):
-                    if elem.text:
-                        urls.append(elem.text.strip())
-            return urls
     except Exception as e:
-        print(f"Gagal mengambil atau memparsing sitemap: {e}")
+        print(f"❌ Gagal mengambil sitemap: {e}")
         return []
 
+    root_tag = root.tag.lower()
+    urls = []
 
-def submit_single_url_to_indexnow(url, total_urls, current_index):
-    # PERBAIKAN: Gunakan 'urlList' berupa list yang berisi 1 URL agar sesuai dengan aturan IndexNow
+    # ============================================
+    # A. SITEMAP INDEX -> rekursif ambil sub-sitemap
+    # ============================================
+    if "sitemapindex" in root_tag:
+        sub_sitemaps = [
+            elem.text.strip()
+            for elem in root.iter()
+            if elem.tag.endswith("loc") and elem.text
+        ]
+        print(f"   ↳ sitemap index berisi {len(sub_sitemaps)} sub-sitemap")
+
+        for sub in sub_sitemaps:
+            urls.extend(fetch_urls_from_sitemap(sub, _seen=_seen))
+
+        return urls
+
+    # ============================================
+    # B. URLSET -> ambil semua <loc> sebagai URL
+    # ============================================
+    for elem in root.iter():
+        if elem.tag.endswith("loc") and elem.text:
+            urls.append(elem.text.strip())
+
+    print(f"   ↳ urlset berisi {len(urls)} URL")
+    return urls
+
+
+# ============================================================
+# KIRIM BATCH KE INDEXNOW
+# ============================================================
+def submit_batch_to_indexnow(url_batch, batch_index, total_batches):
     payload = {
         "host": DOMAIN,
         "key": INDEXNOW_KEY,
         "keyLocation": KEY_LOCATION,
-        "urlList": [url],
+        "urlList": url_batch,
     }
 
     data = json.dumps(payload).encode("utf-8")
@@ -56,43 +98,51 @@ def submit_single_url_to_indexnow(url, total_urls, current_index):
         with urllib.request.urlopen(req) as response:
             status_code = response.getcode()
             if status_code in [200, 202]:
-                print(f"[{current_index}/{total_urls}] Sukses ({status_code}): {url}")
+                print(f"[Batch {batch_index}/{total_batches}] ✅ Sukses ({status_code}): {len(url_batch)} URL.")
             else:
-                print(f"[{current_index}/{total_urls}] Status ({status_code}): {url}")
-
+                print(f"[Batch {batch_index}/{total_batches}] ⚠️ Status ({status_code}).")
     except urllib.error.HTTPError as e:
-        error_body = e.read().decode("utf-8", errors="ignore")
+        body = e.read().decode("utf-8", errors="ignore")
         status = e.code
 
-        if status == 400:
-            print(f"[{current_index}/{total_urls}] Error 400 (Bad Request): {url} -> {error_body}")
-        elif status == 403:
-            print(f"[{current_index}/{total_urls}] Error 403 (Forbidden): {url} -> {error_body}")
-        elif status == 422:
-            print(f"[{current_index}/{total_urls}] Error 422 (Unprocessable): {url} -> {error_body}")
-        elif status == 429:
-            print(f"[{current_index}/{total_urls}] Error 429 (Too Many Requests): {url} -> {error_body}")
-        else:
-            print(f"[{current_index}/{total_urls}] HTTP Error {status}: {url} -> {error_body}")
+        msg = {
+            400: "Bad Request",
+            403: "Forbidden (key tidak valid?)",
+            422: "Unprocessable (URL beda host?)",
+            429: "Too Many Requests (rate limit)",
+        }.get(status, f"HTTP {status}")
 
+        print(f"[Batch {batch_index}/{total_batches}] ❌ {msg} -> {body}")
     except Exception as e:
-        print(f"[{current_index}/{total_urls}] Error: {url} -> {e}")
+        print(f"[Batch {batch_index}/{total_batches}] ❌ Error: {e}")
 
 
-def submit_all_urls_one_by_one(urls):
+def submit_urls_in_batches(urls):
     if not urls:
-        print("Tidak ada URL yang ditemukan untuk disubmit.")
+        print("⚠️ Tidak ada URL untuk disubmit.")
         return
 
+    # Filter unik (hindari kirim duplikat)
+    urls = list(dict.fromkeys(urls))
+
     total = len(urls)
-    print(f"\nMulai mengirim {total} URL satu per satu ke IndexNow...\n")
+    batches = [urls[i:i + BATCH_SIZE] for i in range(0, total, BATCH_SIZE)]
+    total_batches = len(batches)
 
-    for idx, url in enumerate(urls, start=1):
-        submit_single_url_to_indexnow(url, total, idx)
+    print(f"\n🚀 Mengirim {total} URL unik dalam {total_batches} batch "
+          f"(maks. {BATCH_SIZE} URL/batch)...\n")
+
+    for idx, batch in enumerate(batches, start=1):
+        submit_batch_to_indexnow(batch, idx, total_batches)
 
 
+# ============================================================
+# MAIN
+# ============================================================
 if __name__ == "__main__":
     urls = fetch_urls_from_sitemap(SITEMAP_URL)
-    print(f"Ditemukan {len(urls)} URL di dalam sitemap.")
     if urls:
-        submit_all_urls_one_by_one(urls)
+        print(f"\n📊 Total URL terkumpul: {len(urls)}")
+        submit_urls_in_batches(urls)
+    else:
+        print("❌ Tidak ada URL yang ditemukan dari sitemap.")

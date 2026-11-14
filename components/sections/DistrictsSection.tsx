@@ -2,21 +2,44 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
+
+type District = { name: string; slug: string };
 
 interface Props {
   title?: string;
   subtitle?: string;
   provinsi?: string;
+  provinsiSlug?: string;
   kabupaten?: string;
-  districts?: string[];
+  kabupatenSlug?: string;
+  districts?: (string | District)[];
 }
+
+// Ambil slug dari item (string -> slugify, object -> .slug)
+const getSlug = (item: string | District): string => {
+  if (typeof item === "string") {
+    return item
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, "");
+  }
+  return item.slug;
+};
+
+// Ambil nama dari item
+const getName = (item: string | District): string => {
+  return typeof item === "string" ? item : item.name;
+};
 
 export const DistrictsSection: React.FC<Props> = ({
   title,
   subtitle,
   provinsi,
+  provinsiSlug,
   kabupaten,
+  kabupatenSlug,
   districts = [],
 }) => {
   if (districts.length === 0) return null;
@@ -27,7 +50,10 @@ export const DistrictsSection: React.FC<Props> = ({
     subtitle ??
     `Melayani seluruh ${districts.length} kecamatan${
       kabupaten ? ` di ${kabupaten}` : ""
-    }${provinsi ? `, ${provinsi}` : ""} — 100% online tanpa biaya tambahan.`;
+    }${provinsi ? `, ${provinsi}` : ""} — klik kecamatan Anda untuk melihat detail layanan.`;
+
+  // Apakah link bisa dibuat? Harus ada slug provinsi & kabupaten
+  const canLink = !!(provinsiSlug && kabupatenSlug);
 
   return (
     <section className="bg-[#003580] py-8 sm:py-12 border-b border-[#0066f5] overflow-hidden">
@@ -53,7 +79,7 @@ export const DistrictsSection: React.FC<Props> = ({
           </p>
         </motion.div>
 
-        {/* Grid Kecil & Padat */}
+        {/* Grid Kecil & Padat — sekarang tiap item bisa diklik */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,18 +87,40 @@ export const DistrictsSection: React.FC<Props> = ({
           transition={{ duration: 0.4, delay: 0.05 }}
           className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
         >
-          {districts.map((district, idx) => (
-            <motion.span
-              key={`${district}-${idx}`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.2, delay: idx * 0.005 }}
-              className="bg-[#00224f] border border-[#0066f5] rounded-md px-2 py-1 sm:px-2.5 sm:py-1.5 text-[10px] sm:text-xs text-blue-100 font-medium leading-none hover:border-[#FEBB02] hover:bg-[#002b5c] hover:text-white transition-colors whitespace-nowrap"
-            >
-              {district}
-            </motion.span>
-          ))}
+          {districts.map((district, idx) => {
+            const name = getName(district);
+            const slug = getSlug(district);
+            const href =
+              canLink && slug
+                ? `/${provinsiSlug}/${kabupatenSlug}/${slug}`
+                : undefined;
+
+            const chipClass =
+              "bg-[#00224f] border border-[#0066f5] rounded-md px-2 py-1 sm:px-2.5 sm:py-1.5 text-[10px] sm:text-xs text-blue-100 font-medium leading-none hover:border-[#FEBB02] hover:bg-[#002b5c] hover:text-white transition-colors whitespace-nowrap";
+
+            return (
+              <motion.span
+                key={`${slug || name}-${idx}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.2, delay: idx * 0.005 }}
+                className="inline-block"
+              >
+                {href ? (
+                  <Link
+                    href={href}
+                    className={chipClass}
+                    title={`Jasa Pembuatan Website ${name}`}
+                  >
+                    {name}
+                  </Link>
+                ) : (
+                  <span className={chipClass}>{name}</span>
+                )}
+              </motion.span>
+            );
+          })}
         </motion.div>
 
         {/* Footer Minimal */}

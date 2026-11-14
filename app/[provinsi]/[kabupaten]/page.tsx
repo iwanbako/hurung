@@ -21,7 +21,7 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { OtherRegenciesSection } from "@/components/sections/OtherRegenciesSection";
 import { DistrictsSection } from "@/components/sections/DistrictsSection";
-import { MapSection } from "@/components/sections/MapSection"; // ← TAMBAH
+import { MapSection } from "@/components/sections/MapSection";
 
 import { findRegency, getAllRegencyParams } from "@/lib/wilayah";
 import { getLocalCharacter } from "@/lib/local-character";
@@ -310,7 +310,10 @@ export default async function KabupatenPage({ params }: PageProps) {
   return (
     <>
       {/* Meta Tags tambahan */}
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta
+        name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      />
       <meta name="googlebot" content="index, follow" />
       <meta name="bingbot" content="index, follow" />
 
@@ -415,10 +418,12 @@ export default async function KabupatenPage({ params }: PageProps) {
             regencies={data.province.regencies}
           />
 
-          {/* 15. DAFTAR KECAMATAN */}
+          {/* 15. DAFTAR KECAMATAN — sekarang bisa diklik */}
           <DistrictsSection
             provinsi={content.provinsi}
+            provinsiSlug={provinsi}
             kabupaten={content.namaLengkap}
+            kabupatenSlug={kabupaten}
             districts={content.districts}
           />
 
