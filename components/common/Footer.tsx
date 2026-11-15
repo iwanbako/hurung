@@ -136,14 +136,7 @@ export const Footer: React.FC = () => {
   }, [pathname]);
 
   return (
-    <footer className="relative bg-[#050505] text-zinc-300 border-t border-zinc-800 mt-auto overflow-hidden shadow-[0_-20px_40px_rgba(0,0,0,0.8)]">
-      
-      {/* Garis Aksen Pelangi Modern di Bagian Paling Atas Footer */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-80 shadow-[0_0_15px_rgba(236,72,153,0.5)]"></div>
-
-      {/* Glow Effects Pelangi Halus di Background Belakang */}
-      <div className="absolute -top-24 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-24 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <footer className="relative bg-black text-white border-t border-zinc-800 mt-auto overflow-hidden">
 
       {/* ================= MAIN FOOTER ================= */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
@@ -154,7 +147,7 @@ export const Footer: React.FC = () => {
             href="/"
             className="flex items-center gap-2.5 mb-3 group w-fit"
           >
-            <span className="w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-xl bg-gradient-to-tr from-violet-600 via-pink-600 to-amber-500 text-white shadow-lg shadow-pink-500/20">
+            <span className="w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-full bg-zinc-900 border border-zinc-800 text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -168,24 +161,24 @@ export const Footer: React.FC = () => {
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2" strokeWidth="2" />
                 <line x1="8" y1="21" x2="16" y2="21" strokeWidth="2.5" />
                 <line x1="12" y1="17" x2="12" y2="21" strokeWidth="2.5" />
-                <path d="M7 8l3 3-3 3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-300" />
-                <line x1="13" y1="14" x2="17" y2="14" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-300" />
+                <path d="M7 8l3 3-3 3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400" />
+                <line x1="13" y1="14" x2="17" y2="14" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400" />
               </svg>
             </span>
             <span className="font-bold text-base sm:text-lg text-white">
-              Kerabatweb<span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">.com</span>
+              Kerabat<span className="text-zinc-400">Web</span>
             </span>
           </Link>
-          <p className="text-[11px] sm:text-sm leading-relaxed max-w-sm text-zinc-400 mb-4">
+          <p className="text-[11px] sm:text-sm leading-relaxed max-w-sm text-zinc-400 mb-4 font-normal">
             Membantu bisnis Anda tampil profesional di internet dengan website cepat, modern, dan siap konversi.
           </p>
 
           {/* ================= AREA LAYANAN ================= */}
-          <div className="max-w-sm mb-5 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800/80 shadow-inner">
-            <p className="text-[10px] sm:text-xs bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent font-bold mb-0.5 uppercase tracking-wider">
+          <div className="max-w-sm mb-5 p-3 rounded-xl bg-black border border-zinc-800">
+            <p className="text-[10px] sm:text-xs text-zinc-400 font-bold mb-0.5 uppercase tracking-wider">
               Area Layanan Utama
             </p>
-            <p className="text-[11px] sm:text-sm text-zinc-300 leading-relaxed">
+            <p className="text-[11px] sm:text-sm text-zinc-200 font-medium leading-relaxed">
               {displayArea}
             </p>
           </div>
@@ -196,7 +189,7 @@ export const Footer: React.FC = () => {
               href="https://wa.me/6285938573419"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 flex items-center justify-center hover:bg-gradient-to-r hover:from-emerald-500 hover:to-teal-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-md"
+              className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
               aria-label="WhatsApp"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -205,7 +198,7 @@ export const Footer: React.FC = () => {
             </a>
             <a
               href="mailto:halo@kerabatweb.com"
-              className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-500 hover:to-violet-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-md"
+              className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
               aria-label="Email"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -217,13 +210,13 @@ export const Footer: React.FC = () => {
 
         {/* Kolom 2: Layanan */}
         <div>
-          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
+          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">
             Layanan
           </h3>
-          <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400">
+          <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400 font-medium">
             {["Landing Page", "Company Profile", "Toko Online", "Maintenance"].map((item, idx) => (
               <li key={idx}>
-                <Link href="/#layanan" className="hover:text-pink-400 transition-colors">
+                <Link href="/#layanan" className="hover:text-white transition-colors">
                   {item}
                 </Link>
               </li>
@@ -233,27 +226,27 @@ export const Footer: React.FC = () => {
 
         {/* Kolom 3: Perusahaan & Legal */}
         <div>
-          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">
             Informasi
           </h3>
-          <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400">
+          <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400 font-medium">
             <li>
-              <Link href="/blog" className="hover:text-cyan-400 transition-colors">
+              <Link href="/blog" className="hover:text-white transition-colors">
                 Blog
               </Link>
             </li>
             <li>
-              <Link href="/tentang-kami" className="hover:text-cyan-400 transition-colors">
+              <Link href="/tentang-kami" className="hover:text-white transition-colors">
                 Tentang Kami
               </Link>
             </li>
             <li>
-              <Link href="/kebijakan-privasi" className="hover:text-cyan-400 transition-colors">
+              <Link href="/kebijakan-privasi" className="hover:text-white transition-colors">
                 Kebijakan Privasi
               </Link>
             </li>
             <li>
-              <Link href="/syarat-ketentuan" className="hover:text-cyan-400 transition-colors">
+              <Link href="/syarat-ketentuan" className="hover:text-white transition-colors">
                 Syarat & Ketentuan
               </Link>
             </li>
@@ -262,17 +255,17 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* ================= BOTTOM BAR ================= */}
-      <div className="border-t border-zinc-900 bg-black/60 backdrop-blur-md">
+      <div className="border-t border-zinc-800 bg-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[11px] text-zinc-500 text-center sm:text-left">
+          <p className="text-[11px] text-zinc-500 font-medium text-center sm:text-left">
             © {tahun}{" "}
-            <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent font-semibold">
+            <span className="text-white font-semibold">
               Kerabatweb.com
             </span>
             . All rights reserved.
           </p>
-          <p className="text-[11px] text-zinc-500 text-center sm:text-right flex items-center gap-1">
-            Dibuat dengan <span className="text-rose-500 animate-pulse">❤</span> di Indonesia
+          <p className="text-[11px] text-zinc-500 font-medium text-center sm:text-right flex items-center gap-1">
+            Dibuat dengan <span className="text-white animate-pulse">❤</span> di Indonesia
           </p>
         </div>
       </div>

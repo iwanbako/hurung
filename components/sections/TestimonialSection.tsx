@@ -27,7 +27,7 @@ export const TestimonialSection: React.FC<Props> = ({
         ? `Website selesai sangat cepat dan performanya luar biasa! Bisnis kami di ${kabupaten} sekarang jauh lebih mudah ditemukan pelanggan baru lewat Google.`
         : "Website selesai sangat cepat dan performanya luar biasa! Penjualan online kami meningkat drastis setelah pindah ke website profesional ini.",
       rating: 5,
-      avatar: "☕",
+      initial: "BS",
     },
     {
       name: "Dr. Siti Rahma",
@@ -38,7 +38,7 @@ export const TestimonialSection: React.FC<Props> = ({
         ? `Sangat puas dengan pelayanannya. Fitur tombol WhatsApp langsung sangat membantu pasien kami di ${kabupaten} berkonsultasi dengan mudah.`
         : "Sangat puas dengan pelayanannya. Fitur tombol WhatsApp langsung sangat membantu pasien berkonsultasi dengan mudah.",
       rating: 5,
-      avatar: "👩‍⚕️",
+      initial: "SR",
     },
     {
       name: "Reza Pratama",
@@ -49,17 +49,17 @@ export const TestimonialSection: React.FC<Props> = ({
         ? `Struktur SEO-nya mantap! Baru beberapa minggu online, website kami langsung muncul di halaman pertama Google untuk pencarian di ${kabupaten}.`
         : "Struktur SEO-nya mantap! Baru beberapa minggu online, website langsung nongkrong di halaman pertama pencarian Google.",
       rating: 5,
-      avatar: "🎓",
+      initial: "RP",
     },
   ];
 
   // ============================================================
-  // HEADER TEXT (dinamis mengikuti kabupaten kalau ada)
+  // HEADER TEXT (semua teks putih bersih mutlak)
   // ============================================================
   const finalTitle = title ?? (
     <>
       Apa Kata{" "}
-      <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+      <span className="text-white">
         {kabupaten ? `Klien Kami di ${kabupaten}` : "Klien Kami"}
       </span>
       ?
@@ -73,14 +73,8 @@ export const TestimonialSection: React.FC<Props> = ({
       : "Kepuasan klien adalah prioritas utama kami dalam menghadirkan solusi digital terbaik.");
 
   return (
-    <section className="relative bg-[#030303] py-16 sm:py-24 border-b border-zinc-800/80 overflow-hidden">
+    <section className="relative bg-black py-16 sm:py-24 border-b border-zinc-800 overflow-hidden">
       
-      {/* Garis Aksen Pelangi Tipis di Atas Section */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
-
-      {/* Efek Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header Section dengan Animasi */}
         <motion.div
@@ -90,7 +84,7 @@ export const TestimonialSection: React.FC<Props> = ({
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-4 py-1.5 rounded-full mb-3">
             Testimoni & Kepercayaan
           </span>
 
@@ -98,7 +92,7 @@ export const TestimonialSection: React.FC<Props> = ({
             {finalTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-white max-w-xl mx-auto leading-relaxed font-normal">
             {finalSubtitle}
           </p>
         </motion.div>
@@ -112,33 +106,33 @@ export const TestimonialSection: React.FC<Props> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-[0_15px_30px_rgba(0,0,0,0.8)] transition-all flex flex-col justify-between hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] group"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="bg-black border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all flex flex-col justify-between hover:border-zinc-700 group"
             >
               <div>
                 {/* Rating Bintang */}
-                <div className="flex items-center gap-1 text-amber-400 mb-3 text-sm">
+                <div className="flex items-center gap-1 text-white mb-3 text-sm">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <span key={i}>★</span>
                   ))}
                 </div>
 
                 {/* Komentar */}
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed italic mb-6">
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed italic mb-6 font-normal">
                   &ldquo;{t.comment}&rdquo;
                 </p>
               </div>
 
               {/* Profil Pemberi Ulasan */}
-              <div className="flex items-center gap-3.5 pt-4 border-t border-zinc-800/80">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-600 via-pink-600 to-amber-500 text-white border border-white/10 flex items-center justify-center text-lg font-bold shadow-md shadow-pink-500/20">
-                  {t.avatar}
+              <div className="flex items-center gap-3.5 pt-4 border-t border-zinc-800">
+                <div className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-white flex items-center justify-center text-xs font-bold shadow-sm">
+                  {t.initial}
                 </div>
                 <div>
-                  <h3 className="font-bold text-white text-sm group-hover:text-pink-300 transition-colors">
+                  <h3 className="font-bold text-white text-sm group-hover:text-zinc-200 transition-colors">
                     {t.name}
                   </h3>
-                  <span className="text-[11px] text-zinc-400 font-medium">
+                  <span className="text-[11px] text-zinc-400 font-normal">
                     {t.business}
                   </span>
                 </div>

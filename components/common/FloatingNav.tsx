@@ -23,29 +23,29 @@ export const FloatingNav: React.FC<Props> = ({ waDefault }) => {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Kembali ke atas"
-        className={`fixed right-4 bottom-20 md:bottom-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0a0a0a] text-white shadow-[0_10px_25px_rgba(0,0,0,0.8)] border border-zinc-700 flex items-center justify-center transition-all duration-300 hover:bg-zinc-900 hover:border-pink-500 hover:scale-105 active:scale-95 ${
+        className={`fixed right-4 bottom-20 md:bottom-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black text-white shadow-xl border border-zinc-800 flex items-center justify-center transition-all duration-300 hover:bg-zinc-900 hover:border-zinc-700 hover:scale-105 active:scale-95 ${
           showTopBtn ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-5 h-5 text-pink-400">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor" className="w-5 h-5 text-white">
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
         </svg>
       </button>
 
       {/* Floating Bottom Nav khusus Mobile */}
-      <div className="md:hidden fixed bottom-3 left-4 right-4 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border border-zinc-800 rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.9)] px-2 py-2.5">
+      <div className="md:hidden fixed bottom-3 left-4 right-4 z-50 bg-black/95 backdrop-blur-md border border-zinc-800 rounded-2xl shadow-2xl px-2 py-2.5">
         <div className="flex items-center justify-between">
           <a href="#" className="flex flex-col items-center justify-center flex-1 py-1 text-zinc-300 active:scale-90 transition-transform hover:text-white">
-            <span className="text-[11px] sm:text-xs font-bold tracking-wide">🏠 Home</span>
+            <span className="text-[11px] sm:text-xs font-bold tracking-wide text-white">Home</span>
           </a>
           <a href="#layanan" className="flex flex-col items-center justify-center flex-1 py-1 text-zinc-300 active:scale-90 transition-transform hover:text-white">
-            <span className="text-[11px] sm:text-xs font-bold">⚙️ Layanan</span>
+            <span className="text-[11px] sm:text-xs font-bold text-white">Layanan</span>
           </a>
           <a href="#harga" className="flex flex-col items-center justify-center flex-1 py-1 text-zinc-300 active:scale-90 transition-transform hover:text-white">
-            <span className="text-[11px] sm:text-xs font-bold">💎 Harga</span>
+            <span className="text-[11px] sm:text-xs font-bold text-white">Harga</span>
           </a>
           <a href={waDefault} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center flex-1 py-1 active:scale-90 transition-transform">
-            <span className="text-[11px] sm:text-xs font-extrabold tracking-wide bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">💬 WA Chat</span>
+            <span className="text-[11px] sm:text-xs font-extrabold tracking-wide text-white">WhatsApp</span>
           </a>
         </div>
       </div>

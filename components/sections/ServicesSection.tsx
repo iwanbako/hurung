@@ -5,25 +5,42 @@ import { motion } from "framer-motion";
 
 const defaultServices = [
   {
-    icon: "🚀",
     title: "Landing Page",
     desc: "Halaman fokus konversi untuk campaign, produk, atau jasa Anda.",
   },
   {
-    icon: "🏢",
     title: "Company Profile",
     desc: "Profil perusahaan kredibel yang membangun kepercayaan klien.",
   },
   {
-    icon: "🛒",
     title: "E-Commerce",
     desc: "Toko online siap jualan dengan pembayaran & inventori.",
   },
   {
-    icon: "⚙️",
     title: "Web App & CMS",
     desc: "Aplikasi web custom sesuai alur bisnis Anda.",
   },
+];
+
+// Array ikon garis putih (SVG) minimalis bernuansa monokrom
+const serviceIcons = [
+  // 01: Roket / Landing Page
+  <svg key="1" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 11.464a5 5 0 10-7.072 0m7.072 0l5.656 5.656a2 2 0 010 2.828l-.707.707a2 2 0 01-2.828 0l-5.656-5.656m7.072-7.072a5 5 0 01-7.072 0m7.072 0L9.879 4.293a2 2 0 00-2.828 0l-.707.707a2 2 0 000 2.828l5.656 5.656" />
+  </svg>,
+  // 02: Gedung / Company Profile
+  <svg key="2" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+  </svg>,
+  // 03: Keranjang / E-Commerce
+  <svg key="3" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+  </svg>,
+  // 04: Pengaturan / Web App & CMS
+  <svg key="4" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>,
 ];
 
 interface Props {
@@ -37,14 +54,12 @@ export const ServicesSection: React.FC<Props> = ({
   subtitle,
   locationName,
 }) => {
-  // State untuk memastikan komponen sudah ter-mount di client (mencegah hydration mismatch)
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  // Default judul mengikuti locationName (kompatibel dengan pemakaian lama)
   const finalTitle =
     title ??
     `Apa yang Bisa Kami Bantu${locationName ? ` di ${locationName}` : ""}?`;
@@ -56,15 +71,8 @@ export const ServicesSection: React.FC<Props> = ({
   return (
     <section
       id="layanan"
-      className="relative bg-[#030303] text-white border-y border-zinc-800/80 py-16 sm:py-24 overflow-hidden"
+      className="relative bg-black text-white border-y border-zinc-800 py-16 sm:py-24 overflow-hidden"
     >
-      
-      {/* Garis Aksen Pelangi Tipis di Atas Section */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
-
-      {/* Efek Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header Section dengan Animasi */}
         <motion.div
@@ -74,15 +82,15 @@ export const ServicesSection: React.FC<Props> = ({
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-400 px-4 py-1.5 rounded-full mb-3">
             Layanan Kami
           </span>
 
-          <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold mt-2 sm:mt-3 tracking-tight">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-extrabold mt-2 sm:mt-3 tracking-tight text-white">
             {finalTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed font-normal">
             {finalSubtitle}
           </p>
         </motion.div>
@@ -96,16 +104,16 @@ export const ServicesSection: React.FC<Props> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="rounded-2xl p-6 sm:p-7 flex flex-col bg-[#0a0a0a] border border-zinc-800 shadow-[0_15px_30px_rgba(0,0,0,0.8)] transition-all hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] group"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="rounded-2xl p-6 sm:p-7 flex flex-col bg-black border border-zinc-800 transition-all hover:border-zinc-700 group"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-violet-600 via-pink-600 to-amber-500 text-white border border-white/10 grid place-items-center text-lg sm:text-xl mb-4 shadow-lg shadow-pink-500/20 font-bold">
-                {s.icon}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-zinc-900 border border-zinc-800 grid place-items-center mb-4 shadow-sm">
+                {serviceIcons[idx % serviceIcons.length]}
               </div>
-              <h3 className="font-bold text-base sm:text-lg mb-2 text-white group-hover:text-pink-300 transition-colors">
+              <h3 className="font-bold text-base sm:text-lg mb-2 text-white group-hover:text-zinc-200 transition-colors">
                 {s.title}
               </h3>
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed flex-1">
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed flex-1 font-normal">
                 {s.desc}
               </p>
             </motion.div>

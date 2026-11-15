@@ -5,14 +5,11 @@ import { Footer } from "@/components/common/Footer";
 import { FloatingNav } from "@/components/common/FloatingNav";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { WorkflowSection } from "@/components/sections/WorkflowSection";
 import { WhyUsSection } from "@/components/sections/WhyUsSection";
 import { GuaranteeSection } from "@/components/sections/GuaranteeSection";
 import { TechPartners } from "@/components/sections/TechPartners";
-import { ProblemSolutionSection } from "@/components/sections/ProblemSolutionSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { TestimonialSection } from "@/components/sections/TestimonialSection";
-import { WebVsSosmedSection } from "@/components/sections/WebVsSosmedSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { AllProvincesSection } from "@/components/sections/AllProvincesSection";
@@ -239,14 +236,11 @@ export default function HomePage() {
         <main className="flex-1 w-full">
           <HeroSection waNumber={waNumber} />
           <ServicesSection />
-          <WorkflowSection />
           <WhyUsSection />
           <GuaranteeSection />
           <TechPartners />
-          <ProblemSolutionSection />
           <PortfolioSection />
           <TestimonialSection />
-          <WebVsSosmedSection />
           <PricingSection pricing={pricingData} waNumber={waNumber} />
           <FaqSection faqs={faqsData} waNumber={waNumber} />
 

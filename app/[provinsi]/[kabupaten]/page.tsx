@@ -8,14 +8,11 @@ import { FloatingNav } from "@/components/common/FloatingNav";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { WorkflowSection } from "@/components/sections/WorkflowSection";
 import { WhyUsSection } from "@/components/sections/WhyUsSection";
 import { GuaranteeSection } from "@/components/sections/GuaranteeSection";
 import { TechPartners } from "@/components/sections/TechPartners";
-import { ProblemSolutionSection } from "@/components/sections/ProblemSolutionSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { TestimonialSection } from "@/components/sections/TestimonialSection";
-import { WebVsSosmedSection } from "@/components/sections/WebVsSosmedSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { OtherRegenciesSection } from "@/components/sections/OtherRegenciesSection";
@@ -347,11 +344,6 @@ export default async function KabupatenPage({ params }: PageProps) {
             subtitle={content.services.subtitle}
           />
 
-          {/* 3. WORKFLOW */}
-          <WorkflowSection
-            title={`4 Langkah Mudah Punya Website di ${content.namaLengkap}`}
-            subtitle={`Proses cepat, transparan, dan tidak ribet. Kami dampingi bisnis di ${content.namaLengkap}, ${content.provinsi} dari nol sampai website online.`}
-          />
 
           {/* 4. WHY US */}
           <WhyUsSection
@@ -366,13 +358,6 @@ export default async function KabupatenPage({ params }: PageProps) {
           {/* 6. TECH PARTNERS */}
           <TechPartners />
 
-          {/* 7. PROBLEM & SOLUTION */}
-          <ProblemSolutionSection
-            title={content.problemSolution.title}
-            subtitle={content.problemSolution.subtitle}
-            problems={content.problemSolution.problems}
-            solutions={content.problemSolution.solutions}
-          />
 
           {/* 8. PORTFOLIO */}
           <PortfolioSection
@@ -388,8 +373,7 @@ export default async function KabupatenPage({ params }: PageProps) {
             kabupaten={content.namaLengkap}
           />
 
-          {/* 10. WEB vs SOSMED */}
-          <WebVsSosmedSection />
+
 
           {/* 11. PRICING */}
           <PricingSection

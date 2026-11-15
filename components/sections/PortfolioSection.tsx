@@ -10,7 +10,6 @@ interface Props {
 }
 
 // Helper: bangun URL Unsplash dengan format WebP + ukuran kecil
-// Static export tidak punya optimizer, jadi optimasi dilakukan di sisi Unsplash CDN.
 const buildImg = (base: string, w: number, format: "webp" | "jpg" = "webp") =>
   `${base}?fm=${format}&q=55&w=${w}&fit=crop&auto=format`;
 
@@ -74,7 +73,7 @@ export const PortfolioSection: React.FC<Props> = ({
     title ?? (
       <>
         Hasil Nyata{" "}
-        <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+        <span className="text-white">
           {kabupaten ? `Klien Kami di ${kabupaten}` : "Klien Kami"}
         </span>
       </>
@@ -87,14 +86,8 @@ export const PortfolioSection: React.FC<Props> = ({
       : "Bukti performa dan efektivitas desain website kami dalam meningkatkan kredibilitas serta konversi bisnis.");
 
   return (
-    <section className="relative bg-[#030303] py-16 sm:py-24 border-b border-zinc-800/80 overflow-hidden">
+    <section className="relative bg-black py-16 sm:py-24 border-b border-zinc-800 overflow-hidden">
       
-      {/* Garis Aksen Pelangi Tipis di Atas Section */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
-
-      {/* Efek Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -103,7 +96,7 @@ export const PortfolioSection: React.FC<Props> = ({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-12 sm:mb-16"
         >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-4 py-1.5 rounded-full mb-3">
             Studi Kasus &amp; Portofolio
           </span>
 
@@ -111,7 +104,7 @@ export const PortfolioSection: React.FC<Props> = ({
             {finalTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-white max-w-xl mx-auto leading-relaxed font-normal">
             {finalSubtitle}
           </p>
         </motion.div>
@@ -128,8 +121,8 @@ export const PortfolioSection: React.FC<Props> = ({
                 delay: idx * 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-[#0a0a0a] border border-zinc-800 rounded-2xl overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.8)] flex flex-col justify-between transition-all hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] group"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="bg-black border border-zinc-800 rounded-2xl overflow-hidden flex flex-col justify-between transition-all hover:border-zinc-700 group"
             >
               <div className="overflow-hidden relative bg-zinc-900">
                 <picture>
@@ -156,20 +149,20 @@ export const PortfolioSection: React.FC<Props> = ({
                     height={400}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 filter grayscale"
                   />
                 </picture>
               </div>
 
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              <div className="p-6 flex-1 flex flex-col justify-between bg-black">
                 <div>
-                  <span className="text-[10px] font-extrabold text-white bg-gradient-to-r from-violet-600 to-pink-600 px-3 py-1 rounded-md tracking-wide uppercase inline-block mb-3 shadow-sm">
+                  <span className="text-[10px] font-bold text-white bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-md tracking-wide uppercase inline-block mb-3 shadow-sm">
                     {item.tag}
                   </span>
                   <h3 className="font-bold text-white text-base sm:text-lg leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-zinc-400 mt-2.5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-400 mt-2.5 leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>

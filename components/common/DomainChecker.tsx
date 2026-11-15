@@ -76,25 +76,23 @@ export const DomainChecker: React.FC = () => {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
-      className="mt-10 w-full max-w-4xl bg-[#0a0a0a] rounded-2xl border border-zinc-800 text-left overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative"
+      className="mt-10 w-full max-w-4xl bg-black rounded-2xl border border-zinc-800 text-left overflow-hidden shadow-2xl relative"
     >
-      {/* Garis Aksen Pelangi Tipis di Atas Card */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
-
       {/* Header */}
-      <div className="px-5 sm:px-6 py-5 border-b border-zinc-800/80 bg-[#050505]/50">
+      <div className="px-5 sm:px-6 py-5 border-b border-zinc-800 bg-black">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <h2 className="text-base sm:text-lg font-bold text-white">
+            <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-white inline-block animate-pulse"></span>
               Cek Ketersediaan Domain
             </h2>
             <p className="text-xs text-zinc-400 mt-1">
               Pastikan nama domain impian Anda masih tersedia sebelum kehabisan.
             </p>
           </div>
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-emerald-400 bg-emerald-950/50 border border-emerald-800/50 px-2.5 py-1 rounded-md whitespace-nowrap shadow-sm">
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-white bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full whitespace-nowrap shadow-sm">
             <svg
-              className="w-3.5 h-3.5 text-emerald-400"
+              className="w-3.5 h-3.5 text-white"
               fill="none"
               stroke="currentColor"
               strokeWidth="2.5"
@@ -112,24 +110,24 @@ export const DomainChecker: React.FC = () => {
       </div>
 
       {/* Input + Button */}
-      <div className="px-5 sm:px-6 py-5">
-        <div className="flex flex-col sm:flex-row gap-2">
+      <div className="px-5 sm:px-6 py-5 bg-black">
+        <div className="flex flex-col sm:flex-row gap-3">
           <input
             type="text"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleCheck()}
             placeholder="contoh: sayursuper"
-            className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 text-zinc-100 placeholder-zinc-500 outline-none transition-all text-sm"
+            className="w-full px-4 py-3 rounded-full bg-zinc-900 border border-zinc-800 focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600 text-white placeholder-zinc-500 outline-none transition-all text-sm"
           />
           <button
             onClick={handleCheck}
             disabled={loading}
-            className="px-6 py-3 bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 text-white font-semibold rounded-xl hover:opacity-90 active:scale-[0.98] transition-all text-sm whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-pink-500/20"
+            className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 active:scale-[0.98] transition-all text-sm whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
           >
             {loading ? (
               <>
-                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
                 Memeriksa
               </>
             ) : (
@@ -161,7 +159,7 @@ export const DomainChecker: React.FC = () => {
         {/* Loading */}
         {loading && (
           <div className="mt-3 flex items-center gap-2 text-xs text-zinc-400">
-            <span className="w-3.5 h-3.5 border-2 border-pink-500 border-t-transparent rounded-full animate-spin" />
+            <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
             Memeriksa ketersediaan domain via RDAP...
           </div>
         )}
@@ -169,11 +167,11 @@ export const DomainChecker: React.FC = () => {
 
       {/* Hasil */}
       {results.length > 0 && !loading && (
-        <div className="px-5 sm:px-6 pb-5">
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-3">
+        <div className="px-5 sm:px-6 pb-5 bg-black">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mb-3">
             Hasil Pencarian
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {results.map((item, idx) => {
               const waCheckoutLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(
                 `Halo KerabatWeb, saya ingin memesan pembuatan website dengan domain *${item.domain}* yang statusnya tersedia.`
@@ -185,35 +183,35 @@ export const DomainChecker: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className={`relative flex flex-col justify-between p-4 rounded-xl border transition-all ${
+                  className={`relative flex flex-col justify-between p-4 rounded-2xl border transition-all ${
                     isAvailable
-                      ? "border-emerald-500/40 bg-zinc-900/80 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10"
+                      ? "border-zinc-700 bg-zinc-900/50 hover:border-zinc-500"
                       : isTaken
-                      ? "border-zinc-800/60 bg-zinc-950/40 opacity-75"
-                      : "border-amber-500/30 bg-zinc-900/40"
+                      ? "border-zinc-800 bg-black/40 opacity-60"
+                      : "border-zinc-800 bg-zinc-900/30"
                   }`}
                 >
                   {/* Highlight line for available */}
                   {isAvailable && (
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-emerald-500 rounded-t-xl" />
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-white rounded-t-2xl" />
                   )}
 
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       {/* Status badge */}
                       <span
-                        className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-md ${
+                        className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${
                           isAvailable
-                            ? "text-emerald-400 bg-emerald-950/60 border border-emerald-800/40"
+                            ? "text-white bg-zinc-800 border border-zinc-700"
                             : isTaken
-                            ? "text-zinc-400 bg-zinc-900 border border-zinc-800"
+                            ? "text-zinc-500 bg-zinc-900 border border-zinc-800"
                             : "text-amber-400 bg-amber-950/50 border border-amber-800/40"
                         }`}
                       >
                         {isAvailable ? (
                           <>
                             <svg
-                              className="w-2.5 h-2.5 text-emerald-400"
+                              className="w-2.5 h-2.5 text-white"
                               fill="none"
                               stroke="currentColor"
                               strokeWidth="3"
@@ -230,7 +228,7 @@ export const DomainChecker: React.FC = () => {
                         ) : isTaken ? (
                           <>
                             <svg
-                              className="w-2.5 h-2.5 text-zinc-400"
+                              className="w-2.5 h-2.5 text-zinc-500"
                               fill="none"
                               stroke="currentColor"
                               strokeWidth="3"
@@ -269,8 +267,8 @@ export const DomainChecker: React.FC = () => {
                     <p
                       className={`text-sm font-bold truncate ${
                         isTaken
-                          ? "text-zinc-500 line-through"
-                          : "text-zinc-100"
+                          ? "text-zinc-600 line-through"
+                          : "text-white"
                       }`}
                     >
                       {item.domain}
@@ -284,12 +282,12 @@ export const DomainChecker: React.FC = () => {
                         href={waCheckoutLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block w-full py-2 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-[11px] font-semibold rounded-lg text-center transition-all shadow-md"
+                        className="block w-full py-2 px-3 bg-white hover:bg-zinc-200 text-black text-[11px] font-semibold rounded-full text-center transition-all shadow-sm"
                       >
                         Klaim Domain
                       </a>
                     ) : isTaken ? (
-                      <p className="text-[11px] text-zinc-500 text-center py-2">
+                      <p className="text-[11px] text-zinc-600 text-center py-2">
                         Tidak tersedia
                       </p>
                     ) : (

@@ -29,26 +29,23 @@ export const HeroSection: React.FC<Props> = ({
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative text-white overflow-hidden py-20 sm:py-28 md:py-36 flex items-center justify-center min-h-[85vh] bg-[#030303]"
+      className="relative text-white overflow-hidden py-20 sm:py-28 md:py-36 flex items-center justify-center min-h-[85vh] bg-black border-b border-zinc-800"
     >
       {/* ============================================================
-          BACKGROUND IMAGE & OVERLAY PELANGI MODERN
+          BACKGROUND IMAGE & OVERLAY HITAM MINIMALIS
           ============================================================ */}
       <img
         src={HERO_BG}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 z-0 w-full h-full object-cover object-center scale-105 opacity-25 mix-blend-luminosity"
+        className="absolute inset-0 z-0 w-full h-full object-cover object-center scale-105 opacity-10 mix-blend-luminosity"
         loading="eager"
         fetchPriority="high"
         decoding="async"
       />
 
-      {/* Gradasi Overlay Hitam Pekat & Glow Pelangi */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#030303]/95 via-[#050505]/90 to-[#030303]" />
-      
-      {/* Efek Glow Cahaya Pelangi di Background */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-gradient-to-r from-violet-600/20 via-pink-600/20 to-cyan-500/20 rounded-full blur-[120px] pointer-events-none z-10" />
+      {/* Gradasi Overlay Hitam Pekat */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/95 via-black/90 to-black" />
 
       {/* Konten Utama */}
       <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
@@ -58,7 +55,7 @@ export const HeroSection: React.FC<Props> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="inline-block text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-4">
+          <span className="inline-block text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-300 px-4 py-1.5 rounded-full shadow-sm mb-4">
             {badge}
           </span>
         </motion.div>
@@ -66,11 +63,11 @@ export const HeroSection: React.FC<Props> = ({
         {/* ═══ H1 — SEO-SAFE ═══ */}
         <h1
           id="hero-heading"
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight drop-shadow-xl max-w-4xl mx-auto mb-4 text-zinc-100"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight max-w-4xl mx-auto mb-4 text-white"
         >
           {headline || (
             <>
-              <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-zinc-400">
                 Jasa Pembuatan Website
               </span>{" "}
               Profesional untuk Bisnis Anda
@@ -80,7 +77,7 @@ export const HeroSection: React.FC<Props> = ({
 
         {/* ═══ SUBHEADLINE ═══ */}
         <motion.p
-          className="text-sm sm:text-base md:text-lg text-zinc-400 leading-relaxed max-w-2xl mx-auto mb-8 drop-shadow-md"
+          className="text-sm sm:text-base md:text-lg text-zinc-400 font-normal leading-relaxed max-w-2xl mx-auto mb-8"
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -102,13 +99,13 @@ export const HeroSection: React.FC<Props> = ({
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 text-white text-sm sm:text-base font-bold text-center shadow-lg shadow-pink-600/25 active:scale-95 transition-all hover:scale-105 hover:opacity-95"
+            className="px-8 py-3.5 rounded-full bg-white text-black text-sm sm:text-base font-semibold text-center shadow-sm active:scale-95 transition-all hover:bg-zinc-200"
           >
             {ctaText}
           </a>
           <a
             href="#harga"
-            className="px-8 py-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800 text-zinc-300 font-semibold hover:bg-zinc-800 hover:text-white active:scale-95 transition-all text-sm sm:text-base text-center backdrop-blur-md shadow-lg"
+            className="px-8 py-3.5 rounded-full bg-zinc-900 border border-zinc-800 text-white font-semibold hover:bg-zinc-800 active:scale-95 transition-all text-sm sm:text-base text-center shadow-sm"
           >
             Lihat Paket Harga
           </a>

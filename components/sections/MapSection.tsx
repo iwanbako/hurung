@@ -241,7 +241,7 @@ export const MapSection: React.FC<Props> = ({
     title ?? (
       <>
         Area Layanan{" "}
-        <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+        <span className="text-white">
           {displayArea}
         </span>
       </>
@@ -252,14 +252,8 @@ export const MapSection: React.FC<Props> = ({
     "Kami melayani pembuatan website profesional di wilayah ini. Tim kami siap membantu bisnis Anda go-digital, 100% online tanpa biaya kunjungan.";
 
   return (
-    <section className="relative bg-[#030303] py-16 sm:py-24 border-b border-zinc-800/80 overflow-hidden">
+    <section className="relative bg-black py-16 sm:py-24 border-b border-zinc-800 overflow-hidden">
       
-      {/* Garis Aksen Pelangi Tipis di Atas Section */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
-
-      {/* Efek Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
@@ -269,7 +263,7 @@ export const MapSection: React.FC<Props> = ({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-10 sm:mb-14"
         >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-4 py-1.5 rounded-full mb-3">
             Peta Area Layanan
           </span>
 
@@ -277,7 +271,7 @@ export const MapSection: React.FC<Props> = ({
             {finalTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-white max-w-xl mx-auto leading-relaxed font-normal">
             {finalSubtitle}
           </p>
         </motion.div>
@@ -288,7 +282,7 @@ export const MapSection: React.FC<Props> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-[#0a0a0a] border border-zinc-800 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+          className="bg-black border border-zinc-800 rounded-2xl overflow-hidden shadow-xl"
         >
           <div className="relative" style={{ height }}>
             <iframe
@@ -300,21 +294,21 @@ export const MapSection: React.FC<Props> = ({
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full grayscale-[0.2] contrast-[1.05]"
+              className="w-full h-full invert brightness-90 contrast-125"
             />
           </div>
 
           {/* Info bar bawah */}
-          <div className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#0a0a0a] border-t border-zinc-800">
+          <div className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-black border-t border-zinc-800">
             <p className="text-xs sm:text-sm text-zinc-300 text-center sm:text-left flex items-center gap-2">
-              <span aria-hidden className="text-pink-400">📍</span>
+              <span aria-hidden className="text-white">📍</span>
               <span className="font-semibold text-white">{displayArea}</span>
             </p>
             <a
               href={mapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 text-white px-4 py-2 rounded-xl hover:opacity-95 transition-all shadow-lg shadow-pink-500/20 active:scale-95"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold bg-white text-black px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-all shadow-sm active:scale-95"
             >
               Buka di Google Maps
               <svg

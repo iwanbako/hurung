@@ -19,7 +19,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="relative bg-[#030303] border-b border-zinc-800/80 overflow-hidden"
+      className="relative bg-black border-b border-zinc-800 overflow-hidden"
     >
       <motion.div
         initial={{ opacity: 0, y: -8 }}
@@ -46,7 +46,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
                 {item.href && !isLast ? (
                   <Link
                     href={item.href}
-                    className="hover:text-pink-400 transition-colors font-medium text-zinc-300"
+                    className="hover:text-white transition-colors font-medium text-zinc-300"
                     itemProp="item"
                   >
                     <span itemProp="name">{item.label}</span>
@@ -55,7 +55,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
                   <span
                     className={
                       isLast
-                        ? "bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent font-bold"
+                        ? "text-white font-bold"
                         : "text-zinc-300 font-medium"
                     }
                     itemProp="name"

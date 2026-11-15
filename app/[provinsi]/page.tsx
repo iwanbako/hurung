@@ -8,14 +8,11 @@ import { FloatingNav } from "@/components/common/FloatingNav";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { WorkflowSection } from "@/components/sections/WorkflowSection";
 import { WhyUsSection } from "@/components/sections/WhyUsSection";
 import { GuaranteeSection } from "@/components/sections/GuaranteeSection";
 import { TechPartners } from "@/components/sections/TechPartners";
-import { ProblemSolutionSection } from "@/components/sections/ProblemSolutionSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { TestimonialSection } from "@/components/sections/TestimonialSection";
-import { WebVsSosmedSection } from "@/components/sections/WebVsSosmedSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { ProvinsiRegenciesSection } from "@/components/sections/ProvinsiRegenciesSection";
@@ -279,8 +276,6 @@ export default async function ProvinsiPage({ params }: PageProps) {
             subtitle={content.services.subtitle}
           />
 
-          <WorkflowSection />
-
           <WhyUsSection
             title={content.whyUs.title}
             subtitle={content.whyUs.subtitle}
@@ -291,12 +286,6 @@ export default async function ProvinsiPage({ params }: PageProps) {
 
           <TechPartners />
 
-          <ProblemSolutionSection
-            title={content.problemSolution.title}
-            subtitle={content.problemSolution.subtitle}
-            problems={content.problemSolution.problems}
-            solutions={content.problemSolution.solutions}
-          />
 
           <PortfolioSection
             title={content.portfolio.title}
@@ -307,8 +296,6 @@ export default async function ProvinsiPage({ params }: PageProps) {
             title={content.testimonial.title}
             subtitle={content.testimonial.subtitle}
           />
-
-          <WebVsSosmedSection />
 
           <PricingSection
             pricing={pricingData}
