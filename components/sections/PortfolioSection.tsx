@@ -1,4 +1,3 @@
-// components/sections/PortfolioSection.tsx
 "use client";
 
 import React from "react";
@@ -75,7 +74,7 @@ export const PortfolioSection: React.FC<Props> = ({
     title ?? (
       <>
         Hasil Nyata{" "}
-        <span className="text-[#FEBB02]">
+        <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
           {kabupaten ? `Klien Kami di ${kabupaten}` : "Klien Kami"}
         </span>
       </>
@@ -88,24 +87,31 @@ export const PortfolioSection: React.FC<Props> = ({
       : "Bukti performa dan efektivitas desain website kami dalam meningkatkan kredibilitas serta konversi bisnis.");
 
   return (
-    <section className="bg-[#003580] py-12 sm:py-20 border-b border-[#0066f5] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="relative bg-[#030303] py-16 sm:py-24 border-b border-zinc-800/80 overflow-hidden">
+      
+      {/* Garis Aksen Pelangi Tipis di Atas Section */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
+
+      {/* Efek Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-10 sm:mb-14"
+          className="text-center mb-12 sm:mb-16"
         >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#FEBB02] text-[#00224f] px-3.5 py-1.5 rounded-full shadow-sm">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
             Studi Kasus &amp; Portofolio
           </span>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 sm:mt-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 sm:mt-3 tracking-tight">
             {finalTitle}
           </h2>
 
-          <p className="mt-2 text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
             {finalSubtitle}
           </p>
         </motion.div>
@@ -123,21 +129,9 @@ export const PortfolioSection: React.FC<Props> = ({
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-[#00224f] border-2 border-[#0066f5] rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between transition-all"
+              className="bg-[#0a0a0a] border border-zinc-800 rounded-2xl overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.8)] flex flex-col justify-between transition-all hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] group"
             >
-              {/*
-                OPTIMASI STATIC EXPORT:
-                - <picture> + <source type="image/webp"> → browser modern unduh WebP
-                - srcSet 400w/600w/800w → mobile hanya unduh 400w
-                - sizes → hint lebar render
-                - fm=webp&q=55 → Unsplash kirim WebP kualitas 55 (file ~10 KB)
-                - alt deskriptif → SEO & a11y lolos
-                - title → tooltip preview auditor
-                - width/height eksplisit → cegah CLS
-                - loading=lazy → gambar bawah fold tidak dibebani di awal
-                - wrapper bg-[#00224f] → placeholder solid, tidak ada flash putih
-              */}
-              <div className="overflow-hidden relative bg-[#00224f]">
+              <div className="overflow-hidden relative bg-zinc-900">
                 <picture>
                   <source
                     type="image/webp"
@@ -162,20 +156,20 @@ export const PortfolioSection: React.FC<Props> = ({
                     height={400}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                   />
                 </picture>
               </div>
 
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <span className="text-[10px] font-extrabold text-[#00224f] bg-[#FEBB02] px-2.5 py-1 rounded-md tracking-wide uppercase inline-block mb-2">
+                  <span className="text-[10px] font-extrabold text-white bg-gradient-to-r from-violet-600 to-pink-600 px-3 py-1 rounded-md tracking-wide uppercase inline-block mb-3 shadow-sm">
                     {item.tag}
                   </span>
                   <h3 className="font-bold text-white text-base sm:text-lg leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-blue-100 mt-2 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-400 mt-2.5 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

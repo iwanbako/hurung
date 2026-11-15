@@ -1,4 +1,3 @@
-// components/common/Breadcrumb.tsx
 "use client";
 
 import React from "react";
@@ -20,7 +19,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="bg-[#00224f] border-b border-[#0066f5]"
+      className="relative bg-[#030303] border-b border-zinc-800/80 overflow-hidden"
     >
       <motion.div
         initial={{ opacity: 0, y: -8 }}
@@ -29,7 +28,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
         className="max-w-6xl mx-auto px-4 sm:px-6 py-3"
       >
         <ol
-          className="flex items-center flex-wrap gap-1.5 text-[10px] sm:text-xs text-blue-200"
+          className="flex items-center flex-wrap gap-1.5 text-[10px] sm:text-xs text-zinc-400"
           itemScope
           itemType="https://schema.org/BreadcrumbList"
         >
@@ -47,7 +46,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
                 {item.href && !isLast ? (
                   <Link
                     href={item.href}
-                    className="hover:text-[#FEBB02] transition-colors font-medium"
+                    className="hover:text-pink-400 transition-colors font-medium text-zinc-300"
                     itemProp="item"
                   >
                     <span itemProp="name">{item.label}</span>
@@ -56,8 +55,8 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
                   <span
                     className={
                       isLast
-                        ? "text-[#FEBB02] font-bold"
-                        : "text-blue-200 font-medium"
+                        ? "bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent font-bold"
+                        : "text-zinc-300 font-medium"
                     }
                     itemProp="name"
                   >
@@ -68,7 +67,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
                 <meta itemProp="position" content={String(idx + 1)} />
 
                 {!isLast && (
-                  <span className="text-blue-400/60" aria-hidden="true">
+                  <span className="text-zinc-600 px-0.5" aria-hidden="true">
                     /
                   </span>
                 )}

@@ -1,4 +1,3 @@
-// components/sections/MapSection.tsx
 "use client";
 
 import React, { useMemo } from "react";
@@ -186,10 +185,6 @@ export const MapSection: React.FC<Props> = ({
     // ==========================================================
     // 4. TENTUKAN QUERY, ZOOM, & DISPLAY BERDASARKAN LEVEL
     // ==========================================================
-    // - Provinsi         -> z=7
-    // - Kabupaten        -> z=10
-    // - Kecamatan        -> z=13 (lebih dekat ke kecamatan)
-    // ==========================================================
     const isProvinsiOnly = !!namaProvinsi && !segments[1];
     const isKecamatanPage = !!kecamatanSlug && !!namaKecamatan;
 
@@ -208,9 +203,6 @@ export const MapSection: React.FC<Props> = ({
 
     const zoom = lvl === "kecamatan" ? 13 : lvl === "provinsi" ? 7 : 10;
 
-    // Label tampilan: kalau level provinsi -> "Prov. X"
-    //                  kabupaten -> "Kab. Y, Prov. X"
-    //                  kecamatan -> "Kec. Z, Kab. Y, Prov. X"
     const displayArea =
       lvl === "kecamatan"
         ? `Kec. ${namaKecamatan}, Kab. ${namaKabupaten}, Prov. ${namaProvinsi}`
@@ -249,7 +241,9 @@ export const MapSection: React.FC<Props> = ({
     title ?? (
       <>
         Area Layanan{" "}
-        <span className="text-[#FEBB02]">{displayArea}</span>
+        <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+          {displayArea}
+        </span>
       </>
     );
 
@@ -258,25 +252,32 @@ export const MapSection: React.FC<Props> = ({
     "Kami melayani pembuatan website profesional di wilayah ini. Tim kami siap membantu bisnis Anda go-digital, 100% online tanpa biaya kunjungan.";
 
   return (
-    <section className="bg-[#003580] py-12 sm:py-20 border-b border-[#0066f5] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="relative bg-[#030303] py-16 sm:py-24 border-b border-zinc-800/80 overflow-hidden">
+      
+      {/* Garis Aksen Pelangi Tipis di Atas Section */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
+
+      {/* Efek Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-8 sm:mb-10"
+          className="text-center mb-10 sm:mb-14"
         >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#FEBB02] text-[#00224f] px-3.5 py-1.5 rounded-full shadow-sm">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
             Peta Area Layanan
           </span>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 sm:mt-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 sm:mt-3 tracking-tight">
             {finalTitle}
           </h2>
 
-          <p className="mt-2 text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
             {finalSubtitle}
           </p>
         </motion.div>
@@ -287,7 +288,7 @@ export const MapSection: React.FC<Props> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-[#00224f] border-2 border-[#0066f5] rounded-2xl overflow-hidden shadow-lg"
+          className="bg-[#0a0a0a] border border-zinc-800 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
         >
           <div className="relative" style={{ height }}>
             <iframe
@@ -299,21 +300,21 @@ export const MapSection: React.FC<Props> = ({
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full"
+              className="w-full h-full grayscale-[0.2] contrast-[1.05]"
             />
           </div>
 
           {/* Info bar bawah */}
-          <div className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#00224f] border-t border-[#0066f5]">
-            <p className="text-xs sm:text-sm text-blue-100 text-center sm:text-left">
-              <span aria-hidden>{"\u{1F4CD}"}</span>{" "}
+          <div className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#0a0a0a] border-t border-zinc-800">
+            <p className="text-xs sm:text-sm text-zinc-300 text-center sm:text-left flex items-center gap-2">
+              <span aria-hidden className="text-pink-400">📍</span>
               <span className="font-semibold text-white">{displayArea}</span>
             </p>
             <a
               href={mapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold bg-[#FEBB02] text-[#00224f] px-3.5 py-1.5 rounded-lg hover:bg-yellow-300 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 text-white px-4 py-2 rounded-xl hover:opacity-95 transition-all shadow-lg shadow-pink-500/20 active:scale-95"
             >
               Buka di Google Maps
               <svg

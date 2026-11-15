@@ -18,7 +18,6 @@ import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { WebVsSosmedSection } from "@/components/sections/WebVsSosmedSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
-import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { ProvinsiRegenciesSection } from "@/components/sections/ProvinsiRegenciesSection";
 import { MapSection } from "@/components/sections/MapSection"; // ← TAMBAH
 
@@ -319,11 +318,6 @@ export default async function ProvinsiPage({ params }: PageProps) {
 
           <FaqSection faqs={content.faqs} waNumber={waNumber} />
 
-          <FinalCtaSection
-            waNumber={waNumber}
-            title={content.finalCta.title}
-            subtitle={content.finalCta.subtitle}
-          />
 
           <ProvinsiRegenciesSection
             provinsiName={content.nama}

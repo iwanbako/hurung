@@ -1,4 +1,3 @@
-// components/sections/WorkflowSection.tsx
 "use client";
 
 import React from "react";
@@ -52,17 +51,24 @@ export const WorkflowSection: React.FC<Props> = ({
   const finalSteps = steps && steps.length > 0 ? steps : defaultSteps;
 
   return (
-    <section className="bg-[#003580] py-12 sm:py-20 border-b border-[#0066f5] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="relative bg-[#030303] py-16 sm:py-24 border-b border-zinc-800/80 overflow-hidden">
+      
+      {/* Garis Aksen Pelangi Tipis di Atas Section */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
+
+      {/* Efek Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header Section dengan Animasi */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#FEBB02] text-[#00224f] px-3.5 py-1.5 rounded-full shadow-sm mb-2">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
             Cara Kerja Sederhana
           </span>
 
@@ -70,12 +76,14 @@ export const WorkflowSection: React.FC<Props> = ({
             {title ?? (
               <>
                 4 Langkah Mudah{" "}
-                <span className="text-[#FEBB02]">Punya Website</span>
+                <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                  Punya Website
+                </span>
               </>
             )}
           </h2>
 
-          <p className="mt-2 text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
             {subtitle ??
               "Proses cepat, transparan, dan tidak ribet. Kami dampingi dari nol sampai website Anda online."}
           </p>
@@ -90,24 +98,24 @@ export const WorkflowSection: React.FC<Props> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-[#00224f] border-2 border-[#0066f5] rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-lg transition-all relative"
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-[0_15px_30px_rgba(0,0,0,0.8)] transition-all relative group hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)]"
             >
               <div>
                 {/* Nomor Urut & Ikon */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl sm:text-3xl font-black text-white">
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                     {item.step}
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-[#FEBB02] text-[#00224f] border border-[#FEBB02] flex items-center justify-center text-lg shadow-sm font-bold">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-600 via-pink-600 to-amber-500 text-white border border-white/10 flex items-center justify-center text-lg shadow-lg shadow-pink-500/20 font-bold">
                     {item.icon}
                   </div>
                 </div>
 
-                <h3 className="font-bold text-white text-base sm:text-lg mb-2">
+                <h3 className="font-bold text-white text-base sm:text-lg mb-2 group-hover:text-pink-300 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
                   {item.desc}
                 </p>
               </div>

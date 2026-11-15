@@ -18,7 +18,6 @@ import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { WebVsSosmedSection } from "@/components/sections/WebVsSosmedSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
-import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { OtherRegenciesSection } from "@/components/sections/OtherRegenciesSection";
 import { DistrictsSection } from "@/components/sections/DistrictsSection";
 import { MapSection } from "@/components/sections/MapSection";
@@ -403,12 +402,6 @@ export default async function KabupatenPage({ params }: PageProps) {
           {/* 12. FAQ */}
           <FaqSection faqs={content.faqs} waNumber={waNumber} />
 
-          {/* 13. FINAL CTA */}
-          <FinalCtaSection
-            waNumber={waNumber}
-            title={content.finalCta.title}
-            subtitle={content.finalCta.subtitle}
-          />
 
           {/* 14. KABUPATEN LAIN */}
           <OtherRegenciesSection

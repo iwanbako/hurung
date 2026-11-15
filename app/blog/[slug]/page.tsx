@@ -1,4 +1,3 @@
-// app/blog/[slug]/page.tsx
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blog-posts";
@@ -68,18 +67,15 @@ export default async function BlogDetailPage({ params }: PageProps) {
   // ============================================================
   // HELPER: Format Tanggal ke Standar ISO 8601 (Google Schema)
   // ============================================================
-  // Mengubah "2026-11-01" menjadi "2026-11-01T00:00:00+07:00" (Waktu Indonesia Barat)
   const formatIsoDate = (dateStr: string) => {
-    // Jika format sudah memiliki huruf 'T' (berarti sudah ada jam), biarkan saja
     if (dateStr.includes("T")) return dateStr;
-    // Jika hanya tanggal (YYYY-MM-DD), tambahkan jam dan zona waktu WIB
-    return `${dateStr}T00:00:00+07:00`;
+    return `${dateStr}T00:00:00+07:00`; // Waktu Indonesia Barat
   };
 
   const validDatePublished = formatIsoDate(post.isoDate);
-  const validDateModified = formatIsoDate(post.isoDate); // Ubah jika ada field dateModified khusus
+  const validDateModified = formatIsoDate(post.isoDate);
 
-  // Pastikan URL gambar valid (jika post.image kosong, gunakan OG Image default)
+  // Pastikan URL gambar valid
   const imageUrl = post.image || `${SITE_URL}/og-image.jpg`;
 
   // ============================================================
@@ -101,7 +97,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     author: {
       "@type": "Person",
       name: post.author,
-      url: `${SITE_URL}/tentang-kami`, // Menambahkan URL agar valid (opsional)
+      url: `${SITE_URL}/tentang-kami`,
     },
     publisher: {
       "@type": "Organization",
@@ -146,7 +142,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
   };
 
   return (
-    <>
+    <div className="bg-[#030303] text-white flex flex-col min-h-screen">
       {/* Injeksi Schema JSON-LD */}
       <script
         type="application/ld+json"
@@ -158,6 +154,6 @@ export default async function BlogDetailPage({ params }: PageProps) {
       />
 
       <BlogDetail post={post} relatedPosts={relatedPosts} />
-    </>
+    </div>
   );
 }

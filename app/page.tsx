@@ -15,7 +15,6 @@ import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { WebVsSosmedSection } from "@/components/sections/WebVsSosmedSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
-import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { AllProvincesSection } from "@/components/sections/AllProvincesSection";
 import { MapSection } from "@/components/sections/MapSection"; // ← TAMBAH
 
@@ -250,7 +249,6 @@ export default function HomePage() {
           <WebVsSosmedSection />
           <PricingSection pricing={pricingData} waNumber={waNumber} />
           <FaqSection faqs={faqsData} waNumber={waNumber} />
-          <FinalCtaSection waNumber={waNumber} />
 
           {/* SEMUA PROVINSI (chip kecil klik-able) */}
           <AllProvincesSection provinsiList={allProvinsi} />

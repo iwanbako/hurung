@@ -1,4 +1,3 @@
-// components/common/Footer.tsx
 "use client";
 
 import React, { useMemo } from "react";
@@ -53,7 +52,7 @@ export const Footer: React.FC = () => {
     const segments = pathname.split("/").filter(Boolean);
     const provinsiSlug = segments[0];
     const kabupatenSlug = segments[1];
-    const kecamatanSlug = segments[2]; // <-- TAMBAH: slug kecamatan
+    const kecamatanSlug = segments[2];
 
     const isProvinsiValid = provinsiSlug && provinsiContent[provinsiSlug];
 
@@ -69,10 +68,6 @@ export const Footer: React.FC = () => {
 
           const districts = (kabData as any).districts || [];
 
-          // ============================================================
-          // PRIORITAS 1: Kalau URL adalah halaman kecamatan (3 segmen),
-          // cari kecamatan berdasarkan slug-nya -> sinkron dengan layanan.
-          // ============================================================
           if (kecamatanSlug && districts.length > 0) {
             const matched = districts.find(
               (d: any) => d.slug === kecamatanSlug
@@ -82,7 +77,6 @@ export const Footer: React.FC = () => {
             }
           }
 
-          // PRIORITAS 2: Fallback -> kecamatan acak (deterministic)
           if (!namaKecamatan) {
             if (districts.length > 0) {
               const idx = getDeterministicIndex(pathname, districts.length);
@@ -106,7 +100,6 @@ export const Footer: React.FC = () => {
       }
     }
 
-    // --- KONDISI 2B: Halaman umum (Blog, Kontak) atau URL tidak valid ---
     if (!namaProvinsi || !namaKabupaten) {
       const allProvinceSlugs = Object.keys(provinsiContent);
       const provIdx = getDeterministicIndex(pathname, allProvinceSlugs.length);
@@ -143,16 +136,25 @@ export const Footer: React.FC = () => {
   }, [pathname]);
 
   return (
-    <footer className="bg-booking-700 text-white/95 mt-auto">
+    <footer className="relative bg-[#050505] text-zinc-300 border-t border-zinc-800 mt-auto overflow-hidden shadow-[0_-20px_40px_rgba(0,0,0,0.8)]">
+      
+      {/* Garis Aksen Pelangi Modern di Bagian Paling Atas Footer */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-80 shadow-[0_0_15px_rgba(236,72,153,0.5)]"></div>
+
+      {/* Glow Effects Pelangi Halus di Background Belakang */}
+      <div className="absolute -top-24 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-24 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
       {/* ================= MAIN FOOTER ================= */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+        
         {/* Kolom 1: Brand & Deskripsi */}
         <div className="col-span-2 md:col-span-2">
           <Link
             href="/"
             className="flex items-center gap-2.5 mb-3 group w-fit"
           >
-            <span className="w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-xl bg-white text-booking-700 shadow-md">
+            <span className="w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-xl bg-gradient-to-tr from-violet-600 via-pink-600 to-amber-500 text-white shadow-lg shadow-pink-500/20">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -161,53 +163,29 @@ export const Footer: React.FC = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="w-4 h-4 sm:w-5 sm:h-5 text-booking-700"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-white"
               >
-                <rect
-                  x="2"
-                  y="3"
-                  width="20"
-                  height="14"
-                  rx="2"
-                  ry="2"
-                  strokeWidth="2"
-                  className="fill-booking-50/50"
-                />
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" strokeWidth="2" />
                 <line x1="8" y1="21" x2="16" y2="21" strokeWidth="2.5" />
                 <line x1="12" y1="17" x2="12" y2="21" strokeWidth="2.5" />
-                <path
-                  d="M7 8l3 3-3 3"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-amber-500"
-                />
-                <line
-                  x1="13"
-                  y1="14"
-                  x2="17"
-                  y2="14"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  className="text-amber-500"
-                />
+                <path d="M7 8l3 3-3 3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-300" />
+                <line x1="13" y1="14" x2="17" y2="14" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-cyan-300" />
               </svg>
             </span>
             <span className="font-bold text-base sm:text-lg text-white">
-              Kerabatweb<span className="text-yellow-400">.com</span>
+              Kerabatweb<span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">.com</span>
             </span>
           </Link>
-          <p className="text-[11px] sm:text-sm leading-relaxed max-w-sm text-white/80 mb-4">
-            Membantu bisnis Anda tampil profesional di internet dengan website
-            cepat, modern, dan siap konversi.
+          <p className="text-[11px] sm:text-sm leading-relaxed max-w-sm text-zinc-400 mb-4">
+            Membantu bisnis Anda tampil profesional di internet dengan website cepat, modern, dan siap konversi.
           </p>
 
-          {/* ================= AREA LAYANAN (Judul Kuning) ================= */}
-          <div className="max-w-sm mb-5">
-            <p className="text-[10px] sm:text-xs text-yellow-400 mb-0.5">
+          {/* ================= AREA LAYANAN ================= */}
+          <div className="max-w-sm mb-5 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800/80 shadow-inner">
+            <p className="text-[10px] sm:text-xs bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent font-bold mb-0.5 uppercase tracking-wider">
               Area Layanan Utama
             </p>
-            <p className="text-[11px] sm:text-sm text-white/80 leading-relaxed">
+            <p className="text-[11px] sm:text-sm text-zinc-300 leading-relaxed">
               {displayArea}
             </p>
           </div>
@@ -218,7 +196,7 @@ export const Footer: React.FC = () => {
               href="https://wa.me/6285938573419"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-booking-900 transition-colors"
+              className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 flex items-center justify-center hover:bg-gradient-to-r hover:from-emerald-500 hover:to-teal-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-md"
               aria-label="WhatsApp"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -227,21 +205,11 @@ export const Footer: React.FC = () => {
             </a>
             <a
               href="mailto:halo@kerabatweb.com"
-              className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-booking-900 transition-colors"
+              className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-500 hover:to-violet-500 hover:text-white hover:border-transparent transition-all duration-300 shadow-md"
               aria-label="Email"
             >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </a>
           </div>
@@ -249,21 +217,13 @@ export const Footer: React.FC = () => {
 
         {/* Kolom 2: Layanan */}
         <div>
-          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider text-yellow-400/90">
+          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
             Layanan
           </h3>
-          <ul className="space-y-2.5 text-xs sm:text-sm text-white/80">
-            {[
-              "Landing Page",
-              "Company Profile",
-              "Toko Online",
-              "Maintenance",
-            ].map((item, idx) => (
+          <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400">
+            {["Landing Page", "Company Profile", "Toko Online", "Maintenance"].map((item, idx) => (
               <li key={idx}>
-                <Link
-                  href="/#layanan"
-                  className="hover:text-yellow-400 transition-colors"
-                >
+                <Link href="/#layanan" className="hover:text-pink-400 transition-colors">
                   {item}
                 </Link>
               </li>
@@ -273,36 +233,27 @@ export const Footer: React.FC = () => {
 
         {/* Kolom 3: Perusahaan & Legal */}
         <div>
-          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider text-yellow-400/90">
+          <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
             Informasi
           </h3>
-          <ul className="space-y-2.5 text-xs sm:text-sm text-white/80">
+          <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400">
             <li>
-              <Link href="/blog" className="hover:text-yellow-400 transition-colors">
+              <Link href="/blog" className="hover:text-cyan-400 transition-colors">
                 Blog
               </Link>
             </li>
             <li>
-              <Link
-                href="/tentang-kami"
-                className="hover:text-yellow-400 transition-colors"
-              >
+              <Link href="/tentang-kami" className="hover:text-cyan-400 transition-colors">
                 Tentang Kami
               </Link>
             </li>
             <li>
-              <Link
-                href="/kebijakan-privasi"
-                className="hover:text-yellow-400 transition-colors"
-              >
+              <Link href="/kebijakan-privasi" className="hover:text-cyan-400 transition-colors">
                 Kebijakan Privasi
               </Link>
             </li>
             <li>
-              <Link
-                href="/syarat-ketentuan"
-                className="hover:text-yellow-400 transition-colors"
-              >
+              <Link href="/syarat-ketentuan" className="hover:text-cyan-400 transition-colors">
                 Syarat & Ketentuan
               </Link>
             </li>
@@ -311,15 +262,17 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* ================= BOTTOM BAR ================= */}
-      <div className="border-t border-white/10 bg-booking-800/50">
+      <div className="border-t border-zinc-900 bg-black/60 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[11px] text-white/60 text-center sm:text-left">
+          <p className="text-[11px] text-zinc-500 text-center sm:text-left">
             © {tahun}{" "}
-            <span className="text-yellow-400 font-semibold">Kerabatweb.com</span>
+            <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent font-semibold">
+              Kerabatweb.com
+            </span>
             . All rights reserved.
           </p>
-          <p className="text-[11px] text-white/60 text-center sm:text-right flex items-center gap-1">
-            Dibuat dengan <span className="text-rose-400">❤</span> di Indonesia
+          <p className="text-[11px] text-zinc-500 text-center sm:text-right flex items-center gap-1">
+            Dibuat dengan <span className="text-rose-500 animate-pulse">❤</span> di Indonesia
           </p>
         </div>
       </div>

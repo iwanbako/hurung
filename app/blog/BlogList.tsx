@@ -1,4 +1,3 @@
-// app/blog/BlogList.tsx
 "use client";
 
 import { useState } from "react";
@@ -51,8 +50,8 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
 
   if (posts.length === 0) {
     return (
-      <div className="text-center py-16 sm:py-20 border border-dashed border-[#0066f5]/50 rounded-2xl">
-        <p className="text-blue-100 text-sm sm:text-base px-4">
+      <div className="text-center py-16 sm:py-20 border border-dashed border-zinc-800 rounded-2xl bg-[#0a0a0a]">
+        <p className="text-zinc-400 text-sm sm:text-base px-4">
           Belum ada artikel yang dipublikasikan. Silakan kembali lagi nanti.
         </p>
       </div>
@@ -68,7 +67,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
         variants={gridVariants}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8"
+        className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
       >
         <AnimatePresence mode="popLayout">
           {visiblePosts.map((post, index) => {
@@ -81,14 +80,14 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
                 variants={cardVariants}
                 exit="exit"
                 layout
-                whileHover={{ y: -4 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 300, damping: 24 }}
                 className="h-full"
               >
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="bg-[#00224f] border border-[#0066f5] rounded-xl sm:rounded-2xl overflow-hidden hover:border-[#FEBB02] hover:shadow-[0_8px_30px_rgba(254,187,2,0.15)] transition-[border-color,box-shadow] duration-300 group flex flex-col h-full"
+                  className="bg-[#0a0a0a] border border-zinc-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] transition-all duration-300 group flex flex-col h-full shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
                 >
                   {/* Gambar */}
                   <div className="relative h-28 sm:h-48 w-full overflow-hidden">
@@ -100,22 +99,22 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
                       decoding="async"
                       fetchPriority={isFirst ? "high" : "auto"}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#00224f] to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-60" />
 
                     {isFirst && (
                       <motion.span
                         initial={{ opacity: 0, x: -8 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2, duration: 0.3 }}
-                        className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#FEBB02] text-[#00224f] text-[8px] sm:text-xs font-extrabold uppercase tracking-wider px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-md"
+                        className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 text-white text-[8px] sm:text-xs font-extrabold uppercase tracking-wider px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-lg shadow-pink-500/20"
                       >
                         Terbaru
                       </motion.span>
                     )}
 
-                    <span className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-[#003580]/90 text-[#FEBB02] text-[9px] sm:text-xs font-bold px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full backdrop-blur-sm flex items-center gap-0.5 sm:gap-1">
+                    <span className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-zinc-900/90 border border-zinc-700/80 text-zinc-200 text-[9px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full backdrop-blur-sm flex items-center gap-0.5 sm:gap-1">
                       <svg
-                        className="w-2.5 h-2.5 sm:w-3 sm:h-3"
+                        className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-pink-400"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2.5"
@@ -134,19 +133,19 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
 
                   {/* Konten */}
                   <div className="p-3 sm:p-6 flex-1 flex flex-col">
-                    <div className="flex flex-wrap items-center gap-x-1 sm:gap-x-2 gap-y-0.5 text-[9px] sm:text-xs text-[#FEBB02] font-bold mb-1.5 sm:mb-2 uppercase tracking-wider">
-                      <time dateTime={post.isoDate}>{post.date}</time>
-                      <span className="text-blue-300/60">•</span>
-                      <span className="text-blue-100 normal-case font-semibold tracking-normal truncate max-w-[60%]">
+                    <div className="flex flex-wrap items-center gap-x-1 sm:gap-x-2 gap-y-0.5 text-[9px] sm:text-xs font-bold mb-1.5 sm:mb-2 uppercase tracking-wider">
+                      <time dateTime={post.isoDate} className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">{post.date}</time>
+                      <span className="text-zinc-600">•</span>
+                      <span className="text-zinc-400 normal-case font-semibold tracking-normal truncate max-w-[60%]">
                         {post.author}
                       </span>
                     </div>
 
-                    <h2 className="text-xs sm:text-lg font-bold text-white mb-1.5 sm:mb-3 group-hover:text-[#FEBB02] transition-colors line-clamp-2 leading-snug">
+                    <h2 className="text-xs sm:text-lg font-bold text-white mb-1.5 sm:mb-3 group-hover:text-pink-300 transition-colors line-clamp-2 leading-snug">
                       {post.title}
                     </h2>
 
-                    <p className="hidden sm:block text-xs sm:text-sm text-blue-100 line-clamp-3 mb-4 flex-1 leading-relaxed">
+                    <p className="hidden sm:block text-xs sm:text-sm text-zinc-400 line-clamp-3 mb-4 flex-1 leading-relaxed">
                       {post.excerpt}
                     </p>
 
@@ -155,7 +154,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
                         {post.keywords.slice(0, 3).map((kw) => (
                           <span
                             key={kw}
-                            className="text-[11px] text-blue-200 bg-[#003580] border border-[#0066f5]/60 px-2 py-0.5 rounded-md"
+                            className="text-[11px] text-zinc-300 bg-zinc-900 border border-zinc-800 px-2.5 py-0.5 rounded-md"
                           >
                             #{kw}
                           </span>
@@ -163,10 +162,10 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
                       </div>
                     )}
 
-                    <span className="text-[10px] sm:text-sm font-bold text-[#FEBB02] flex items-center gap-0.5 sm:gap-1 mt-auto">
+                    <span className="text-[10px] sm:text-sm font-bold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent flex items-center gap-0.5 sm:gap-1 mt-auto">
                       Baca
                       <motion.svg
-                        className="w-3 h-3 sm:w-4 sm:h-4"
+                        className="w-3 h-3 sm:w-4 sm:h-4 text-pink-400"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2.5"
@@ -205,11 +204,11 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              className="w-full sm:w-auto px-6 py-3 bg-[#FEBB02] text-[#00224f] text-sm font-extrabold rounded-full hover:bg-[#ffc933] shadow-lg shadow-[#FEBB02]/20"
+              className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 text-white text-sm font-extrabold rounded-full hover:opacity-95 shadow-lg shadow-pink-500/25"
             >
               Muat Lebih Banyak
             </motion.button>
-            <p className="text-[11px] sm:text-xs text-blue-200">
+            <p className="text-[11px] sm:text-xs text-zinc-400">
               Menampilkan {visiblePosts.length} dari {posts.length} artikel
             </p>
           </motion.div>

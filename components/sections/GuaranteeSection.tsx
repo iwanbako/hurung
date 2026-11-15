@@ -1,4 +1,3 @@
-// components/sections/GuaranteeSection.tsx
 "use client";
 
 import React from "react";
@@ -48,7 +47,9 @@ export const GuaranteeSection: React.FC<Props> = ({
   const finalTitle = title ?? (
     <>
       100%{" "}
-      <span className="text-[#FEBB02]">Garansi Kepuasan</span>
+      <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+        Garansi Kepuasan
+      </span>
       {kabupaten ? ` untuk Bisnis di ${kabupaten}` : " untuk Anda"}
     </>
   );
@@ -60,8 +61,15 @@ export const GuaranteeSection: React.FC<Props> = ({
       : "Investasi Anda aman bersama kami. Kami berkomitmen memberikan hasil terbaik dengan standar kualitas profesional berteknologi tinggi.");
 
   return (
-    <section className="bg-[#003580] py-16 sm:py-24 border-b border-[#0066f5] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="relative bg-[#030303] py-16 sm:py-24 border-b border-zinc-800/80 overflow-hidden">
+      
+      {/* Garis Aksen Pelangi Tipis di Atas Section */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
+
+      {/* Efek Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-pink-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header Section dengan Animasi Masuk */}
         <motion.div
           className="text-center mb-12 sm:mb-16"
@@ -70,13 +78,13 @@ export const GuaranteeSection: React.FC<Props> = ({
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#FEBB02] text-[#00224f] px-3.5 py-1.5 rounded-full shadow-sm mb-3">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
             Komitmen & Proteksi
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
             {finalTitle}
           </h2>
-          <p className="mt-3 text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
             {finalSubtitle}
           </p>
         </motion.div>
@@ -95,13 +103,13 @@ export const GuaranteeSection: React.FC<Props> = ({
                 ease: "easeOut",
               }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-[#00224f] border-2 border-[#0066f5] rounded-2xl p-6 sm:p-8 flex flex-col items-start shadow-lg transition-all relative overflow-hidden"
+              className="bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 sm:p-8 flex flex-col items-start shadow-[0_15px_30px_rgba(0,0,0,0.8)] transition-all relative overflow-hidden group hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)]"
             >
-              {/* Aksen Glow Kuning Permanen di Sudut Atas */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FEBB02]/15 rounded-full blur-2xl pointer-events-none"></div>
+              {/* Aksen Glow Pelangi Halus di Sudut Atas Card */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-violet-500/10 to-pink-500/10 rounded-full blur-2xl pointer-events-none group-hover:from-violet-500/20 group-hover:to-pink-500/20 transition-all"></div>
 
-              {/* Icon Kotak dengan Warna Kuning Permanen */}
-              <div className="w-12 h-12 rounded-xl bg-[#FEBB02] text-[#00224f] border border-[#FEBB02] flex items-center justify-center text-xl mb-5 shadow-sm font-bold">
+              {/* Icon Kotak dengan Gradasi Pelangi */}
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-violet-600 via-pink-600 to-amber-500 text-white border border-white/10 flex items-center justify-center text-xl mb-5 shadow-lg shadow-pink-500/20 font-bold">
                 {item.icon}
               </div>
 
@@ -109,7 +117,7 @@ export const GuaranteeSection: React.FC<Props> = ({
                 {item.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
                 {item.desc}
               </p>
             </motion.div>

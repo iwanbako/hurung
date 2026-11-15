@@ -1,4 +1,3 @@
-// app/syarat-ketentuan/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/common/Header";
@@ -29,30 +28,34 @@ export default function SyaratKetentuanPage() {
   const lastUpdated = "7 November 2026";
 
   return (
-    <div className="bg-[#003580] text-white flex flex-col min-h-screen">
+    <div className="bg-[#030303] text-white flex flex-col min-h-screen">
       <Header />
 
-      <main className="flex-1 w-full py-16 sm:py-24 px-4 sm:px-6 relative">
-        {/* Dekorasi background */}
-        <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-[#00224f] to-transparent pointer-events-none" />
+      <main className="flex-1 w-full py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
+        
+        {/* Garis Aksen Pelangi Tipis di Atas Section */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
+
+        {/* Dekorasi Background Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-block text-xs font-bold uppercase tracking-wider bg-[#FEBB02] text-[#00224f] px-4 py-1.5 rounded-full shadow-sm mb-4">
+            <span className="inline-block text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
               Legal & Aturan
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
-              Syarat & <span className="text-[#FEBB02]">Ketentuan</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+              Syarat & <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Ketentuan</span>
             </h1>
-            <p className="text-sm text-blue-200">
+            <p className="text-sm text-zinc-400">
               Terakhir diperbarui: <span className="font-semibold text-white">{lastUpdated}</span>
             </p>
           </div>
 
           {/* Content Box */}
-          <div className="bg-[#00224f] border border-[#0066f5] rounded-3xl p-6 sm:p-10 shadow-xl">
-            <div className="prose prose-invert prose-sm sm:prose-base max-w-none prose-headings:text-[#FEBB02] prose-headings:font-bold prose-p:text-blue-100 prose-li:text-blue-100 prose-a:text-[#FEBB02] prose-a:no-underline hover:prose-a:underline">
+          <div className="bg-[#0a0a0a] border border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
+            <div className="prose prose-invert prose-sm sm:prose-base max-w-none prose-headings:bg-gradient-to-r prose-headings:from-violet-400 prose-headings:via-pink-400 prose-headings:to-cyan-400 prose-headings:bg-clip-text prose-headings:text-transparent prose-headings:font-bold prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-pink-400 prose-a:no-underline hover:prose-a:underline">
               
               {/* Intro */}
               <p className="lead text-base sm:text-lg text-white mb-8">
@@ -129,10 +132,10 @@ export default function SyaratKetentuanPage() {
               <p className="mb-6">
                 Jika ada hal yang kurang jelas mengenai Syarat & Ketentuan ini, silakan hubungi kami:
               </p>
-              <div className="bg-[#003580] p-5 rounded-xl border border-[#0066f5] inline-block">
-                <p className="m-0 text-sm">
-                  📧 Email: <strong>halo@kerabatweb.com</strong><br />
-                  📱 WhatsApp: <strong>+62 859-3857-3419</strong>
+              <div className="bg-[#030303] p-5 rounded-2xl border border-zinc-800 inline-block shadow-lg">
+                <p className="m-0 text-sm text-zinc-300">
+                  📧 Email: <strong className="text-white">halo@kerabatweb.com</strong><br />
+                  📱 WhatsApp: <strong className="text-white">+62 859-3857-3419</strong>
                 </p>
               </div>
 
@@ -143,13 +146,13 @@ export default function SyaratKetentuanPage() {
           <div className="mt-12 text-center flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FEBB02] hover:bg-[#e0a802] text-[#00224f] font-extrabold text-sm rounded-xl shadow-md transition-all active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-extrabold text-sm rounded-xl shadow-lg shadow-pink-500/20 transition-all active:scale-95"
             >
               ← Kembali ke Beranda
             </Link>
             <Link
               href="/kebijakan-privasi"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#00224f] hover:bg-[#001a3d] text-white font-semibold text-sm rounded-xl border border-[#0066f5] transition-all active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white font-semibold text-sm rounded-xl border border-zinc-800 transition-all active:scale-95 shadow-lg"
             >
               Baca Kebijakan Privasi
             </Link>

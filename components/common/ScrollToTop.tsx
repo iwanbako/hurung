@@ -12,13 +12,13 @@ export default function ScrollToTop() {
       history.scrollRestoration = "manual";
     }
 
-    // 2. Reset overflow yang mungkin tertinggal dari mobile menu
+    // 2. Reset overflow yang mungkin tertinggal dari mobile menu atau modal
     document.body.style.overflow = "";
     document.body.style.position = "";
     document.body.style.width = "";
     document.documentElement.style.overflow = "";
 
-    // 3. Force instant scroll (override smooth)
+    // 3. Force instant scroll (override smooth behavior sementara)
     const originalBehavior = document.documentElement.style.scrollBehavior;
     document.documentElement.style.scrollBehavior = "auto";
 
@@ -32,11 +32,12 @@ export default function ScrollToTop() {
       document.body.scrollTop = 0;
     };
 
-    // 4. Jalankan di frame berikutnya setelah DOM update
+    // 4. Jalankan di frame berikutnya setelah DOM selesai di-update
     requestAnimationFrame(() => {
       resetScroll();
       document.documentElement.style.scrollBehavior = originalBehavior;
-      // 5. Fallback untuk mobile Safari
+      
+      // 5. Fallback ekstra khusus untuk mobile Safari
       setTimeout(resetScroll, 0);
     });
   }, [pathname]);

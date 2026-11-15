@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -121,10 +120,10 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#003580" },
-    { media: "(prefers-color-scheme: dark)", color: "#001f4d" },
+    { media: "(prefers-color-scheme: light)", color: "#030303" },
+    { media: "(prefers-color-scheme: dark)", color: "#030303" },
   ],
-  colorScheme: "light",
+  colorScheme: "dark",
 };
 
 // ============================================================
@@ -138,14 +137,14 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col">
-        {/* ✅ TAMBAHKAN KOMPONEN INI DI SINI */}
+      <body className="min-h-full flex flex-col bg-[#030303] text-zinc-100 selection:bg-pink-500 selection:text-white">
+        {/* ✅ KOMPONEN SCROLL TO TOP */}
         <ScrollToTop />
         
         {children}
       </body>
     </html>
   );
-}
+};
