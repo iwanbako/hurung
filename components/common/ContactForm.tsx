@@ -20,7 +20,7 @@ export const ContactForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="block text-xs font-semibold text-white mb-1.5">Nama Lengkap</label>
+        <label htmlFor="name" className="block text-xs font-bold text-slate-800 mb-1.5 uppercase tracking-wider">Nama Lengkap</label>
         <input
           type="text"
           id="name"
@@ -28,12 +28,12 @@ export const ContactForm: React.FC = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Contoh: Budi Santoso"
-          className="w-full px-4 py-3 rounded-xl bg-black border border-zinc-800 focus:border-zinc-600 text-white placeholder-zinc-600 outline-none transition-all text-sm font-normal"
+          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-red-600 focus:ring-1 focus:ring-red-600 text-slate-900 placeholder-slate-400 outline-none transition-all text-sm font-normal shadow-sm"
         />
       </div>
       
       <div>
-        <label htmlFor="email" className="block text-xs font-semibold text-white mb-1.5">Alamat Email</label>
+        <label htmlFor="email" className="block text-xs font-bold text-slate-800 mb-1.5 uppercase tracking-wider">Alamat Email</label>
         <input
           type="email"
           id="email"
@@ -41,30 +41,30 @@ export const ContactForm: React.FC = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="budi@example.com"
-          className="w-full px-4 py-3 rounded-xl bg-black border border-zinc-800 focus:border-zinc-600 text-white placeholder-zinc-600 outline-none transition-all text-sm font-normal"
+          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-red-600 focus:ring-1 focus:ring-red-600 text-slate-900 placeholder-slate-400 outline-none transition-all text-sm font-normal shadow-sm"
         />
       </div>
 
       <div>
-        <label htmlFor="service" className="block text-xs font-semibold text-white mb-1.5">Jenis Layanan</label>
+        <label htmlFor="service" className="block text-xs font-bold text-slate-800 mb-1.5 uppercase tracking-wider">Jenis Layanan</label>
         <select
           id="service"
           required
           value={service}
           onChange={(e) => setService(e.target.value)}
-          className="w-full px-4 py-3 rounded-xl bg-black border border-zinc-800 focus:border-zinc-600 text-white outline-none transition-all text-sm appearance-none font-normal"
+          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-red-600 focus:ring-1 focus:ring-red-600 text-slate-900 outline-none transition-all text-sm appearance-none font-normal shadow-sm"
         >
-          <option value="" className="bg-black text-zinc-500">Pilih Layanan...</option>
-          <option value="Landing Page" className="bg-black text-white">Landing Page</option>
-          <option value="Company Profile" className="bg-black text-white">Company Profile</option>
-          <option value="Toko Online (E-Commerce)" className="bg-black text-white">Toko Online (E-Commerce)</option>
-          <option value="Custom / Web App" className="bg-black text-white">Custom / Web App</option>
-          <option value="Lainnya" className="bg-black text-white">Lainnya</option>
+          <option value="" className="bg-white text-slate-400">Pilih Layanan...</option>
+          <option value="Landing Page" className="bg-white text-slate-900">Landing Page</option>
+          <option value="Company Profile" className="bg-white text-slate-900">Company Profile</option>
+          <option value="Toko Online (E-Commerce)" className="bg-white text-slate-900">Toko Online (E-Commerce)</option>
+          <option value="Custom / Web App" className="bg-white text-slate-900">Custom / Web App</option>
+          <option value="Lainnya" className="bg-white text-slate-900">Lainnya</option>
         </select>
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-xs font-semibold text-white mb-1.5">Pesan / Kebutuhan Anda</label>
+        <label htmlFor="message" className="block text-xs font-bold text-slate-800 mb-1.5 uppercase tracking-wider">Pesan / Kebutuhan Anda</label>
         <textarea
           id="message"
           rows={4}
@@ -72,13 +72,13 @@ export const ContactForm: React.FC = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Ceritakan sedikit tentang bisnis dan website yang Anda inginkan..."
-          className="w-full px-4 py-3 rounded-xl bg-black border border-zinc-800 focus:border-zinc-600 text-white placeholder-zinc-600 outline-none transition-all text-sm resize-none font-normal"
+          className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-red-600 focus:ring-1 focus:ring-red-600 text-slate-900 placeholder-slate-400 outline-none transition-all text-sm resize-none font-normal shadow-sm"
         ></textarea>
       </div>
 
       <button
         type="submit"
-        className="w-full py-3.5 bg-white hover:bg-zinc-200 text-black font-bold rounded-full shadow-sm transition-all active:scale-95 text-xs sm:text-sm flex items-center justify-center gap-2 mt-2"
+        className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white font-extrabold rounded-full shadow-md shadow-red-600/20 transition-all active:scale-95 text-xs sm:text-sm flex items-center justify-center gap-2 mt-2 cursor-pointer"
       >
         Kirim via WhatsApp
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">

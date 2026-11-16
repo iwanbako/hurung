@@ -28,37 +28,38 @@ export default function SyaratKetentuanPage() {
   const lastUpdated = "7 November 2026";
 
   return (
-    <div className="bg-[#030303] text-white flex flex-col min-h-screen">
+    <div className="bg-white text-slate-900 flex flex-col min-h-screen">
       <Header />
 
       <main className="flex-1 w-full py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
         
-        {/* Garis Aksen Pelangi Tipis di Atas Section */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400 opacity-90"></div>
+        {/* Garis Aksen Merah Tipis di Atas Section */}
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-red-600"></div>
 
-        {/* Dekorasi Background Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
+        {/* Dekorasi Background Glow Merah Halus */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-red-100/50 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-block text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-700/80 bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent px-4 py-1.5 rounded-full shadow-[0_5px_20px_rgba(0,0,0,0.5)] mb-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-wider bg-red-50 border border-red-200 text-red-700 px-4 py-1.5 rounded-full shadow-sm mb-3">
               Legal & Aturan
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
-              Syarat & <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Ketentuan</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 tracking-tight text-slate-900">
+              Syarat & <span className="text-red-600">Ketentuan</span>
             </h1>
-            <p className="text-sm text-zinc-400">
-              Terakhir diperbarui: <span className="font-semibold text-white">{lastUpdated}</span>
+            <p className="text-sm text-slate-500">
+              Terakhir diperbarui: <span className="font-semibold text-slate-800">{lastUpdated}</span>
             </p>
           </div>
 
           {/* Content Box */}
-          <div className="bg-[#0a0a0a] border border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
-            <div className="prose prose-invert prose-sm sm:prose-base max-w-none prose-headings:bg-gradient-to-r prose-headings:from-violet-400 prose-headings:via-pink-400 prose-headings:to-cyan-400 prose-headings:bg-clip-text prose-headings:text-transparent prose-headings:font-bold prose-p:text-zinc-300 prose-li:text-zinc-300 prose-a:text-pink-400 prose-a:no-underline hover:prose-a:underline">
+          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-red-600" />
+            <div className="prose prose-slate prose-sm sm:prose-base max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-700 prose-li:text-slate-700 prose-a:text-red-600 prose-a:no-underline hover:prose-a:underline">
               
               {/* Intro */}
-              <p className="lead text-base sm:text-lg text-white mb-8">
+              <p className="lead text-base sm:text-lg text-slate-800 mb-8 font-normal">
                 Selamat datang di <strong>KerabatWeb</strong>. Syarat dan Ketentuan ini mengatur penggunaan layanan jasa pembuatan website yang kami sediakan. Dengan melakukan pemesanan, melakukan pembayaran, atau menggunakan layanan kami, Anda dianggap telah membaca, memahami, dan menyetujui seluruh isi Syarat & Ketentuan ini.
               </p>
 
@@ -132,10 +133,10 @@ export default function SyaratKetentuanPage() {
               <p className="mb-6">
                 Jika ada hal yang kurang jelas mengenai Syarat & Ketentuan ini, silakan hubungi kami:
               </p>
-              <div className="bg-[#030303] p-5 rounded-2xl border border-zinc-800 inline-block shadow-lg">
-                <p className="m-0 text-sm text-zinc-300">
-                  📧 Email: <strong className="text-white">halo@kerabatweb.com</strong><br />
-                  📱 WhatsApp: <strong className="text-white">+62 859-3857-3419</strong>
+              <div className="bg-red-50/50 p-5 rounded-2xl border border-red-200 inline-block shadow-sm">
+                <p className="m-0 text-sm text-slate-700">
+                  📧 Email: <strong className="text-slate-900">halo@kerabatweb.com</strong><br />
+                  📱 WhatsApp: <strong className="text-slate-900">+62 859-3857-3419</strong>
                 </p>
               </div>
 
@@ -146,13 +147,13 @@ export default function SyaratKetentuanPage() {
           <div className="mt-12 text-center flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-extrabold text-sm rounded-xl shadow-lg shadow-pink-500/20 transition-all active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm rounded-xl shadow-md shadow-red-600/20 transition-all active:scale-95"
             >
               ← Kembali ke Beranda
             </Link>
             <Link
               href="/kebijakan-privasi"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white font-semibold text-sm rounded-xl border border-zinc-800 transition-all active:scale-95 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm rounded-xl border border-slate-300 transition-all active:scale-95 shadow-sm"
             >
               Baca Kebijakan Privasi
             </Link>

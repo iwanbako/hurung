@@ -47,10 +47,8 @@ export const MapSection: React.FC<Props> = ({
 }) => {
   const pathname = usePathname();
 
-  const { mapQuery, mapZoom, displayArea, mapLabel, level } = useMemo(() => {
-    // ==========================================================
+  const resolvedData = useMemo(() => {
     // 1. Jika parent override manual
-    // ==========================================================
     if (provinsi) {
       let lvl: MapLevel = "provinsi";
       if (kecamatan && kabupaten) lvl = "kecamatan";
@@ -75,9 +73,7 @@ export const MapSection: React.FC<Props> = ({
       };
     }
 
-    // ==========================================================
     // 2. Homepage = Indonesia
-    // ==========================================================
     if (pathname === "/" || pathname === "") {
       return {
         mapQuery: "Indonesia",
@@ -88,9 +84,7 @@ export const MapSection: React.FC<Props> = ({
       };
     }
 
-    // ==========================================================
     // 3. Halaman lain = parsing slug
-    // ==========================================================
     let namaProvinsi = "";
     let namaKabupaten = "";
     let namaKecamatan = "";
@@ -114,9 +108,6 @@ export const MapSection: React.FC<Props> = ({
 
           const districts = (kabData as any).districts || [];
 
-          // ============================================================
-          // PRIORITAS 1: URL kecamatan -> cari slug dulu (bukan name)
-          // ============================================================
           if (kecamatanSlug && districts.length > 0) {
             const found = districts.find(
               (d: any) => d.slug === kecamatanSlug
@@ -126,7 +117,6 @@ export const MapSection: React.FC<Props> = ({
             }
           }
 
-          // PRIORITAS 2: fallback acak
           if (!namaKecamatan) {
             if (districts.length > 0) {
               const idx = getDeterministicIndex(pathname, districts.length);
@@ -150,7 +140,6 @@ export const MapSection: React.FC<Props> = ({
       }
     }
 
-    // Fallback jika URL tidak valid
     if (!namaProvinsi || !namaKabupaten) {
       const allProvinceSlugs = Object.keys(provinsiContent);
       const provIdx = getDeterministicIndex(pathname, allProvinceSlugs.length);
@@ -181,9 +170,6 @@ export const MapSection: React.FC<Props> = ({
       }
     }
 
-    // ==========================================================
-    // 4. TENTUKAN QUERY, ZOOM, & DISPLAY BERDASARKAN LEVEL
-    // ==========================================================
     const isProvinsiOnly = !!namaProvinsi && !segments[1];
     const isKecamatanPage = !!kecamatanSlug && !!namaKecamatan;
 
@@ -225,9 +211,9 @@ export const MapSection: React.FC<Props> = ({
     };
   }, [pathname, provinsi, kabupaten, kecamatan]);
 
-  // ==========================================================
+  const { mapQuery, mapZoom, displayArea, mapLabel } = resolvedData;
+
   // GOOGLE MAPS EMBED URL
-  // ==========================================================
   const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
     mapQuery
   )}&z=${mapZoom}&output=embed&hl=id`;
@@ -269,8 +255,8 @@ export const MapSection: React.FC<Props> = ({
           </p>
         </div>
 
-        {/* Map Wrapper dengan Border Default Merah */}
-        <div className="bg-white border-2 border-red-500 rounded-3xl overflow-hidden shadow-lg">
+        {/* Map Wrapper dengan Border Merah */}
+        <div className="bg-white border-2 border-red-600 rounded-3xl overflow-hidden shadow-md">
           <div className="relative" style={{ height }}>
             <iframe
               src={mapSrc}
@@ -286,7 +272,7 @@ export const MapSection: React.FC<Props> = ({
           </div>
 
           {/* Info bar bawah */}
-          <div className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/60 border-t border-slate-200">
+          <div className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-red-50/40 border-t border-slate-200">
             <p className="text-xs sm:text-sm text-slate-700 text-center sm:text-left flex items-center gap-2 font-medium">
               <span aria-hidden className="text-red-600">📍</span>
               <span className="font-semibold text-slate-900">{displayArea}</span>
@@ -314,6 +300,7 @@ export const MapSection: React.FC<Props> = ({
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );
