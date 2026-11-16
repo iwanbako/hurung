@@ -18,32 +18,41 @@ export function BlogDetail({ post, relatedPosts }: Props) {
   const readingTime = getReadingTime(post.content);
 
   return (
-    <div className="bg-white text-slate-900 flex flex-col min-h-screen overflow-x-hidden">
-      <Header />
+    /* 
+      1. JANGAN gunakan overflow-x-hidden di sini agar sticky header menempel pada viewport utama browser.
+      2. Gunakan w-full dan overflow-clip/hidden yang aman jika diperlukan, atau biarkan standar min-h-screen.
+    */
+    <div className="bg-white text-slate-900 flex flex-col min-h-screen w-full">
+      
+      {/* HEADER DENGAN STICKY YANG AKTIF */}
+      <div className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-xs">
+        <Header />
+      </div>
 
-      <main className="flex-1 w-full py-12 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
+      {/* Gunakan overflow-x-clip atau overflow-x-hidden HANYA di dalam tag main jika ada elemen meluber */}
+      <main className="flex-1 w-full py-8 sm:py-20 px-4 sm:px-6 relative overflow-x-hidden">
         
         {/* Garis Aksen Merah Tipis di Atas Section */}
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-red-600"></div>
 
-        {/* Dekorasi Background Glow Merah Halus */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-red-100/50 rounded-full blur-[120px] pointer-events-none" />
+        {/* Dekorasi Background Glow Merah Halus (Diberi max-w-full agar aman di mobile) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[500px] h-[300px] sm:h-[400px] bg-red-100/50 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" />
 
-        {/* max-w-5xl (1024px) adalah ukuran yang pas: Lebar tapi tetap nyaman dibaca */}
-        <div className="relative z-10 max-w-5xl mx-auto w-full">
+        {/* max-w-5xl (1024px) dengan pembatas w-full agar aman di mobile */}
+        <div className="relative z-10 max-w-5xl mx-auto w-full min-w-0">
           <article className="min-w-0 w-full">
             {/* BREADCRUMB */}
             <nav
               aria-label="Breadcrumb"
               className="flex items-center flex-wrap gap-2 text-xs sm:text-sm text-slate-500 mb-6"
             >
-              <Link href="/" className="hover:text-red-600 transition-colors font-medium">
+              <Link href="/" className="hover:text-red-600 transition-colors font-medium shrink-0">
                 Beranda
               </Link>
               <span className="text-slate-300">/</span>
               <Link
                 href="/blog"
-                className="hover:text-red-600 transition-colors font-medium"
+                className="hover:text-red-600 transition-colors font-medium shrink-0"
               >
                 Blog
               </Link>
@@ -64,7 +73,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                 <span className="text-slate-300">•</span>
                 <span className="text-slate-700 normal-case font-semibold tracking-normal flex items-center gap-1">
                   <svg
-                    className="w-3.5 h-3.5 text-red-600"
+                    className="w-3.5 h-3.5 text-red-600 shrink-0"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2.5"
@@ -85,7 +94,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                 {post.title}
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed border-l-4 border-red-600 pl-4 italic font-normal">
+              <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed border-l-4 border-red-600 pl-4 italic font-normal break-words">
                 {post.excerpt}
               </p>
             </header>
@@ -105,13 +114,13 @@ export function BlogDetail({ post, relatedPosts }: Props) {
             )}
 
             {/* KONTEN ARTIKEL */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 md:p-12 mb-10 shadow-sm relative overflow-hidden">
+            <div className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-10 md:p-12 mb-10 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-[3px] bg-red-600" />
               <div
                 className="
-                  prose prose-slate max-w-none w-full
+                  prose prose-slate max-w-none w-full break-words
 
-                  /* Ukuran teks pas untuk layar 1024px */
+                  /* Ukuran teks pas untuk layar seluler hingga desktop */
                   prose-p:text-slate-700 prose-p:leading-[1.9] prose-p:text-[15px] sm:prose-p:text-[16px] md:prose-p:text-[17px] prose-p:mb-6 prose-p:break-words
 
                   /* DROP CAP */
@@ -120,7 +129,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                   prose-p:first-of-type:first-letter:mr-3 prose-p:first-of-type:first-letter:mt-1 prose-p:first-of-type:first-letter:leading-[0.8]
 
                   /* HEADING 2 */
-                  prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:text-slate-900
+                  prose-h2:text-xl sm:prose-h2:text-3xl prose-h2:font-extrabold prose-h2:text-slate-900
                   prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b prose-h2:border-slate-200 prose-h2:break-words
 
                   /* HEADING 3 */
@@ -148,7 +157,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                 className="inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:text-red-700 transition-all"
               >
                 <svg
-                  className="w-4 h-4 text-red-600"
+                  className="w-4 h-4 text-red-600 shrink-0"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
@@ -179,11 +188,11 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                 </h2>
                 <Link
                   href="/blog"
-                  className="text-xs sm:text-sm font-bold text-red-600 hover:underline flex items-center gap-1"
+                  className="text-xs sm:text-sm font-bold text-red-600 hover:underline flex items-center gap-1 shrink-0"
                 >
                   Lihat Semua
                   <svg
-                    className="w-3.5 h-3.5"
+                    className="w-3.5 h-3.5 shrink-0"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2.5"
@@ -200,7 +209,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
                 {relatedPosts.map((item) => (
-                  <div key={item.slug}>
+                  <div key={item.slug} className="min-w-0">
                     <Link
                       href={`/blog/${item.slug}`}
                       className="group block bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-red-500 hover:shadow-lg transition-all duration-300 h-full flex flex-col shadow-sm hover:-translate-y-1.5"
@@ -214,20 +223,20 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
                       </div>
-                      <div className="p-4 flex-1 flex flex-col">
+                      <div className="p-4 flex-1 flex flex-col min-w-0">
                         <p className="text-[10px] font-bold mb-2 uppercase tracking-wider text-red-600">
                           {item.date}
                         </p>
-                        <h3 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2 mb-3">
+                        <h3 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2 mb-3 break-words">
                           {item.title}
                         </h3>
-                        <p className="text-xs text-slate-600 line-clamp-2 mb-3 flex-1 leading-relaxed font-normal">
+                        <p className="text-xs text-slate-600 line-clamp-2 mb-3 flex-1 leading-relaxed font-normal break-words">
                           {item.excerpt}
                         </p>
-                        <span className="text-xs font-bold text-red-600 flex items-center gap-1 mt-auto">
+                        <span className="text-xs font-bold text-red-600 flex items-center gap-1 mt-auto shrink-0">
                           Baca Artikel
                           <svg
-                            className="w-3.5 h-3.5 text-red-600 group-hover:translate-x-1 transition-transform"
+                            className="w-3.5 h-3.5 text-red-600 group-hover:translate-x-1 transition-transform shrink-0"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="2.5"
@@ -253,7 +262,7 @@ export function BlogDetail({ post, relatedPosts }: Props) {
       {/* =========================================
           GARIS PEMBATAS DI ATAS FOOTER
       ========================================= */}
-      <div className="border-t border-slate-200 max-w-5xl mx-auto w-full mt-8 mb-4" />
+      <div className="border-t border-slate-200 max-w-5xl mx-auto w-full mt-8 mb-4 px-4 sm:px-0" />
 
       <Footer />
     </div>
