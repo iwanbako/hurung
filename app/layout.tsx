@@ -60,11 +60,11 @@ export const metadata: Metadata = {
     },
   },
 
-  // ✅ FAVICON SVG DENGAN SKALA BESAR & TAJAM UNTUK SEMUA PERANGKAT
+  // ✅ FAVICON ICO UNTUK SEMUA PERANGKAT
   icons: {
-    icon: { url: "/favicon.ico", type: "image/svg+xml", sizes: "any" },
-    shortcut: { url: "/favicon.ico", type: "image/svg+xml" },
-    apple: { url: "/favicon.ico", type: "image/svg+xml" },
+    icon: { url: "/favicon.ico", type: "image/x-icon" },
+    shortcut: { url: "/favicon.ico", type: "image/x-icon" },
+    apple: { url: "/favicon.ico", type: "image/x-icon" },
   },
 
   openGraph: {

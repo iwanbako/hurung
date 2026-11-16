@@ -4,29 +4,17 @@
   "description": "Jasa pembuatan website landing page, company profile, dan toko online bergaransi resmi. Mulai Rp 999rb.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#003580",
-  "theme_color": "#003580",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
   "orientation": "portrait",
   "lang": "id",
   "dir": "ltr",
   "scope": "/",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/favicon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png"
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
     }
   ],
   "categories": ["business", "productivity", "shopping"]
