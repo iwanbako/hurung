@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white text-slate-900 border-b border-slate-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white text-slate-900 border-b-2 border-red-600 shadow-sm">
       
       {/* ================= TOP BAR MERAH DENGAN EFEK KETIK ================= */}
       <div className="bg-red-600 text-white text-[10px] sm:text-xs py-1.5 px-4 font-medium overflow-hidden">
@@ -159,11 +159,11 @@ export const Header: React.FC = () => {
                   : "invisible opacity-0 -translate-y-2 pointer-events-none"
               }`}
             >
-              <div className="w-[750px] bg-white text-slate-900 rounded-2xl shadow-2xl border border-slate-200 flex overflow-hidden text-left h-[500px] relative">
+              <div className="w-[750px] bg-white text-slate-900 rounded-2xl shadow-2xl border border-red-300 flex overflow-hidden text-left h-[500px] relative">
 
                 {/* SISI KIRI: Daftar Provinsi */}
-                <div className="w-[35%] border-r border-slate-200 bg-slate-50 flex flex-col pt-3">
-                  <div className="px-4 py-2 border-b border-slate-200 bg-slate-50">
+                <div className="w-[35%] border-r border-red-200 bg-red-50/40 flex flex-col pt-3">
+                  <div className="px-4 py-2 border-b border-red-200 bg-red-50">
                     <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                       Pilih Provinsi
@@ -175,10 +175,10 @@ export const Header: React.FC = () => {
                         key={prov.slug} 
                         href={`/${prov.slug}`}
                         onMouseEnter={() => setActiveProvinsi(prov.slug)}
-                        className={`group flex items-center px-3.5 py-2 text-sm font-medium rounded-xl transition-all duration-150 ${
+                        className={`group flex items-center px-3.5 py-2 text-sm font-medium rounded-xl transition-all duration-150 border ${
                           activeProvinsi === prov.slug 
-                            ? "bg-red-600 text-white font-semibold shadow-sm" 
-                            : "text-slate-800 hover:text-slate-950 hover:bg-slate-200/60"
+                            ? "bg-red-600 text-white font-semibold shadow-sm border-red-600" 
+                            : "text-slate-800 hover:text-red-600 hover:bg-red-50/60 border-transparent hover:border-red-200"
                         }`}
                       >
                         <div className={`w-1.5 h-1.5 rounded-full mr-2.5 transition-colors ${activeProvinsi === prov.slug ? 'bg-white' : 'bg-transparent group-hover:bg-red-500'}`}></div>
@@ -190,7 +190,7 @@ export const Header: React.FC = () => {
 
                 {/* SISI KANAN: Daftar Kabupaten/Kota */}
                 <div className="w-[65%] flex flex-col bg-white pt-3 relative">
-                  <div className="px-5 py-2 border-b border-slate-200 flex items-center justify-between bg-white">
+                  <div className="px-5 py-2 border-b border-red-200 flex items-center justify-between bg-white">
                     <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">
                       Kabupaten/Kota
                     </span>
@@ -215,7 +215,7 @@ export const Header: React.FC = () => {
                             <Link
                               key={kab.slug}
                               href={`/${prov.slug}/${kab.slug}`}
-                              className="group flex items-center gap-2.5 px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 hover:text-red-600 font-semibold rounded-xl bg-slate-50 border border-slate-200 hover:border-red-300 hover:bg-red-50/50 transition-all"
+                              className="group flex items-center gap-2.5 px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 hover:text-red-600 font-semibold rounded-xl bg-slate-50 border border-red-200 hover:border-red-400 hover:bg-red-50/50 transition-all shadow-sm"
                             >
                               <svg className="w-3.5 h-3.5 text-red-600 group-hover:text-red-600 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
                               <span className="truncate">{kab.name || (kab as any).nama}</span>
@@ -227,8 +227,8 @@ export const Header: React.FC = () => {
 
                     {!activeProvinsi && (
                       <div className="h-full flex flex-col items-center justify-center text-slate-500 text-sm absolute inset-0 bg-white">
-                        <div className="w-16 h-16 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center mb-3">
-                          <svg className="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <div className="w-16 h-16 bg-red-50/50 border border-red-200 rounded-full flex items-center justify-center mb-3">
+                          <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         </div>
                         <p className="text-center leading-relaxed font-semibold text-slate-700">Arahkan kursor ke provinsi<br/>untuk melihat kabupaten/kota.</p>
                       </div>

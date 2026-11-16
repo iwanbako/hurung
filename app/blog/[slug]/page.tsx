@@ -142,7 +142,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
   };
 
   return (
-    <div className="bg-[#030303] text-white flex flex-col min-h-screen">
+    <div className="bg-white text-slate-900 flex flex-col min-h-screen">
       {/* Injeksi Schema JSON-LD */}
       <script
         type="application/ld+json"

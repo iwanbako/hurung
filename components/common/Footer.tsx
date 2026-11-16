@@ -136,10 +136,18 @@ export const Footer: React.FC = () => {
   }, [pathname]);
 
   return (
-    <footer className="relative bg-red-600 text-white border-t border-red-700 mt-auto overflow-hidden">
+    <footer className="relative bg-red-600 text-white mt-auto overflow-hidden">
+
+      {/* ================= EFEK KERTAS SOBEK / JIGZAG DI ATAS FOOTER ================= */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-6 bg-white pointer-events-none z-10"
+        style={{
+          clipPath: "polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%)"
+        }}
+      ></div>
 
       {/* ================= MAIN FOOTER ================= */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12 sm:pb-16 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
         
         {/* Kolom 1: Brand & Deskripsi */}
         <div className="col-span-2 md:col-span-2">
@@ -174,7 +182,7 @@ export const Footer: React.FC = () => {
           </p>
 
           {/* ================= AREA LAYANAN ================= */}
-          <div className="max-w-sm mb-5 p-3 rounded-2xl bg-red-700/60 border border-red-500/50">
+          <div className="max-w-sm mb-5 p-3 rounded-2xl bg-red-700/60 border border-red-500/50 shadow-sm">
             <p className="text-[10px] sm:text-xs text-red-200 font-bold mb-0.5 uppercase tracking-wider">
               Area Layanan Utama
             </p>

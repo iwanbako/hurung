@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-// ✅ TAMBAHKAN IMPORT INI
+// ✅ KOMPONEN SCROLL TO TOP
 import ScrollToTop from "@/components/common/ScrollToTop";
 
 const geistSans = Geist({
@@ -120,10 +120,10 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#030303" },
-    { media: "(prefers-color-scheme: dark)", color: "#030303" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#ffffff" },
   ],
-  colorScheme: "dark",
+  colorScheme: "light",
 };
 
 // ============================================================
@@ -137,9 +137,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#030303] text-zinc-100 selection:bg-pink-500 selection:text-white">
+      <body className="min-h-full flex flex-col bg-white text-slate-900 selection:bg-red-600 selection:text-white">
         {/* ✅ KOMPONEN SCROLL TO TOP */}
         <ScrollToTop />
         
@@ -147,4 +147,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-};
+}
