@@ -43,7 +43,7 @@ const pricingData = [
     name: "Gold",
     target: "Paket Website Landing Page / UMKM",
     priceNormal: "Rp 2.500.000",
-    pricePromo: "Rp 999.000",
+    pricePromo: "Rp 499.000",
     diskon: "Diskon 60%",
     periode: "PER TAHUN",
     popular: false,
@@ -149,7 +149,7 @@ const keunggulanData = [
   {
     icon: "💰",
     title: "Harga Transparan",
-    desc: "Mulai Rp 999.000/tahun. Sudah termasuk domain, hosting, SSL. Tidak ada biaya tersembunyi.",
+    desc: "Mulai Rp 499.000/tahun. Sudah termasuk domain, hosting, SSL. Tidak ada biaya tersembunyi.",
   },
   {
     icon: "🔍",
@@ -292,7 +292,7 @@ export default async function KecamatanPage({ params }: PageProps) {
       "@type": "AggregateOffer",
       url,
       priceCurrency: "IDR",
-      lowPrice: "999000",
+      lowPrice: "499000",
       highPrice: "4500000",
       offerCount: "3",
       priceValidUntil: "2026-12-31",

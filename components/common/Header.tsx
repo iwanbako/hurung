@@ -9,7 +9,7 @@ const waNumber = "6285938573419";
 const waDefault = `https://wa.me/${waNumber}?text=${encodeURIComponent("Halo KerabatWeb, saya ingin konsultasi pembuatan website.")}`;
 
 const promoTexts = [
-  "Jasa Pembuatan Website Profesional & Cepat — Mulai dari Rp 999.000 / Tahun",
+  "Jasa Pembuatan Website Profesional & Cepat — Mulai dari Rp 499.000 / Tahun",
   "100% Bergaransi, Hosting & Domain Gratis — Setup Cepat Siap Jualan",
   "Optimasi SEO Google & Mobile Friendly — Jangkau Pelanggan Lebih Luas",
 ];

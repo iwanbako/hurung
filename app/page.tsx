@@ -22,7 +22,7 @@ const SITE_URL = "https://kerabatweb.com";
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website Profesional, Cepat & Ramah SEO",
   description:
-    "Jasa pembuatan website landing page, company profile, dan toko online (e-commerce) bergaransi resmi. Pengerjaan kilat 3-5 hari, bebas domain & SSL, harga transparan mulai Rp 999rb.",
+    "Jasa pembuatan website landing page, company profile, dan toko online (e-commerce) bergaransi resmi. Pengerjaan kilat 3-5 hari, bebas domain & SSL, harga transparan mulai Rp 499rb.",
   keywords: [
     "jasa pembuatan website",
     "buat landing page murah",
@@ -83,7 +83,7 @@ const pricingData = [
     name: "Gold",
     target: "Paket Website Landing Page / UMKM",
     priceNormal: "Rp 2.500.000",
-    pricePromo: "Rp 999.000",
+    pricePromo: "Rp 499.000",
     diskon: "Diskon 60%",
     periode: "PER TAHUN",
     popular: false,
@@ -213,7 +213,7 @@ export default function HomePage() {
     image: `${SITE_URL}/og-image.jpg`,
     url: SITE_URL,
     telephone: "+6285938573419",
-    priceRange: "Rp 999.000 - Rp 4.500.000",
+    priceRange: "Rp 499.000 - Rp 4.500.000",
     address: {
       "@type": "PostalAddress",
       addressCountry: "ID",

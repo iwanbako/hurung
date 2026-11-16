@@ -185,9 +185,9 @@ export function generateKabupatenContent(
   // 6. SEO
   // ==========================================
   // Meta title tanpa provinsi + fokus harga
-  const metaTitle = `Jasa Pembuatan Website di ${namaLengkap} - Mulai Rp 999rb`;
+  const metaTitle = `Jasa Pembuatan Website di ${namaLengkap} - Mulai Rp 499rb`;
 
-  const metaDescription = `Jasa pembuatan website profesional di ${namaLengkap}, ${prov}. Spesialis bisnis ${industriText}. Melayani ${jumlahKecamatan} kecamatan termasuk ${districtSample.text}. Mulai Rp 999rb, bergaransi.`;
+  const metaDescription = `Jasa pembuatan website profesional di ${namaLengkap}, ${prov}. Spesialis bisnis ${industriText}. Melayani ${jumlahKecamatan} kecamatan termasuk ${districtSample.text}. Mulai Rp 499rb, bergaransi.`;
 
   // ==========================================
   // 7. Hero
