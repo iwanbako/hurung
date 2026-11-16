@@ -1,8 +1,5 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 interface BreadcrumbItem {
   label: string;
@@ -19,16 +16,11 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="relative bg-black border-b border-zinc-800 overflow-hidden"
+      className="relative bg-white border-b border-slate-200 overflow-hidden shadow-sm"
     >
-      <motion.div
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="max-w-6xl mx-auto px-4 sm:px-6 py-3"
-      >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3">
         <ol
-          className="flex items-center flex-wrap gap-1.5 text-[10px] sm:text-xs text-zinc-400"
+          className="flex items-center flex-wrap gap-1.5 text-[10px] sm:text-xs text-slate-500"
           itemScope
           itemType="https://schema.org/BreadcrumbList"
         >
@@ -46,7 +38,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
                 {item.href && !isLast ? (
                   <Link
                     href={item.href}
-                    className="hover:text-white transition-colors font-medium text-zinc-300"
+                    className="hover:text-red-600 transition-colors font-medium text-slate-600"
                     itemProp="item"
                   >
                     <span itemProp="name">{item.label}</span>
@@ -55,8 +47,8 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
                   <span
                     className={
                       isLast
-                        ? "text-white font-bold"
-                        : "text-zinc-300 font-medium"
+                        ? "text-slate-900 font-bold"
+                        : "text-slate-600 font-medium"
                     }
                     itemProp="name"
                   >
@@ -67,7 +59,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
                 <meta itemProp="position" content={String(idx + 1)} />
 
                 {!isLast && (
-                  <span className="text-zinc-600 px-0.5" aria-hidden="true">
+                  <span className="text-slate-400 px-0.5" aria-hidden="true">
                     /
                   </span>
                 )}
@@ -75,7 +67,7 @@ export const Breadcrumb: React.FC<Props> = ({ items }) => {
             );
           })}
         </ol>
-      </motion.div>
+      </div>
     </nav>
   );
 };

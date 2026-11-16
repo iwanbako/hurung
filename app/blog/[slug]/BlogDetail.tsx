@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
 import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
 import type { BlogPost } from "@/data/blog-posts";
@@ -15,24 +12,6 @@ function getReadingTime(html: string): number {
 type Props = {
   post: BlogPost;
   relatedPosts: BlogPost[];
-};
-
-// ✅ FIX: anotasi : Variants + ease pakai cubic-bezier array
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
 };
 
 export function BlogDetail({ post, relatedPosts }: Props) {
@@ -52,15 +31,10 @@ export function BlogDetail({ post, relatedPosts }: Props) {
 
         {/* max-w-5xl (1024px) adalah ukuran yang pas: Lebar tapi tetap nyaman dibaca */}
         <div className="relative z-10 max-w-5xl mx-auto w-full">
-          <motion.article
-            className="min-w-0 w-full"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
+          <article className="min-w-0 w-full">
             {/* BREADCRUMB */}
-            <motion.nav
-              variants={fadeInUp}
+            <nav
+              aria-label="Breadcrumb"
               className="flex items-center flex-wrap gap-2 text-xs sm:text-sm text-zinc-400 mb-6"
             >
               <Link href="/" className="hover:text-pink-400 transition-colors">
@@ -77,10 +51,10 @@ export function BlogDetail({ post, relatedPosts }: Props) {
               <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent font-bold line-clamp-1 break-all">
                 {post.title}
               </span>
-            </motion.nav>
+            </nav>
 
             {/* HEADER ARTIKEL */}
-            <motion.header variants={fadeInUp} className="mb-8">
+            <header className="mb-8">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs sm:text-sm font-bold mb-4 uppercase tracking-wider">
                 <time dateTime={post.isoDate} className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">{post.date}</time>
                 <span className="text-zinc-600">•</span>
@@ -114,14 +88,11 @@ export function BlogDetail({ post, relatedPosts }: Props) {
               <p className="text-sm sm:text-base md:text-lg text-zinc-400 leading-relaxed border-l-4 border-pink-500 pl-4 italic">
                 {post.excerpt}
               </p>
-            </motion.header>
+            </header>
 
             {/* GAMBAR UTAMA */}
             {post.image && (
-              <motion.figure
-                variants={fadeInUp}
-                className="relative w-full h-64 sm:h-80 md:h-[400px] rounded-2xl overflow-hidden border border-zinc-800 mb-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)]"
-              >
+              <figure className="relative w-full h-64 sm:h-80 md:h-[400px] rounded-2xl overflow-hidden border border-zinc-800 mb-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
                 <img
                   src={post.image}
                   alt={post.title}
@@ -130,14 +101,11 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                   fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-transparent to-transparent" />
-              </motion.figure>
+              </figure>
             )}
 
             {/* KONTEN ARTIKEL */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-[#0a0a0a] border border-zinc-800 rounded-3xl p-6 sm:p-10 md:p-12 mb-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)] relative overflow-hidden"
-            >
+            <div className="bg-[#0a0a0a] border border-zinc-800 rounded-3xl p-6 sm:p-10 md:p-12 mb-10 shadow-[0_20px_50px_rgba(0,0,0,0.9)] relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-400" />
               <div
                 className="
@@ -171,13 +139,10 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                 "
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
-            </motion.div>
+            </div>
 
             {/* TOMBOL KEMBALI */}
-            <motion.div
-              variants={fadeInUp}
-              className="mb-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-zinc-800 pt-6"
-            >
+            <div className="mb-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-zinc-800 pt-6">
               <Link
                 href="/blog"
                 className="inline-flex items-center gap-2 text-sm font-bold bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent hover:opacity-80 transition-all"
@@ -200,19 +165,14 @@ export function BlogDetail({ post, relatedPosts }: Props) {
               <span className="text-xs text-zinc-500 italic">
                 Terakhir diperbarui: {post.date}
               </span>
-            </motion.div>
-          </motion.article>
+            </div>
+          </article>
 
           {/* =========================================
               ARTIKEL TERKAIT
           ========================================= */}
           {relatedPosts.length > 0 && (
-            <motion.section
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="border-t border-zinc-800 pt-10 mt-4"
-            >
+            <section className="border-t border-zinc-800 pt-10 mt-4">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight">
                   Artikel <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">Terkait</span>
@@ -239,20 +199,11 @@ export function BlogDetail({ post, relatedPosts }: Props) {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-                {relatedPosts.map((item, idx) => (
-                  <motion.div
-                    key={item.slug}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.4,
-                      delay: 0.5 + idx * 0.1,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                  >
+                {relatedPosts.map((item) => (
+                  <div key={item.slug}>
                     <Link
                       href={`/blog/${item.slug}`}
-                      className="group block bg-[#0a0a0a] border border-zinc-800 rounded-2xl overflow-hidden hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] transition-all duration-300 h-full flex flex-col shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
+                      className="group block bg-[#0a0a0a] border border-zinc-800 rounded-2xl overflow-hidden hover:border-pink-500/50 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] transition-all duration-300 h-full flex flex-col shadow-[0_15px_30px_rgba(0,0,0,0.8)] hover:-translate-y-1.5"
                     >
                       <div className="relative w-full h-40 sm:h-44 overflow-hidden shrink-0">
                         <img
@@ -291,10 +242,10 @@ export function BlogDetail({ post, relatedPosts }: Props) {
                         </span>
                       </div>
                     </Link>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.section>
+            </section>
           )}
         </div>
       </main>

@@ -136,7 +136,7 @@ export const Footer: React.FC = () => {
   }, [pathname]);
 
   return (
-    <footer className="relative bg-black text-white border-t border-zinc-800 mt-auto overflow-hidden">
+    <footer className="relative bg-red-600 text-white border-t border-red-700 mt-auto overflow-hidden">
 
       {/* ================= MAIN FOOTER ================= */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
@@ -147,7 +147,7 @@ export const Footer: React.FC = () => {
             href="/"
             className="flex items-center gap-2.5 mb-3 group w-fit"
           >
-            <span className="w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-full bg-zinc-900 border border-zinc-800 text-white">
+            <span className="w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-xl bg-white text-red-600 shadow-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -156,29 +156,29 @@ export const Footer: React.FC = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="w-4 h-4 sm:w-5 sm:h-5 text-white"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-red-600"
               >
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2" strokeWidth="2" />
                 <line x1="8" y1="21" x2="16" y2="21" strokeWidth="2.5" />
                 <line x1="12" y1="17" x2="12" y2="21" strokeWidth="2.5" />
-                <path d="M7 8l3 3-3 3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400" />
-                <line x1="13" y1="14" x2="17" y2="14" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400" />
+                <path d="M7 8l3 3-3 3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-red-400" />
+                <line x1="13" y1="14" x2="17" y2="14" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-red-400" />
               </svg>
             </span>
             <span className="font-bold text-base sm:text-lg text-white">
-              Kerabat<span className="text-zinc-400">Web</span>
+              Kerabat<span className="text-red-200">Web</span>
             </span>
           </Link>
-          <p className="text-[11px] sm:text-sm leading-relaxed max-w-sm text-zinc-400 mb-4 font-normal">
+          <p className="text-[11px] sm:text-sm leading-relaxed max-w-sm text-red-100 mb-4 font-normal">
             Membantu bisnis Anda tampil profesional di internet dengan website cepat, modern, dan siap konversi.
           </p>
 
           {/* ================= AREA LAYANAN ================= */}
-          <div className="max-w-sm mb-5 p-3 rounded-xl bg-black border border-zinc-800">
-            <p className="text-[10px] sm:text-xs text-zinc-400 font-bold mb-0.5 uppercase tracking-wider">
+          <div className="max-w-sm mb-5 p-3 rounded-2xl bg-red-700/60 border border-red-500/50">
+            <p className="text-[10px] sm:text-xs text-red-200 font-bold mb-0.5 uppercase tracking-wider">
               Area Layanan Utama
             </p>
-            <p className="text-[11px] sm:text-sm text-zinc-200 font-medium leading-relaxed">
+            <p className="text-[11px] sm:text-sm text-white font-medium leading-relaxed">
               {displayArea}
             </p>
           </div>
@@ -189,7 +189,7 @@ export const Footer: React.FC = () => {
               href="https://wa.me/6285938573419"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+              className="w-9 h-9 rounded-full bg-red-700 border border-red-500 text-white flex items-center justify-center hover:bg-white hover:text-red-600 hover:border-white transition-all duration-300 shadow-sm"
               aria-label="WhatsApp"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -198,7 +198,7 @@ export const Footer: React.FC = () => {
             </a>
             <a
               href="mailto:halo@kerabatweb.com"
-              className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+              className="w-9 h-9 rounded-full bg-red-700 border border-red-500 text-white flex items-center justify-center hover:bg-white hover:text-red-600 hover:border-white transition-all duration-300 shadow-sm"
               aria-label="Email"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -213,10 +213,10 @@ export const Footer: React.FC = () => {
           <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">
             Layanan
           </h3>
-          <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400 font-medium">
+          <ul className="space-y-2.5 text-xs sm:text-sm text-red-100 font-medium">
             {["Landing Page", "Company Profile", "Toko Online", "Maintenance"].map((item, idx) => (
               <li key={idx}>
-                <Link href="/#layanan" className="hover:text-white transition-colors">
+                <Link href="/#layanan" className="hover:text-white hover:underline transition-colors">
                   {item}
                 </Link>
               </li>
@@ -229,24 +229,24 @@ export const Footer: React.FC = () => {
           <h3 className="text-white font-bold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wider">
             Informasi
           </h3>
-          <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-400 font-medium">
+          <ul className="space-y-2.5 text-xs sm:text-sm text-red-100 font-medium">
             <li>
-              <Link href="/blog" className="hover:text-white transition-colors">
+              <Link href="/blog" className="hover:text-white hover:underline transition-colors">
                 Blog
               </Link>
             </li>
             <li>
-              <Link href="/tentang-kami" className="hover:text-white transition-colors">
+              <Link href="/tentang-kami" className="hover:text-white hover:underline transition-colors">
                 Tentang Kami
               </Link>
             </li>
             <li>
-              <Link href="/kebijakan-privasi" className="hover:text-white transition-colors">
+              <Link href="/kebijakan-privasi" className="hover:text-white hover:underline transition-colors">
                 Kebijakan Privasi
               </Link>
             </li>
             <li>
-              <Link href="/syarat-ketentuan" className="hover:text-white transition-colors">
+              <Link href="/syarat-ketentuan" className="hover:text-white hover:underline transition-colors">
                 Syarat & Ketentuan
               </Link>
             </li>
@@ -255,16 +255,16 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* ================= BOTTOM BAR ================= */}
-      <div className="border-t border-zinc-800 bg-black">
+      <div className="border-t border-red-700 bg-red-700/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[11px] text-zinc-500 font-medium text-center sm:text-left">
+          <p className="text-[11px] text-red-200 font-medium text-center sm:text-left">
             © {tahun}{" "}
             <span className="text-white font-semibold">
               Kerabatweb.com
             </span>
             . All rights reserved.
           </p>
-          <p className="text-[11px] text-zinc-500 font-medium text-center sm:text-right flex items-center gap-1">
+          <p className="text-[11px] text-red-200 font-medium text-center sm:text-right flex items-center gap-1">
             Dibuat dengan <span className="text-white animate-pulse">❤</span> di Indonesia
           </p>
         </div>

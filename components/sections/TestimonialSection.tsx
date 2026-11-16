@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 
 interface Props {
   title?: string;
@@ -54,12 +51,12 @@ export const TestimonialSection: React.FC<Props> = ({
   ];
 
   // ============================================================
-  // HEADER TEXT (semua teks putih bersih mutlak)
+  // HEADER TEXT
   // ============================================================
   const finalTitle = title ?? (
     <>
       Apa Kata{" "}
-      <span className="text-white">
+      <span className="text-red-600">
         {kabupaten ? `Klien Kami di ${kabupaten}` : "Klien Kami"}
       </span>
       ?
@@ -73,71 +70,60 @@ export const TestimonialSection: React.FC<Props> = ({
       : "Kepuasan klien adalah prioritas utama kami dalam menghadirkan solusi digital terbaik.");
 
   return (
-    <section className="relative bg-black py-16 sm:py-24 border-b border-zinc-800 overflow-hidden">
+    <section className="relative bg-white py-16 sm:py-24 border-b border-slate-200 overflow-hidden">
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header Section dengan Animasi */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16"
-        >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-4 py-1.5 rounded-full mb-3">
+        {/* Header Section */}
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-red-50 border border-red-200 text-red-700 px-4 py-1.5 rounded-full mb-3 shadow-sm">
             Testimoni & Kepercayaan
           </span>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             {finalTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm text-white max-w-xl mx-auto leading-relaxed font-normal">
+          <p className="mt-3 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
             {finalSubtitle}
           </p>
-        </motion.div>
+        </div>
 
-        {/* Grid Testimoni dengan Animasi Framer Motion */}
+        {/* Grid Testimoni */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((t, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-black border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-all flex flex-col justify-between hover:border-zinc-700 group"
+              className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 transition-all duration-200 flex flex-col justify-between hover:border-red-500 hover:shadow-lg hover:-translate-y-1 group shadow-sm"
             >
               <div>
                 {/* Rating Bintang */}
-                <div className="flex items-center gap-1 text-white mb-3 text-sm">
+                <div className="flex items-center gap-1 text-red-500 mb-3 text-sm">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <span key={i}>★</span>
                   ))}
                 </div>
 
                 {/* Komentar */}
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed italic mb-6 font-normal">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic mb-6 font-normal">
                   &ldquo;{t.comment}&rdquo;
                 </p>
               </div>
 
               {/* Profil Pemberi Ulasan */}
-              <div className="flex items-center gap-3.5 pt-4 border-t border-zinc-800">
-                <div className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-white flex items-center justify-center text-xs font-bold shadow-sm">
+              <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100 group-hover:border-red-100 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-red-50 border border-red-100 text-red-600 flex items-center justify-center text-xs font-bold shadow-sm">
                   {t.initial}
                 </div>
                 <div>
-                  <h3 className="font-bold text-white text-sm group-hover:text-zinc-200 transition-colors">
+                  <h3 className="font-bold text-slate-900 text-sm group-hover:text-red-600 transition-colors">
                     {t.name}
                   </h3>
-                  <span className="text-[11px] text-zinc-400 font-normal">
+                  <span className="text-[11px] text-slate-500 font-normal">
                     {t.business}
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

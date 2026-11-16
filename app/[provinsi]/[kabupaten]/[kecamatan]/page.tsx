@@ -344,7 +344,7 @@ export default async function KecamatanPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <div className="bg-[#003580] text-white flex flex-col min-h-screen">
+      <div className="bg-white text-slate-900 flex flex-col min-h-screen">
         <Header />
 
         <Breadcrumb items={breadcrumbItems} />
@@ -365,25 +365,24 @@ export default async function KecamatanPage({ params }: PageProps) {
             subtitle={content.services.subtitle}
           />
 
-
-          {/* 4. WHY US — INLINE SECTION (tanpa komponen WhyUsSection) */}
-          <section className="bg-[#003580] py-12 sm:py-16 border-b border-[#0066f5] overflow-hidden">
+          {/* 4. WHY US — INLINE SECTION */}
+          <section className="bg-white py-12 sm:py-16 border-b border-slate-200 overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
               {/* Header */}
               <div className="text-center mb-8 sm:mb-10">
-                <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#FEBB02] text-[#00224f] px-3.5 py-1.5 rounded-full shadow-sm mb-3">
+                <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-red-50 border border-red-200 text-red-700 px-3.5 py-1.5 rounded-full shadow-sm mb-3">
                   Keunggulan Kami
                 </span>
 
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
                   Kenapa Pilih KerabatWeb di{" "}
-                  <span className="text-[#FEBB02]">
+                  <span className="text-red-600">
                     {content.namaKecamatan}
                   </span>
                   ?
                 </h2>
 
-                <p className="mt-2 text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
                   Kami paham kebutuhan digital bisnis lokal di Kecamatan{" "}
                   {content.namaKecamatan}, {content.namaKabupaten},{" "}
                   {content.namaProvinsi}. Berikut alasan mengapa ratusan
@@ -396,17 +395,17 @@ export default async function KecamatanPage({ params }: PageProps) {
                 {keunggulanData.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#00224f] border border-[#0066f5]/60 hover:border-[#FEBB02]/70 rounded-xl p-4 sm:p-5 transition-colors"
+                    className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 transition-all duration-200 hover:border-red-500 hover:shadow-md shadow-sm group"
                   >
                     <div className="flex items-start gap-3">
                       <span className="text-2xl sm:text-3xl shrink-0 leading-none">
                         {item.icon}
                       </span>
                       <div className="min-w-0">
-                        <h3 className="text-sm sm:text-base font-bold text-white mb-1">
+                        <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1 group-hover:text-red-600 transition-colors">
                           {item.title}
                         </h3>
-                        <p className="text-[11px] sm:text-xs text-blue-100 leading-relaxed">
+                        <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
@@ -423,7 +422,7 @@ export default async function KecamatanPage({ params }: PageProps) {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#FEBB02] text-[#00224f] font-bold px-5 py-2.5 rounded-lg hover:bg-yellow-300 transition-colors text-sm sm:text-base"
+                  className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-full transition-all text-sm sm:text-base shadow-md shadow-red-600/20 active:scale-95"
                 >
                   Konsultasi Gratis Sekarang
                   <svg
@@ -450,7 +449,6 @@ export default async function KecamatanPage({ params }: PageProps) {
           {/* 6. TECH PARTNERS */}
           <TechPartners />
 
-
           {/* 8. PORTFOLIO */}
           <PortfolioSection
             title={content.portfolio.title}
@@ -465,7 +463,6 @@ export default async function KecamatanPage({ params }: PageProps) {
             kabupaten={content.namaKabupaten}
           />
 
-
           {/* 11. PRICING */}
           <PricingSection
             pricing={pricingData}
@@ -476,7 +473,6 @@ export default async function KecamatanPage({ params }: PageProps) {
 
           {/* 12. FAQ */}
           <FaqSection faqs={content.faqs} waNumber={waNumber} />
-
 
           {/* 14. KECAMATAN LAIN */}
           <OtherDistrictsSection

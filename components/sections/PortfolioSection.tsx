@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 
 interface Props {
   title?: string;
@@ -73,7 +70,7 @@ export const PortfolioSection: React.FC<Props> = ({
     title ?? (
       <>
         Hasil Nyata{" "}
-        <span className="text-white">
+        <span className="text-red-600">
           {kabupaten ? `Klien Kami di ${kabupaten}` : "Klien Kami"}
         </span>
       </>
@@ -86,45 +83,33 @@ export const PortfolioSection: React.FC<Props> = ({
       : "Bukti performa dan efektivitas desain website kami dalam meningkatkan kredibilitas serta konversi bisnis.");
 
   return (
-    <section className="relative bg-black py-16 sm:py-24 border-b border-zinc-800 overflow-hidden">
+    <section className="relative bg-white py-16 sm:py-24 border-b border-slate-200 overflow-hidden">
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-12 sm:mb-16"
-        >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-4 py-1.5 rounded-full mb-3">
+        
+        {/* Header Section */}
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-red-50 border border-red-200 text-red-700 px-4 py-1.5 rounded-full mb-3 shadow-sm">
             Studi Kasus &amp; Portofolio
           </span>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 sm:mt-3 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 sm:mt-3 tracking-tight">
             {finalTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm text-white max-w-xl mx-auto leading-relaxed font-normal">
+          <p className="mt-3 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
             {finalSubtitle}
           </p>
-        </motion.div>
+        </div>
 
+        {/* Grid Portofolio */}
         <div className="grid gap-6 md:grid-cols-3">
           {portfolioItems.map((item, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: idx * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-black border border-zinc-800 rounded-2xl overflow-hidden flex flex-col justify-between transition-all hover:border-zinc-700 group"
+              className="bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-200 hover:border-red-400 hover:shadow-lg hover:-translate-y-1 group shadow-sm"
             >
-              <div className="overflow-hidden relative bg-zinc-900">
+              <div className="overflow-hidden relative bg-slate-100">
                 <picture>
                   <source
                     type="image/webp"
@@ -149,25 +134,25 @@ export const PortfolioSection: React.FC<Props> = ({
                     height={400}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 filter grayscale"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </picture>
               </div>
 
-              <div className="p-6 flex-1 flex flex-col justify-between bg-black">
+              <div className="p-6 flex-1 flex flex-col justify-between bg-white">
                 <div>
-                  <span className="text-[10px] font-bold text-white bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-md tracking-wide uppercase inline-block mb-3 shadow-sm">
+                  <span className="text-[10px] font-bold text-red-700 bg-red-50 border border-red-200 px-3 py-1 rounded-md tracking-wide uppercase inline-block mb-3 shadow-sm">
                     {item.tag}
                   </span>
-                  <h3 className="font-bold text-white text-base sm:text-lg leading-snug">
+                  <h3 className="font-bold text-slate-900 text-base sm:text-lg leading-snug group-hover:text-red-600 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-zinc-400 mt-2.5 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

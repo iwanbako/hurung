@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { provinsiContent } from "@/data/provinsi-content";
 import { getRegenciesOfProvince } from "@/lib/wilayah";
@@ -241,7 +240,7 @@ export const MapSection: React.FC<Props> = ({
     title ?? (
       <>
         Area Layanan{" "}
-        <span className="text-white">
+        <span className="text-red-600">
           {displayArea}
         </span>
       </>
@@ -252,38 +251,26 @@ export const MapSection: React.FC<Props> = ({
     "Kami melayani pembuatan website profesional di wilayah ini. Tim kami siap membantu bisnis Anda go-digital, 100% online tanpa biaya kunjungan.";
 
   return (
-    <section className="relative bg-black py-16 sm:py-24 border-b border-zinc-800 overflow-hidden">
+    <section className="relative bg-white py-16 sm:py-24 border-b border-slate-200 overflow-hidden">
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-10 sm:mb-14"
-        >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-4 py-1.5 rounded-full mb-3">
+        <div className="text-center mb-10 sm:mb-14">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-red-50 border border-red-200 text-red-700 px-4 py-1.5 rounded-full mb-3 shadow-sm">
             Peta Area Layanan
           </span>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 sm:mt-3 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 sm:mt-3 tracking-tight">
             {finalTitle}
           </h2>
 
-          <p className="mt-3 text-xs sm:text-sm text-white max-w-xl mx-auto leading-relaxed font-normal">
+          <p className="mt-3 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
             {finalSubtitle}
           </p>
-        </motion.div>
+        </div>
 
-        {/* Map Wrapper */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-black border border-zinc-800 rounded-2xl overflow-hidden shadow-xl"
-        >
+        {/* Map Wrapper dengan Border Default Merah */}
+        <div className="bg-white border-2 border-red-500 rounded-3xl overflow-hidden shadow-lg">
           <div className="relative" style={{ height }}>
             <iframe
               src={mapSrc}
@@ -294,21 +281,21 @@ export const MapSection: React.FC<Props> = ({
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full invert brightness-90 contrast-125"
+              className="w-full h-full"
             />
           </div>
 
           {/* Info bar bawah */}
-          <div className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-black border-t border-zinc-800">
-            <p className="text-xs sm:text-sm text-zinc-300 text-center sm:text-left flex items-center gap-2">
-              <span aria-hidden className="text-white">📍</span>
-              <span className="font-semibold text-white">{displayArea}</span>
+          <div className="px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/60 border-t border-slate-200">
+            <p className="text-xs sm:text-sm text-slate-700 text-center sm:text-left flex items-center gap-2 font-medium">
+              <span aria-hidden className="text-red-600">📍</span>
+              <span className="font-semibold text-slate-900">{displayArea}</span>
             </p>
             <a
               href={mapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold bg-white text-black px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-all shadow-sm active:scale-95"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-full transition-all shadow-md shadow-red-600/20 active:scale-95"
             >
               Buka di Google Maps
               <svg
@@ -326,7 +313,7 @@ export const MapSection: React.FC<Props> = ({
               </svg>
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,8 +1,4 @@
-"use client";
-
 import React from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
 
 interface Regency {
   name: string;
@@ -23,71 +19,47 @@ export const ProvinsiRegenciesSection: React.FC<Props> = ({
   if (!regencies || regencies.length === 0) return null;
 
   return (
-    <section className="relative bg-black py-12 sm:py-16 border-b border-zinc-800 overflow-hidden">
+    <section className="relative bg-white py-12 sm:py-16 border-b border-slate-200 overflow-hidden">
       
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header Compact */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-6 sm:mb-8"
-        >
-          <span className="inline-block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-3.5 py-1 rounded-full mb-3">
+        <div className="text-center mb-6 sm:mb-8">
+          <span className="inline-block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-red-50 border border-red-200 text-red-700 px-3.5 py-1 rounded-full mb-3 shadow-sm">
             Cakupan Layanan
           </span>
 
-          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-white tracking-tight leading-tight">
-            Melayani Seluruh Kabupaten/Kota di {provinsiName}
+          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Melayani Seluruh Kabupaten/Kota di <span className="text-red-600">{provinsiName}</span>
           </h2>
 
-          <p className="mt-2 text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed font-normal">
+          <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
             {regencies.length} kabupaten/kota di {provinsiName} — semua
             terlayani 100% online tanpa biaya tambahan.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Chip Kecil Semua Kabupaten */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
-        >
-          {regencies.map((regency, idx) => (
-            <motion.div
+        {/* Chip Kecil Semua Kabupaten menggunakan tag a */}
+        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+          {regencies.map((regency) => (
+            <a
               key={regency.slug}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.2, delay: idx * 0.005 }}
+              href={`/${provinsiSlug}/${regency.slug}`}
+              className="inline-block bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-slate-700 font-medium leading-none hover:border-red-300 hover:bg-red-50 hover:text-red-700 transition-all whitespace-nowrap shadow-sm"
+              title={`Jasa Pembuatan Website ${regency.name}`}
             >
-              <Link
-                href={`/${provinsiSlug}/${regency.slug}`}
-                className="inline-block bg-black border border-zinc-800 rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs text-zinc-300 font-medium leading-none hover:border-zinc-700 hover:bg-zinc-900 hover:text-white transition-all whitespace-nowrap"
-              >
-                {regency.name}
-              </Link>
-            </motion.div>
+              {regency.name}
+            </a>
           ))}
-        </motion.div>
+        </div>
 
         {/* Footer Minimal */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.15 }}
-          className="text-center text-xs text-zinc-500 mt-6 max-w-xl mx-auto font-normal"
-        >
+        <p className="text-center text-xs text-slate-500 mt-6 max-w-xl mx-auto font-normal">
           Tidak menemukan wilayah Anda?{" "}
-          <span className="text-white font-semibold">
+          <span className="text-slate-900 font-semibold">
             Tetap bisa konsultasi gratis
           </span>{" "}
           — melayani seluruh Indonesia.
-        </motion.p>
+        </p>
       </div>
     </section>
   );

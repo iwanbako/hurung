@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 
 interface WorkflowStep {
   step: string;
@@ -69,14 +66,8 @@ export const WorkflowSection: React.FC<Props> = ({
     <section className="relative bg-black text-white py-16 sm:py-24 border-b border-zinc-800 overflow-hidden">
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header Section dengan Animasi */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16"
-        >
+        {/* Header Section */}
+        <div className="text-center mb-12 sm:mb-16">
           <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-400 px-4 py-1.5 rounded-full mb-3">
             Cara Kerja Sederhana
           </span>
@@ -96,19 +87,14 @@ export const WorkflowSection: React.FC<Props> = ({
             {subtitle ??
               "Proses cepat, transparan, dan tidak ribet. Kami dampingi dari nol sampai website Anda online."}
           </p>
-        </motion.div>
+        </div>
 
         {/* Grid Alur Kerja */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {finalSteps.map((item, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-black border border-zinc-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all hover:border-zinc-700 group"
+              className="bg-black border border-zinc-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:border-zinc-700 hover:-translate-y-1 group"
             >
               <div>
                 {/* Nomor Urut & Ikon Garis Putih */}
@@ -128,7 +114,7 @@ export const WorkflowSection: React.FC<Props> = ({
                   {item.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 
 interface Props {
   kabupaten?: string;
@@ -38,7 +35,7 @@ export const GuaranteeSection: React.FC<Props> = ({
     },
   ];
 
-  // Ikon Garis Putih SVG Minimalis
+  // Ikon Garis Merah/Putih SVG Minimalis
   const guaranteeIcons = [
     // 01: Shield / Keamanan SSL
     <svg key="1" className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -55,12 +52,12 @@ export const GuaranteeSection: React.FC<Props> = ({
   ];
 
   // ============================================================
-  // HEADER TEXT (semua teks putih bersih tanpa abu-abu)
+  // HEADER TEXT
   // ============================================================
   const finalTitle = title ?? (
     <>
       100%{" "}
-      <span className="text-white">
+      <span className="text-red-600">
         Garansi Kepuasan
       </span>
       {kabupaten ? ` untuk Bisnis di ${kabupaten}` : " untuk Anda"}
@@ -74,57 +71,42 @@ export const GuaranteeSection: React.FC<Props> = ({
       : "Investasi Anda aman bersama kami. Kami berkomitmen memberikan hasil terbaik dengan standar kualitas profesional berteknologi tinggi.");
 
   return (
-    <section className="relative bg-black text-white py-16 sm:py-24 border-b border-zinc-800 overflow-hidden">
+    <section className="relative bg-white text-slate-900 py-16 sm:py-24 border-b border-slate-200 overflow-hidden">
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header Section dengan Animasi Masuk */}
-        <motion.div
-          className="text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-4 py-1.5 rounded-full mb-3">
+        {/* Header Section */}
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-red-50 border border-red-200 text-red-700 px-4 py-1.5 rounded-full mb-3 shadow-sm">
             Komitmen & Proteksi
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             {finalTitle}
           </h2>
-          <p className="mt-3 text-xs sm:text-sm text-white max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
             {finalSubtitle}
           </p>
-        </motion.div>
+        </div>
 
-        {/* Grid Garansi dengan Animasi Stagger */}
+        {/* Grid Garansi */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {guarantees.map((item, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: idx * 0.15,
-                ease: "easeOut",
-              }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-black border border-zinc-800 rounded-2xl p-6 sm:p-8 flex flex-col items-start transition-all relative overflow-hidden group hover:border-zinc-700"
+              className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col items-start transition-all duration-200 relative overflow-hidden group hover:border-red-500 hover:shadow-lg hover:-translate-y-1 shadow-sm"
             >
-              {/* Icon Kotak Bundar Minimalis Monokrom */}
-              <div className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-5 shadow-sm">
+              {/* Icon Kotak Bundar Merah Solid */}
+              <div className="w-12 h-12 rounded-full bg-red-600 border border-red-700 flex items-center justify-center mb-5 shadow-sm shadow-red-600/20">
                 {guaranteeIcons[idx % guaranteeIcons.length]}
               </div>
 
-              <h3 className="font-bold text-white text-base sm:text-lg mb-2 group-hover:text-zinc-200 transition-colors">
+              <h3 className="font-bold text-slate-900 text-base sm:text-lg mb-2 group-hover:text-red-600 transition-colors">
                 {item.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                 {item.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

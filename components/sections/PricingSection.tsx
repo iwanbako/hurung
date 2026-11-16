@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { PricingPackage } from "../../types";
 
 interface Props {
@@ -24,30 +23,25 @@ export const PricingSection: React.FC<Props> = ({
   return (
     <section
       id="harga"
-      className="relative bg-black border-y border-zinc-800 py-16 sm:py-24 overflow-hidden"
+      className="relative bg-white border-y border-slate-200 py-16 sm:py-24 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header Section dengan Animasi Masuk */}
-        <motion.div
-          className="text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-zinc-900 border border-zinc-800 text-white px-4 py-1.5 rounded-full mb-3">
+        
+        {/* Header Section */}
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="inline-block text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-red-50 border border-red-200 text-red-700 px-4 py-1.5 rounded-full mb-3 shadow-sm">
             Paket Harga Transparan
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mt-1">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
             Pilihan Paket{" "}
-            <span className="text-white">
+            <span className="text-red-600">
               Terbaik {locationName ? `di ${locationName}` : "Untuk Anda"}
             </span>
           </h2>
-          <p className="mt-3 text-xs sm:text-sm text-white max-w-xl mx-auto leading-relaxed font-normal">
+          <p className="mt-3 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
             Investasi website profesional dengan fitur lengkap, performa tinggi, dan garansi keamanan penuh.
           </p>
-        </motion.div>
+        </div>
 
         {/* Grid Kartu Harga */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch">
@@ -55,57 +49,92 @@ export const PricingSection: React.FC<Props> = ({
             const isPopular = p.popular;
 
             return (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: idx * 0.1,
-                  ease: "easeOut",
-                }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`rounded-3xl bg-black flex flex-col justify-between transition-all duration-300 relative overflow-hidden ${
+                className={`rounded-3xl flex flex-col justify-between transition-all duration-300 relative overflow-hidden group hover:-translate-y-1 shadow-sm ${
                   isPopular
-                    ? "border-2 border-white ring-2 ring-white/10 lg:-translate-y-2 shadow-xl"
-                    : "border border-zinc-800 hover:border-zinc-700"
+                    ? "bg-red-600 text-white border-2 border-red-700 ring-2 ring-red-600/20 lg:-translate-y-2 shadow-2xl"
+                    : "bg-white text-slate-900 border border-slate-200 hover:border-red-500 shadow-sm"
                 }`}
               >
-                {/* Badge Terpopuler / Rekomendasi Monokrom */}
+                {/* Badge Terpopuler / Rekomendasi */}
                 {p.badge && (
-                  <div className="absolute top-0 right-0 bg-white text-black text-[10px] sm:text-xs font-extrabold px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider border-b border-l border-zinc-800 z-20">
+                  <div
+                    className={`absolute top-0 right-0 text-[10px] sm:text-xs font-extrabold px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider z-20 shadow-sm ${
+                      isPopular
+                        ? "bg-white text-red-600 border-b border-l border-red-200 font-black"
+                        : "bg-red-600 text-white border-b border-l border-red-700"
+                    }`}
+                  >
                     {p.badge}
                   </div>
                 )}
 
                 <div>
                   {/* Header Kartu */}
-                  <div className="p-6 sm:p-7 text-left relative bg-zinc-900/50 text-white border-b border-zinc-800">
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-1.5">
+                  <div
+                    className={`p-6 sm:p-7 text-left relative border-b transition-colors ${
+                      isPopular
+                        ? "bg-red-700/50 border-red-500/50 text-white"
+                        : "bg-slate-50/60 border-slate-200 text-slate-900 group-hover:border-red-100"
+                    }`}
+                  >
+                    <h3
+                      className={`text-xl sm:text-2xl font-extrabold mb-1.5 ${
+                        isPopular ? "text-white" : "text-slate-900"
+                      }`}
+                    >
                       {p.name}
                     </h3>
-                    <p className="text-xs text-zinc-400 min-h-[32px] leading-relaxed mb-5 font-normal">
+                    <p
+                      className={`text-xs min-h-[32px] leading-relaxed mb-5 font-normal ${
+                        isPopular ? "text-red-100" : "text-slate-600"
+                      }`}
+                    >
                       {p.target}
                     </p>
 
                     {/* Kotak Harga */}
-                    <div className="bg-black p-3.5 rounded-2xl border border-zinc-800">
+                    <div
+                      className={`p-3.5 rounded-2xl border shadow-sm ${
+                        isPopular
+                          ? "bg-red-700 border-red-500 text-white"
+                          : "bg-white border-slate-200 text-slate-900"
+                      }`}
+                    >
                       {p.priceNormal && (
-                        <span className="text-xs text-zinc-500 line-through block font-mono mb-0.5">
+                        <span
+                          className={`text-xs block font-mono mb-0.5 line-through ${
+                            isPopular ? "text-red-200" : "text-slate-400"
+                          }`}
+                        >
                           {p.priceNormal}
                         </span>
                       )}
                       <div className="flex items-baseline gap-1.5 flex-wrap">
-                        <span className="text-2xl sm:text-3xl font-extrabold text-white">
+                        <span
+                          className={`text-2xl sm:text-3xl font-extrabold ${
+                            isPopular ? "text-white" : "text-slate-900"
+                          }`}
+                        >
                           {p.pricePromo}
                         </span>
                       </div>
                       <div className="mt-2 flex items-center justify-between">
-                        <span className="text-[11px] bg-zinc-900 text-zinc-300 border border-zinc-800 font-semibold px-2 py-0.5 rounded-md">
+                        <span
+                          className={`text-[11px] font-semibold px-2 py-0.5 rounded-md border ${
+                            isPopular
+                              ? "bg-white/10 text-white border-white/20"
+                              : "bg-red-50 text-red-700 border-red-200"
+                          }`}
+                        >
                           {p.diskon}
                         </span>
-                        <span className="text-[10px] text-zinc-500 font-mono tracking-wider">
+                        <span
+                          className={`text-[10px] font-mono tracking-wider ${
+                            isPopular ? "text-red-200" : "text-slate-500"
+                          }`}
+                        >
                           {p.periode}
                         </span>
                       </div>
@@ -113,17 +142,37 @@ export const PricingSection: React.FC<Props> = ({
                   </div>
 
                   {/* Daftar Fitur */}
-                  <div className="p-5 sm:p-6 bg-black">
-                    <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-4">
+                  <div
+                    className={`p-5 sm:p-6 ${
+                      isPopular ? "bg-red-600 text-white" : "bg-white text-slate-900"
+                    }`}
+                  >
+                    <p
+                      className={`text-xs font-bold uppercase tracking-wider mb-4 ${
+                        isPopular ? "text-red-200" : "text-slate-500"
+                      }`}
+                    >
                       Layanan Meliputi:
                     </p>
-                    <ul className="space-y-3 text-xs sm:text-sm text-zinc-300">
+                    <ul
+                      className={`space-y-3 text-xs sm:text-sm ${
+                        isPopular ? "text-red-50" : "text-slate-700"
+                      }`}
+                    >
                       {p.features.map((f, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-2.5 pb-2.5 border-b border-zinc-800/60 last:border-0 last:pb-0"
+                          className={`flex items-start gap-2.5 pb-2.5 border-b last:border-0 last:pb-0 ${
+                            isPopular ? "border-red-500/50" : "border-slate-100"
+                          }`}
                         >
-                          <span className="w-4 h-4 rounded-full bg-zinc-900 text-white border border-zinc-800 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5 shadow-sm">
+                          <span
+                            className={`w-4 h-4 rounded-full flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5 shadow-sm border ${
+                              isPopular
+                                ? "bg-white text-red-600 border-white"
+                                : "bg-red-50 text-red-600 border-red-200"
+                            }`}
+                          >
                             ✓
                           </span>
                           <span className="flex-1 leading-snug font-normal">{f}</span>
@@ -134,7 +183,13 @@ export const PricingSection: React.FC<Props> = ({
                 </div>
 
                 {/* Tombol Aksi Bawah */}
-                <div className="p-5 sm:p-6 bg-zinc-900/40 border-t border-zinc-800">
+                <div
+                  className={`p-5 sm:p-6 border-t ${
+                    isPopular
+                      ? "bg-red-700/50 border-red-500/50"
+                      : "bg-slate-50/50 border-slate-200 group-hover:border-red-100"
+                  } transition-colors`}
+                >
                   <a
                     href={getWaLink(
                       `Halo KerabatWeb, saya ingin memesan ${p.name} (${p.pricePromo})${
@@ -145,29 +200,23 @@ export const PricingSection: React.FC<Props> = ({
                     rel="noopener noreferrer"
                     className={`block text-center px-4 py-3.5 rounded-full font-semibold transition-all text-xs sm:text-sm shadow-sm active:scale-95 ${
                       isPopular
-                        ? "bg-white text-black hover:bg-zinc-200 font-bold"
-                        : "bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800"
+                        ? "bg-white hover:bg-red-50 text-red-600 font-bold shadow-md"
+                        : "bg-white hover:bg-slate-100 text-slate-900 border border-slate-300"
                     }`}
                   >
                     Jadwalkan Konsultasi
                   </a>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Catatan Bawah */}
-        <motion.p
-          className="text-center text-xs text-zinc-500 mt-10 font-normal"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
+        <p className="text-center text-xs text-slate-500 mt-10 font-normal">
           {note ??
             "* Harga belum termasuk PPN. Konsultasi gratis via WhatsApp untuk kebutuhan kustom fitur khusus."}
-        </motion.p>
+        </p>
       </div>
     </section>
   );
