@@ -141,7 +141,7 @@ export const PricingSection: React.FC<Props> = ({
                     </div>
                   </div>
 
-                  {/* Daftar Fitur */}
+                  {/* Daftar Fitur / Layanan Meliputi */}
                   <div
                     className={`p-5 sm:p-6 ${
                       isPopular ? "bg-red-600 text-white" : "bg-white text-slate-900"
@@ -163,7 +163,7 @@ export const PricingSection: React.FC<Props> = ({
                         <li
                           key={i}
                           className={`flex items-start gap-2.5 pb-2.5 border-b last:border-0 last:pb-0 ${
-                            isPopular ? "border-red-500/50" : "border-slate-100"
+                            isPopular ? "border-red-400/40" : "border-red-200"
                           }`}
                         >
                           <span

@@ -56,7 +56,9 @@ export default function SyaratKetentuanPage() {
           {/* Content Box */}
           <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-red-600" />
-            <div className="prose prose-slate prose-sm sm:prose-base max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-700 prose-li:text-slate-700 prose-a:text-red-600 prose-a:no-underline hover:prose-a:underline">
+            
+            {/* Tambahan kelas [&_li::marker]:text-red-600 untuk membuat bulet poin berwarna merah */}
+            <div className="prose prose-slate prose-sm sm:prose-base max-w-none prose-headings:font-bold prose-headings:text-slate-900 prose-p:text-slate-700 prose-li:text-slate-700 prose-a:text-red-600 prose-a:no-underline hover:prose-a:underline [&_li::marker]:text-red-600">
               
               {/* Intro */}
               <p className="lead text-base sm:text-lg text-slate-800 mb-8 font-normal">
