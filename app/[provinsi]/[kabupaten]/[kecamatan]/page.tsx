@@ -1,4 +1,3 @@
-// app/[provinsi]/[kabupaten]/[kecamatan]/page.tsx
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -328,13 +327,6 @@ export default async function KecamatanPage({ params }: PageProps) {
 
   return (
     <>
-      <meta
-        name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-      />
-      <meta name="googlebot" content="index, follow" />
-      <meta name="bingbot" content="index, follow" />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -156,21 +156,21 @@ export const Footer: React.FC = () => {
             className="flex items-center gap-2.5 mb-3 group w-fit"
           >
             <span className="w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-xl bg-white text-red-600 shadow-sm">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-4 h-4 sm:w-5 sm:h-5 text-red-600"
-              >
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" strokeWidth="2" />
-                <line x1="8" y1="21" x2="16" y2="21" strokeWidth="2.5" />
-                <line x1="12" y1="17" x2="12" y2="21" strokeWidth="2.5" />
-                <path d="M7 8l3 3-3 3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-red-400" />
-                <line x1="13" y1="14" x2="17" y2="14" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-red-400" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-5 h-5 text-red-600">
+                <rect width="64" height="64" rx="14" fill="#dc2626" />
+                <text 
+                  x="50%" 
+                  y="53%" 
+                  dominantBaseline="central" 
+                  textAnchor="middle" 
+                  fill="#ffffff" 
+                  fontFamily="system-ui, -apple-system, sans-serif" 
+                  fontWeight="900" 
+                  fontSize="48"
+                  letterSpacing="-1.5"
+                >
+                  K
+                </text>
               </svg>
             </span>
             <span className="font-bold text-base sm:text-lg text-white">
