@@ -60,20 +60,12 @@ export const metadata: Metadata = {
     },
   },
 
+  // ✅ FAVICON SVG DENGAN SKALA BESAR & TAJAM UNTUK SEMUA PERANGKAT
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    shortcut: "/favicon.ico",
+    icon: { url: "/favicon.ico", type: "image/svg+xml", sizes: "any" },
+    shortcut: { url: "/favicon.ico", type: "image/svg+xml" },
+    apple: { url: "/favicon.ico", type: "image/svg+xml" },
   },
-
-  manifest: "/site.webmanifest",
 
   openGraph: {
     type: "website",
@@ -83,14 +75,6 @@ export const metadata: Metadata = {
     title: "KerabatWeb - Jasa Pembuatan Website Profesional & Bergaransi",
     description:
       "Solusi digital bisnis Anda: Landing Page, Company Profile, dan E-Commerce dengan performa super cepat dan ramah SEO.",
-    images: [
-      {
-        url: "/web-app-manifest-512x512.png", 
-        width: 512,
-        height: 512,
-        alt: "KerabatWeb Logo",
-      },
-    ],
   },
 
   twitter: {
@@ -98,7 +82,6 @@ export const metadata: Metadata = {
     title: "KerabatWeb - Jasa Pembuatan Website Profesional & Bergaransi",
     description:
       "Buat website bisnis Anda sekarang juga. Cepat, aman, dan siap mendatangkan cuan!",
-    images: ["/web-app-manifest-512x512.png"],
   },
 
   alternates: {

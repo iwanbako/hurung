@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background Kotak Merah dengan Sudut Melengkung Elegan -->
+  <rect width="64" height="64" rx="14" fill="#dc2626" />
+  
+  <!-- Huruf K Putih Tebal & Penuh -->
+  <text x="50%" y="52%" dominant-baseline="central" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="42" letter-spacing="-1">
+    K
+  </text>
+</svg>
